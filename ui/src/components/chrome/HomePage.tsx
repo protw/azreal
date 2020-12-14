@@ -7,6 +7,7 @@ import {
   EuiFlexItem,
   EuiPage,
   EuiImage,
+  EuiFlexGrid,
 } from '@elastic/eui'
 import { useRouter } from 'next/router'
 import uiMsg from 'src/i18/ua_msg'
@@ -17,16 +18,16 @@ export const HomePage = () => {
 
   return <EuiPage restrictWidth style={{ marginTop: '2rem' }}>
     <EuiFlexGroup direction="row" justifyContent='center' alignItems='center' style={{ marginRight: '1rem' }} >
-      <EuiFlexItem grow={false} style={{ margin: '1rem' }} >
+      <EuiFlexItem grow={false} style={{ margin: '1.5rem' }} >
         <EuiImage
           style={{ margin: 'auto' }}
-          size={isMobile ? 'l' : 'xl'}
+          size={'l'}
           hasShadow
           alt="airzoom logo"
           url="/images/airzoom.svg"
         />
       </EuiFlexItem>
-      <EuiFlexGroup direction="column" >
+      <EuiFlexGrid columns={2} >
         <EuiFlexItem>
           <EuiCard
             icon={<EuiIcon size="xl" type={'watchesApp'} />}
@@ -59,7 +60,7 @@ export const HomePage = () => {
             onClick={() => router.push(uiMsg.docs.path)}
           />
         </EuiFlexItem>
-      </EuiFlexGroup>
+      </EuiFlexGrid>
     </EuiFlexGroup>
   </EuiPage>
 }

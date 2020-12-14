@@ -73,18 +73,17 @@ export const ChangePassword = () => {
   return (
     <EuiForm component='form' onSubmit={handleSubmit(onSubmit)}>
 
-      <EuiFormRow label={uiMsg.auth.oldPassword} fullWidth>
+      <EuiFormRow label={uiMsg.auth.oldPassword} style={{ padding: '.5rem 0'}} fullWidth>
         <EuiFieldPassword name={getFiledName('oldpassword')} inputRef={register} type='dual' fullWidth />
       </EuiFormRow>
       <EuiFormErrorText>{getErrorMsg(errors[getFiledName('oldpassword')])}</EuiFormErrorText>
 
-      <EuiFormRow label={uiMsg.auth.newPassword} fullWidth>
+      <EuiFormRow label={uiMsg.auth.newPassword} style={{ padding: '.5rem 0'}} fullWidth>
         <EuiFieldPassword name={getFiledName('password')} inputRef={register} type='dual' fullWidth />
       </EuiFormRow>
       <EuiFormErrorText>{getErrorMsg(errors[getFiledName('password')])}</EuiFormErrorText>
       <EuiFormErrorText>{error}</EuiFormErrorText>
       
-      <EuiSpacer />
       <SubmitButton />
     </EuiForm>
   )

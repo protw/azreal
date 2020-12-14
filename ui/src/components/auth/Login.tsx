@@ -56,19 +56,18 @@ export const Login = () => {
   return (
     <EuiForm component='form' onSubmit={handleSubmit(onSubmit)}>
 
-      <EuiFormRow label={uiMsg.form.email} fullWidth>
+      <EuiFormRow label={uiMsg.form.email} style={{ padding: '.5rem 0'}} fullWidth>
         <EuiFieldText name={'email'} inputRef={register} fullWidth />
       </EuiFormRow>
       <EuiFormErrorText>{getErrorMsg(errors['email'])}</EuiFormErrorText> 
 
-      <EuiFormRow label={uiMsg.form.password} fullWidth>
+      <EuiFormRow label={uiMsg.form.password} style={{ padding: '.5rem 0'}} fullWidth>
         <EuiFieldPassword name={'password'} inputRef={register} fullWidth type='dual' />
       </EuiFormRow>
       <EuiFormErrorText>{getErrorMsg(errors['password'])}</EuiFormErrorText>
       
       <EuiFormErrorText>{error}</EuiFormErrorText>
 
-      <EuiSpacer />
       <SubmitButton />
     </EuiForm>
   )

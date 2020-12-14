@@ -54,7 +54,7 @@ const MeasurementTable = ({ measurements, fileName }: MeasurementTProps) => {
     return {
       timestamp,
       sensorId,
-      CAQI,
+      CAQI: CAQI.toFixed(3),
       ...measurementValue,
     }
   })
@@ -219,7 +219,7 @@ export const MeasurementSelector = ({ onChange, sensorId: initialSensorId }: Mea
             required
           />
         </EuiFlexItem>}
-        <EuiFlexItem style={{ maxWidth: 100 }}>
+        <EuiFlexItem style={{ maxWidth: 125 }}>
           <SubmitButton />
         </EuiFlexItem>
       </EuiFlexGroup>
