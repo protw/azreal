@@ -1,4 +1,4 @@
-﻿## Airly. Датчик забруднення повітря
+﻿## Airly. Датчик забруднення повітря 
 
 ![Airly logo](img/airly_logo.jpg)
 
