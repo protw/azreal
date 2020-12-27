@@ -1,6 +1,7 @@
 ﻿- [&uarr;&uarr;](../README.md) [ДАТЧИКИ](README.md)
   - [Загальний огляд](general_description.md)
   - [Технічний опис датчиків](sensor_detail.md)
+  - [Безпека використання](safety_instruction.md)
   - [Розташування датчиків](location.md)
   - [Монтаж датчиків](sensor_install.md)
   - Фотографії монтажу датчиків
