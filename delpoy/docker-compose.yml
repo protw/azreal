@@ -1,0 +1,56 @@
+version: "3.6"
+services:
+  hasura:
+    image: hasura/graphql-engine:v1.3.3
+    container_name: azreal-hasura
+    restart: always
+    command:
+      - graphql-engine
+      - serve
+    network_mode: "host"
+    environment:
+      - HASURA_GRAPHQL_DATABASE_URL=$HASURA_GRAPHQL_DATABASE_URL
+      - HASURA_GRAPHQL_ENABLE_CONSOLE=true
+      - HASURA_GRAPHQL_ENABLE_TELEMETRY=false
+      - HASURA_GRAPHQL_ADMIN_SECRET=$HASURA_GRAPHQL_ADMIN_SECRET
+
+  caddy:
+    image: caddy/caddy
+    container_name: caddy-server
+    depends_on:
+      - "hasura"
+    restart: always
+    network_mode: "host"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_certs:/root/.caddy
+
+  mongodb:
+    image: mongo:4.4.2
+    container_name: mongodb
+    restart: always
+    command: mongod --auth
+    environment:
+      MONGO_DATABASE: $MONGO_DATABASE
+      MONGO_USERNAME: $MONGO_USERNAME
+      MONGO_PASSWORD: $MONGO_PASSWORD
+      MONGODB_DATA_DIR: /data/db
+      MONDODB_LOG_DIR: /dev/null
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./mongo/create_mongo_user.sh:/docker-entrypoint-initdb.d/create_mongo_user.sh:ro
+      - mongodb_data:/data/db
+
+  docsify:
+    image: littlstar/docker-docsify:alpine
+    container_name: docsify
+    restart: always
+    ports:
+      - "$DOCSIFY_PORT:3000"
+    volumes:
+      - $DOCS_DIR:/usr/local/docsify
+
+volumes:
+  caddy_certs:
+  mongodb_data:

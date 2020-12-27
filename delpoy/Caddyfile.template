@@ -1,0 +1,23 @@
+:80 {
+  route /hasura/* {
+    uri strip_prefix /hasura
+    reverse_proxy localhost:8080
+  }
+
+  route /auth/* {
+    uri strip_prefix /auth
+    reverse_proxy <auth-api-proxy>
+  }
+
+  route /mongo-api/* {
+    uri strip_prefix /mongo-api
+    reverse_proxy <mongo-api-proxy>
+  }
+
+  route /docs/* {
+    uri strip_prefix /docs
+    reverse_proxy <docs-api-proxy>
+  }
+
+  reverse_proxy localhost:3000
+}

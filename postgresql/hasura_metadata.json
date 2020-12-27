@@ -1,0 +1,685 @@
+{
+  "version": 2,
+  "tables": [
+    {
+      "table": {
+        "schema": "az_docs",
+        "name": "Documents"
+      },
+      "object_relationships": [
+        {
+          "name": "e_document_type",
+          "using": {
+            "foreign_key_constraint_on": "documentType"
+          }
+        }
+      ],
+      "array_relationships": [
+        {
+          "name": "Locations",
+          "using": {
+            "foreign_key_constraint_on": {
+              "column": "documentId",
+              "table": {
+                "schema": "az_sensors",
+                "name": "Locations"
+              }
+            }
+          }
+        },
+        {
+          "name": "Organisations",
+          "using": {
+            "foreign_key_constraint_on": {
+              "column": "documentId",
+              "table": {
+                "schema": "az_users",
+                "name": "Organisation"
+              }
+            }
+          }
+        },
+        {
+          "name": "ServiceLogs",
+          "using": {
+            "foreign_key_constraint_on": {
+              "column": "documentId",
+              "table": {
+                "schema": "az_sensors",
+                "name": "ServiceLog"
+              }
+            }
+          }
+        },
+        {
+          "name": "Users",
+          "using": {
+            "foreign_key_constraint_on": {
+              "column": "documentId",
+              "table": {
+                "schema": "az_users",
+                "name": "Users"
+              }
+            }
+          }
+        }
+      ],
+      "select_permissions": [
+        {
+          "role": "public",
+          "permission": {
+            "columns": [
+              "fileIds",
+              "documentId",
+              "documentType"
+            ],
+            "filter": {},
+            "allow_aggregations": true
+          }
+        }
+      ]
+    },
+    {
+      "table": {
+        "schema": "az_docs",
+        "name": "Photo"
+      },
+      "array_relationships": [
+        {
+          "name": "ServiceLogs",
+          "using": {
+            "foreign_key_constraint_on": {
+              "column": "photoId",
+              "table": {
+                "schema": "az_sensors",
+                "name": "ServiceLog"
+              }
+            }
+          }
+        }
+      ],
+      "select_permissions": [
+        {
+          "role": "public",
+          "permission": {
+            "columns": [
+              "fileIds",
+              "photoId"
+            ],
+            "filter": {},
+            "allow_aggregations": true
+          }
+        }
+      ]
+    },
+    {
+      "table": {
+        "schema": "az_docs",
+        "name": "e_document_type"
+      },
+      "is_enum": true,
+      "array_relationships": [
+        {
+          "name": "Documents",
+          "using": {
+            "foreign_key_constraint_on": {
+              "column": "documentType",
+              "table": {
+                "schema": "az_docs",
+                "name": "Documents"
+              }
+            }
+          }
+        }
+      ],
+      "select_permissions": [
+        {
+          "role": "public",
+          "permission": {
+            "columns": [
+              "value",
+              "description"
+            ],
+            "filter": {},
+            "allow_aggregations": true
+          }
+        }
+      ]
+    },
+    {
+      "table": {
+        "schema": "az_measurements",
+        "name": "Measurements"
+      },
+      "object_relationships": [
+        {
+          "name": "PollutionFactor",
+          "using": {
+            "foreign_key_constraint_on": "factorName"
+          }
+        },
+        {
+          "name": "Sensor",
+          "using": {
+            "foreign_key_constraint_on": "sensorId"
+          }
+        }
+      ],
+      "select_permissions": [
+        {
+          "role": "public",
+          "permission": {
+            "columns": [
+              "CAQI",
+              "value",
+              "sensorId",
+              "locationPoint",
+              "factorName",
+              "timestamp"
+            ],
+            "filter": {},
+            "allow_aggregations": true
+          }
+        }
+      ]
+    },
+    {
+      "table": {
+        "schema": "az_sensors",
+        "name": "Locations"
+      },
+      "object_relationships": [
+        {
+          "name": "Document",
+          "using": {
+            "foreign_key_constraint_on": "documentId"
+          }
+        }
+      ],
+      "array_relationships": [
+        {
+          "name": "Sensors",
+          "using": {
+            "foreign_key_constraint_on": {
+              "column": "locationId",
+              "table": {
+                "schema": "az_sensors",
+                "name": "Sensors"
+              }
+            }
+          }
+        }
+      ],
+      "select_permissions": [
+        {
+          "role": "public",
+          "permission": {
+            "columns": [
+              "elevation",
+              "documentId",
+              "locationId",
+              "locationPoint",
+              "address",
+              "airlyLink",
+              "mapsLink"
+            ],
+            "filter": {},
+            "allow_aggregations": true
+          }
+        }
+      ]
+    },
+    {
+      "table": {
+        "schema": "az_sensors",
+        "name": "PollutionFactors"
+      },
+      "object_relationships": [
+        {
+          "name": "e_measurement_unit",
+          "using": {
+            "foreign_key_constraint_on": "unit"
+          }
+        }
+      ],
+      "array_relationships": [
+        {
+          "name": "Measurements",
+          "using": {
+            "foreign_key_constraint_on": {
+              "column": "factorName",
+              "table": {
+                "schema": "az_measurements",
+                "name": "Measurements"
+              }
+            }
+          }
+        },
+        {
+          "name": "SensorFactors",
+          "using": {
+            "foreign_key_constraint_on": {
+              "column": "factorName",
+              "table": {
+                "schema": "az_sensors",
+                "name": "SensorFactors"
+              }
+            }
+          }
+        }
+      ],
+      "select_permissions": [
+        {
+          "role": "public",
+          "permission": {
+            "columns": [
+              "name",
+              "label",
+              "unit",
+              "maxValue",
+              "ukrainianLabel"
+            ],
+            "filter": {},
+            "allow_aggregations": true
+          }
+        }
+      ]
+    },
+    {
+      "table": {
+        "schema": "az_sensors",
+        "name": "SensorFactors"
+      },
+      "object_relationships": [
+        {
+          "name": "PollutionFactor",
+          "using": {
+            "foreign_key_constraint_on": "factorName"
+          }
+        },
+        {
+          "name": "Sensor",
+          "using": {
+            "foreign_key_constraint_on": "sensorId"
+          }
+        }
+      ],
+      "select_permissions": [
+        {
+          "role": "public",
+          "permission": {
+            "columns": [
+              "sensorId",
+              "factorName"
+            ],
+            "filter": {},
+            "allow_aggregations": true
+          }
+        }
+      ]
+    },
+    {
+      "table": {
+        "schema": "az_sensors",
+        "name": "Sensors"
+      },
+      "object_relationships": [
+        {
+          "name": "Location",
+          "using": {
+            "foreign_key_constraint_on": "locationId"
+          }
+        }
+      ],
+      "array_relationships": [
+        {
+          "name": "Measurements",
+          "using": {
+            "foreign_key_constraint_on": {
+              "column": "sensorId",
+              "table": {
+                "schema": "az_measurements",
+                "name": "Measurements"
+              }
+            }
+          }
+        },
+        {
+          "name": "SensorFactors",
+          "using": {
+            "foreign_key_constraint_on": {
+              "column": "sensorId",
+              "table": {
+                "schema": "az_sensors",
+                "name": "SensorFactors"
+              }
+            }
+          }
+        },
+        {
+          "name": "ServiceLogs",
+          "using": {
+            "foreign_key_constraint_on": {
+              "column": "sensorId",
+              "table": {
+                "schema": "az_sensors",
+                "name": "ServiceLog"
+              }
+            }
+          }
+        }
+      ],
+      "select_permissions": [
+        {
+          "role": "public",
+          "permission": {
+            "columns": [
+              "isActive",
+              "locationId",
+              "manufacturer",
+              "model",
+              "sensorId",
+              "sideNumber"
+            ],
+            "filter": {},
+            "allow_aggregations": true
+          }
+        }
+      ]
+    },
+    {
+      "table": {
+        "schema": "az_sensors",
+        "name": "ServiceLog"
+      },
+      "object_relationships": [
+        {
+          "name": "Document",
+          "using": {
+            "foreign_key_constraint_on": "documentId"
+          }
+        },
+        {
+          "name": "Photo",
+          "using": {
+            "foreign_key_constraint_on": "photoId"
+          }
+        },
+        {
+          "name": "Sensor",
+          "using": {
+            "foreign_key_constraint_on": "sensorId"
+          }
+        },
+        {
+          "name": "e_service_kind",
+          "using": {
+            "foreign_key_constraint_on": "serviceKind"
+          }
+        }
+      ],
+      "select_permissions": [
+        {
+          "role": "public",
+          "permission": {
+            "columns": [
+              "documentId",
+              "photoId",
+              "sensorId",
+              "serviceKind",
+              "timestamp"
+            ],
+            "filter": {},
+            "allow_aggregations": true
+          }
+        }
+      ]
+    },
+    {
+      "table": {
+        "schema": "az_sensors",
+        "name": "e_measurement_unit"
+      },
+      "is_enum": true,
+      "array_relationships": [
+        {
+          "name": "PollutionFactors",
+          "using": {
+            "foreign_key_constraint_on": {
+              "column": "unit",
+              "table": {
+                "schema": "az_sensors",
+                "name": "PollutionFactors"
+              }
+            }
+          }
+        }
+      ],
+      "select_permissions": [
+        {
+          "role": "public",
+          "permission": {
+            "columns": [
+              "description",
+              "value"
+            ],
+            "filter": {},
+            "allow_aggregations": true
+          }
+        }
+      ]
+    },
+    {
+      "table": {
+        "schema": "az_sensors",
+        "name": "e_service_kind"
+      },
+      "is_enum": true,
+      "array_relationships": [
+        {
+          "name": "ServiceLogs",
+          "using": {
+            "foreign_key_constraint_on": {
+              "column": "serviceKind",
+              "table": {
+                "schema": "az_sensors",
+                "name": "ServiceLog"
+              }
+            }
+          }
+        }
+      ],
+      "select_permissions": [
+        {
+          "role": "public",
+          "permission": {
+            "columns": [
+              "value",
+              "description"
+            ],
+            "filter": {},
+            "allow_aggregations": true
+          }
+        }
+      ]
+    },
+    {
+      "table": {
+        "schema": "az_users",
+        "name": "AuthData"
+      },
+      "object_relationships": [
+        {
+          "name": "User",
+          "using": {
+            "foreign_key_constraint_on": "userId"
+          }
+        }
+      ],
+      "select_permissions": [
+        {
+          "role": "public",
+          "permission": {
+            "columns": [
+              "userId",
+              "password"
+            ],
+            "filter": {
+              "userId": {
+                "_eq": "X-Hasura-User-Id"
+              }
+            },
+            "limit": 1,
+            "allow_aggregations": true
+          }
+        }
+      ]
+    },
+    {
+      "table": {
+        "schema": "az_users",
+        "name": "Organisation"
+      },
+      "object_relationships": [
+        {
+          "name": "Document",
+          "using": {
+            "foreign_key_constraint_on": "documentId"
+          }
+        }
+      ],
+      "array_relationships": [
+        {
+          "name": "Users",
+          "using": {
+            "foreign_key_constraint_on": {
+              "column": "organisationId",
+              "table": {
+                "schema": "az_users",
+                "name": "Users"
+              }
+            }
+          }
+        }
+      ],
+      "select_permissions": [
+        {
+          "role": "public",
+          "permission": {
+            "columns": [
+              "country",
+              "documentId",
+              "fullName",
+              "organisationId",
+              "organisationRole",
+              "shortName"
+            ],
+            "filter": {
+              "Users": {
+                "userId": {
+                  "_eq": "X-Hasura-User-Id"
+                }
+              }
+            },
+            "limit": 1,
+            "allow_aggregations": true
+          }
+        }
+      ]
+    },
+    {
+      "table": {
+        "schema": "az_users",
+        "name": "UsageLog"
+      },
+      "object_relationships": [
+        {
+          "name": "User",
+          "using": {
+            "foreign_key_constraint_on": "userId"
+          }
+        }
+      ]
+    },
+    {
+      "table": {
+        "schema": "az_users",
+        "name": "Users"
+      },
+      "object_relationships": [
+        {
+          "name": "Document",
+          "using": {
+            "foreign_key_constraint_on": "documentId"
+          }
+        },
+        {
+          "name": "Organisation",
+          "using": {
+            "foreign_key_constraint_on": "organisationId"
+          }
+        }
+      ],
+      "array_relationships": [
+        {
+          "name": "AuthData",
+          "using": {
+            "foreign_key_constraint_on": {
+              "column": "userId",
+              "table": {
+                "schema": "az_users",
+                "name": "AuthData"
+              }
+            }
+          }
+        },
+        {
+          "name": "UsageLogs",
+          "using": {
+            "foreign_key_constraint_on": {
+              "column": "userId",
+              "table": {
+                "schema": "az_users",
+                "name": "UsageLog"
+              }
+            }
+          }
+        }
+      ],
+      "select_permissions": [
+        {
+          "role": "public",
+          "permission": {
+            "columns": [
+              "documentId",
+              "email",
+              "fullName",
+              "organisationId",
+              "phoneNumber",
+              "userId",
+              "userRole"
+            ],
+            "filter": {
+              "_or": [
+                {
+                  "userId": {
+                    "_eq": "X-Hasura-User-Id"
+                  }
+                },
+                {
+                  "Organisation": {
+                    "Users": {
+                      "organisationId": {
+                        "_ceq": "organisationId"
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

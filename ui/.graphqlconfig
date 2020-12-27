@@ -1,0 +1,12 @@
+{
+	"schemaPath": "./src/graphql/schema.graphql",
+	"includes": ["**/*.graphql"],
+	"extensions": {
+		"endpoints": {
+			"Default Introspection Endpoint": {
+				"url": "https://sterling-piranha-97.hasura.app/v1/graphql",
+				"introspect": true
+			}
+		}
+	}
+}

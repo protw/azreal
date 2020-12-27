@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="954px" clip-rule="evenodd" fill-rule="evenodd" image-rendering="optimizeQuality" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" version="1.1" viewBox="0 0 821.02 979.26" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">  
+   <polygon points="21.33 468.75 366.05 468.75 366.05 2.35 21.33 2.35" fill="none" stroke="#000" stroke-dasharray="37.670000 28.260000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.926" stroke-width="4.71"/>
+   <rect x="203.83" y="205.14" width="101.39" height="101.39" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.926" stroke-width="2.35"/>
+   <text x="238.83" y="250.11" fill="black" font-family="Calibri" font-size="19.08px">USB </text>
+   <text x="240.76" y="273.01" fill="black" font-family="Calibri" font-size="19.08px">AM</text>
+   <polyline points="305.22 255.84 639.8 255.84 639.8 509.3" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.926" stroke-width="4.71"/>
+   <rect x="609.38" y="610.69" width="60.83" height="20.28" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.926" stroke-width="2.35"/>
+   <polygon points="82.16 306.53 82.16 205.14 183.55 205.14 183.55 306.53" fill="none"/>
+   <polyline points="82.16 306.53 82.16 205.14 183.55 205.14 183.55 306.53 82.16 306.53" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.926" stroke-width="2.35"/>
+   <line x1="82.16" x2="96.66" y1="306.53" y2="292.02" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.926" stroke-width="2.35"/>
+   <line x1="107.1" x2="125.66" y1="281.59" y2="263.03" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.926" stroke-width="2.35"/>
+   <line x1="140.06" x2="154.56" y1="248.64" y2="234.14" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.926" stroke-width="2.35"/>
+   <line x1="169.05" x2="183.55" y1="219.64" y2="205.14" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.926" stroke-width="2.35"/>
+   <text x="86.18" y="336.85" fill="black" font-family="Calibri" font-size="14.31px">Блок живлення</text>
+   <polyline points="61.88 235.56 75.4 235.56 82.17 235.56" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.926" stroke-width="2.35"/>
+   <line x1="61.88" x2="82.17" y1="276.12" y2="276.12" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.926" stroke-width="2.35"/>
+   <rect y="167.67" width="181.22" height="23.85" fill="none"/>
+  <path d="m92.3 220.35c0-5.6 4.54-10.15 10.14-10.15s10.14 4.55 10.14 10.14c0 5.6-4.54 10.14-10.14 10.14s-10.14-4.54-10.14-10.14v0.01z" fill="#fff"/>
+  <path d="m102.44 225.41c0 2.8 2.27 5.08 5.07 5.07 2.8 0 5.07-2.27 5.07-5.07" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.926" stroke-width="2.35"/>
+  <path d="m92.3 225.41c0.08-2.74 2.33-4.91 5.07-4.91s4.98 2.17 5.07 4.91" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.926" stroke-width="2.35"/>
+   <line x1="153.13" x2="170.46" y1="286.25" y2="286.25" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.926" stroke-width="2.35"/>
+   <rect x="15.84" y="229.45" width="181.22" height="23.85" fill="none"/>
+   <text x="89.9" y="245.67" fill="black" font-family="Calibri" font-size="14.31px">220 V</text>
+   <rect x="72.02" y="262.4" width="181.22" height="23.85" fill="none"/>
+   <text x="153.34" y="278.62" fill="black" font-family="Calibri" font-size="14.31px">5 V</text>
+   <rect x="589.11" y="509.3" width="101.39" height="101.39" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.926" stroke-width="2.35"/>
+   <text x="624.11" y="554.28" fill="black" font-family="Calibri" font-size="19.08px">USB </text>
+   <text x="627.18" y="577.17" fill="black" font-family="Calibri" font-size="19.08px">FM</text>
+   <rect x="589.11" y="630.97" width="101.39" height="101.39" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.926" stroke-width="2.35"/>
+   <text x="624.11" y="675.95" fill="black" font-family="Calibri" font-size="19.08px">USB </text>
+   <text x="626.04" y="698.84" fill="black" font-family="Calibri" font-size="19.08px">AM</text>
+   <polygon points="487.72 772.92 791.89 772.92 791.89 468.75 487.72 468.75" fill="none" stroke="#000" stroke-dasharray="37.670000 28.260000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.926" stroke-width="4.71"/>
+   <rect x="183.55" y="225.41" width="20.28" height="60.83" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.926" stroke-width="2.35"/>
+   <polyline points="639.8 732.36 639.8 945.28 690.5 945.28" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.926" stroke-width="4.71"/>
+   <rect x="690.5" y="870.25" width="81.11" height="81.11" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.926" stroke-width="2.35"/>
+   <path d="m710.77 900.67c0-11.2 9.08-20.28 20.28-20.28s20.28 9.08 20.28 20.28-9.08 20.28-20.28 20.28-20.28-9.08-20.28-20.28v0z" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.926" stroke-width="2.35"/>
+   <line x1="690.5" x2="771.61" y1="941.23" y2="941.23" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.926" stroke-width="2.35"/>
+   <line x1="731.06" x2="731.06" y1="870.25" y2="809.42" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.926" stroke-width="2.35"/>
+   <rect x="700.63" y="860.11" width="60.83" height="10.14" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.926" stroke-width="2.35"/>
+   <rect x="457.3" y="221.85" width="181.22" height="23.85" fill="none"/>
+   <text x="466.93" y="238.07" fill="black" font-family="Calibri" font-size="14.31px">Патчкорд UTP Cat 5e 4x2x1</text>
+   <rect x="589.11" y="630.97" width="101.39" height="101.39" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.926" stroke-width="2.35"/>
+   <text x="624.11" y="675.95" fill="black" font-family="Calibri" font-size="19.08px">USB </text>
+   <text x="626.04" y="698.84" fill="black" font-family="Calibri" font-size="19.08px">AM</text>
+   <rect x="41.61" y="681.67" width="20.28" height="20.28" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.926" stroke-width="2.35"/>
+   <rect x="82.16" y="681.67" width="20.28" height="20.28" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.926" stroke-width="2.35"/>
+   <rect x="122.72" y="681.67" width="20.28" height="20.28" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.926" stroke-width="2.35"/>
+   <rect x="163.27" y="681.67" width="20.28" height="20.28" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.926" stroke-width="2.35"/>
+   <rect x="41.61" y="783.05" width="20.28" height="20.28" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.926" stroke-width="2.35"/>
+   <rect x="82.16" y="783.05" width="20.28" height="20.28" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.926" stroke-width="2.35"/>
+   <rect x="122.72" y="783.05" width="20.28" height="20.28" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.926" stroke-width="2.35"/>
+   <rect x="163.27" y="783.05" width="20.28" height="20.28" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.926" stroke-width="2.35"/>
+   <rect x="21.33" y="651.25" width="182.5" height="50.69" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.926" stroke-width="2.35"/>
+   <rect x="21.33" y="772.91" width="182.5" height="60.83" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.926" stroke-width="2.35"/>
+   <line x1="41.61" x2="183.56" y1="783.06" y2="783.06" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="22.926" stroke-width="2.35"/>
+   <rect x="161.97" y="657.82" width="21.58" height="23.85" fill="none"/>
+   <text x="169.13" y="674.04" fill="black" font-family="Calibri" font-size="14.31px">1</text>
+   <rect x="122.02" y="657.82" width="21.67" height="23.85" fill="none"/>
+   <text x="129.24" y="674.04" fill="black" font-family="Calibri" font-size="14.31px">2</text>
+   <rect x="79.1" y="657.82" width="26.4" height="23.85" fill="none"/>
+   <text x="88.68" y="674.04" fill="black" font-family="Calibri" font-size="14.31px">3</text>
+   <rect x="39.18" y="657.82" width="25.13" height="23.85" fill="none"/>
+   <text x="48.12" y="674.04" fill="black" font-family="Calibri" font-size="14.31px">4</text>
+   <rect x="41.61" y="801.55" width="21.58" height="23.85" fill="none"/>
+   <text x="48.77" y="817.77" fill="black" font-family="Calibri" font-size="14.31px">1</text>
+   <rect x="82.16" y="801.55" width="21.67" height="23.85" fill="none"/>
+   <text x="89.38" y="817.77" fill="black" font-family="Calibri" font-size="14.31px">2</text>
+   <rect x="119.66" y="801.55" width="26.4" height="23.85" fill="none"/>
+   <text x="129.23" y="817.77" fill="black" font-family="Calibri" font-size="14.31px">3</text>
+   <rect x="160.85" y="801.55" width="25.13" height="23.85" fill="none"/>
+   <text x="169.79" y="817.77" fill="black" font-family="Calibri" font-size="14.31px">4</text>
+   <rect x="21.33" y="593.18" width="181.22" height="23.85" fill="none"/>
+   <text x="46.25" y="615.84" fill="black" font-family="Calibri" font-size="35.77px">USB </text>
+   <text x="113.17" y="615.84" fill="black" font-family="Calibri" font-size="28.61px">тип А</text>
+   <rect x="198.76" y="664.16" width="181.22" height="23.85" fill="none"/>
+   <text x="231.09" y="682.52" fill="black" font-family="Calibri" font-size="21.46px">AM - Штекер</text>
+   <rect x="200.45" y="789.63" width="181.22" height="23.85" fill="none"/>
+   <text x="239.83" y="807.99" fill="black" font-family="Calibri" font-size="21.46px">FM - Гніздо</text>
+   <rect x="102.44" y="42.92" width="181.22" height="23.85" fill="none"/>
+   <text x="133.78" y="41.97" fill="black" font-family="Calibri" font-size="14.31px">Розподільчий ящик </text>
+   <text x="152.09" y="59.14" fill="black" font-family="Calibri" font-size="14.31px">відеонагляду </text>
+   <text x="135.13" y="76.3" fill="black" font-family="Calibri" font-size="14.31px">КП «Інформатика»</text>
+   <rect x="629.66" y="438.33" width="181.22" height="23.85" fill="none"/>
+   <text x="656.07" y="454.55" fill="black" font-family="Calibri" font-size="14.31px">Розподільча коробка</text>
+   <rect x="41.61" y="870.74" width="242.06" height="74.54" fill="none"/>
+   <text x="47.29" y="875.82" fill="black" font-family="Calibri" font-size="21.46px">1  +5V білокоричневий </text>
+   <text x="47.01" y="901.57" fill="black" font-family="Calibri" font-size="21.46px">2  пусто </text>
+   <text x="46.58" y="927.33" fill="black" font-family="Calibri" font-size="21.46px">3  пусто </text>
+   <text x="46.38" y="953.08" fill="black" font-family="Calibri" font-size="21.46px">4  -5V коричневий</text>
+   <rect x="639.8" y="955.41" width="181.22" height="23.85" fill="none"/>
+   <text x="665.43" y="971.64" fill="black" font-family="Calibri" font-size="14.31px">Датчик якості повітря</text>
+</svg>
