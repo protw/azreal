@@ -1,0 +1,6577 @@
+schema {
+  query: query_root
+  mutation: mutation_root
+  subscription: subscription_root
+}
+
+scalar _text
+
+# expression to compare columns of type _text. All fields are combined with logical 'AND'.
+input _text_comparison_exp {
+  _eq: _text
+  _gt: _text
+  _gte: _text
+  _in: [_text!]
+  _is_null: Boolean
+  _lt: _text
+  _lte: _text
+  _neq: _text
+  _nin: [_text!]
+}
+
+# columns and relationships of "az_docs.Documents"
+type az_docs_Documents {
+  # An array relationship
+  Locations(
+    # distinct select on columns
+    distinct_on: [az_sensors_Locations_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_Locations_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_Locations_bool_exp
+  ): [az_sensors_Locations!]!
+
+  # An aggregated array relationship
+  Locations_aggregate(
+    # distinct select on columns
+    distinct_on: [az_sensors_Locations_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_Locations_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_Locations_bool_exp
+  ): az_sensors_Locations_aggregate!
+
+  # An array relationship
+  Organisations(
+    # distinct select on columns
+    distinct_on: [az_users_Organisation_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_users_Organisation_order_by!]
+
+    # filter the rows returned
+    where: az_users_Organisation_bool_exp
+  ): [az_users_Organisation!]!
+
+  # An aggregated array relationship
+  Organisations_aggregate(
+    # distinct select on columns
+    distinct_on: [az_users_Organisation_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_users_Organisation_order_by!]
+
+    # filter the rows returned
+    where: az_users_Organisation_bool_exp
+  ): az_users_Organisation_aggregate!
+
+  # An array relationship
+  ServiceLogs(
+    # distinct select on columns
+    distinct_on: [az_sensors_ServiceLog_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_ServiceLog_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_ServiceLog_bool_exp
+  ): [az_sensors_ServiceLog!]!
+
+  # An aggregated array relationship
+  ServiceLogs_aggregate(
+    # distinct select on columns
+    distinct_on: [az_sensors_ServiceLog_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_ServiceLog_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_ServiceLog_bool_exp
+  ): az_sensors_ServiceLog_aggregate!
+
+  # An array relationship
+  Users(
+    # distinct select on columns
+    distinct_on: [az_users_Users_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_users_Users_order_by!]
+
+    # filter the rows returned
+    where: az_users_Users_bool_exp
+  ): [az_users_Users!]!
+
+  # An aggregated array relationship
+  Users_aggregate(
+    # distinct select on columns
+    distinct_on: [az_users_Users_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_users_Users_order_by!]
+
+    # filter the rows returned
+    where: az_users_Users_bool_exp
+  ): az_users_Users_aggregate!
+  documentId: Int!
+  documentType: az_docs_e_document_type_enum!
+
+  # An object relationship
+  e_document_type: az_docs_e_document_type!
+  fileIds: _text!
+}
+
+# aggregated selection of "az_docs.Documents"
+type az_docs_Documents_aggregate {
+  aggregate: az_docs_Documents_aggregate_fields
+  nodes: [az_docs_Documents!]!
+}
+
+# aggregate fields of "az_docs.Documents"
+type az_docs_Documents_aggregate_fields {
+  avg: az_docs_Documents_avg_fields
+  count(columns: [az_docs_Documents_select_column!], distinct: Boolean): Int
+  max: az_docs_Documents_max_fields
+  min: az_docs_Documents_min_fields
+  stddev: az_docs_Documents_stddev_fields
+  stddev_pop: az_docs_Documents_stddev_pop_fields
+  stddev_samp: az_docs_Documents_stddev_samp_fields
+  sum: az_docs_Documents_sum_fields
+  var_pop: az_docs_Documents_var_pop_fields
+  var_samp: az_docs_Documents_var_samp_fields
+  variance: az_docs_Documents_variance_fields
+}
+
+# order by aggregate values of table "az_docs.Documents"
+input az_docs_Documents_aggregate_order_by {
+  avg: az_docs_Documents_avg_order_by
+  count: order_by
+  max: az_docs_Documents_max_order_by
+  min: az_docs_Documents_min_order_by
+  stddev: az_docs_Documents_stddev_order_by
+  stddev_pop: az_docs_Documents_stddev_pop_order_by
+  stddev_samp: az_docs_Documents_stddev_samp_order_by
+  sum: az_docs_Documents_sum_order_by
+  var_pop: az_docs_Documents_var_pop_order_by
+  var_samp: az_docs_Documents_var_samp_order_by
+  variance: az_docs_Documents_variance_order_by
+}
+
+# input type for inserting array relation for remote table "az_docs.Documents"
+input az_docs_Documents_arr_rel_insert_input {
+  data: [az_docs_Documents_insert_input!]!
+  on_conflict: az_docs_Documents_on_conflict
+}
+
+# aggregate avg on columns
+type az_docs_Documents_avg_fields {
+  documentId: Float
+}
+
+# order by avg() on columns of table "az_docs.Documents"
+input az_docs_Documents_avg_order_by {
+  documentId: order_by
+}
+
+# Boolean expression to filter rows from the table "az_docs.Documents". All fields are combined with a logical 'AND'.
+input az_docs_Documents_bool_exp {
+  Locations: az_sensors_Locations_bool_exp
+  Organisations: az_users_Organisation_bool_exp
+  ServiceLogs: az_sensors_ServiceLog_bool_exp
+  Users: az_users_Users_bool_exp
+  _and: [az_docs_Documents_bool_exp]
+  _not: az_docs_Documents_bool_exp
+  _or: [az_docs_Documents_bool_exp]
+  documentId: Int_comparison_exp
+  documentType: az_docs_e_document_type_enum_comparison_exp
+  e_document_type: az_docs_e_document_type_bool_exp
+  fileIds: _text_comparison_exp
+}
+
+# unique or primary key constraints on table "az_docs.Documents"
+enum az_docs_Documents_constraint {
+  # unique or primary key constraint
+  Documents_pkey
+}
+
+# input type for incrementing integer column in table "az_docs.Documents"
+input az_docs_Documents_inc_input {
+  documentId: Int
+}
+
+# input type for inserting data into table "az_docs.Documents"
+input az_docs_Documents_insert_input {
+  Locations: az_sensors_Locations_arr_rel_insert_input
+  Organisations: az_users_Organisation_arr_rel_insert_input
+  ServiceLogs: az_sensors_ServiceLog_arr_rel_insert_input
+  Users: az_users_Users_arr_rel_insert_input
+  documentId: Int
+  documentType: az_docs_e_document_type_enum
+  e_document_type: az_docs_e_document_type_obj_rel_insert_input
+  fileIds: _text
+}
+
+# aggregate max on columns
+type az_docs_Documents_max_fields {
+  documentId: Int
+}
+
+# order by max() on columns of table "az_docs.Documents"
+input az_docs_Documents_max_order_by {
+  documentId: order_by
+}
+
+# aggregate min on columns
+type az_docs_Documents_min_fields {
+  documentId: Int
+}
+
+# order by min() on columns of table "az_docs.Documents"
+input az_docs_Documents_min_order_by {
+  documentId: order_by
+}
+
+# response of any mutation on the table "az_docs.Documents"
+type az_docs_Documents_mutation_response {
+  # number of affected rows by the mutation
+  affected_rows: Int!
+
+  # data of the affected rows by the mutation
+  returning: [az_docs_Documents!]!
+}
+
+# input type for inserting object relation for remote table "az_docs.Documents"
+input az_docs_Documents_obj_rel_insert_input {
+  data: az_docs_Documents_insert_input!
+  on_conflict: az_docs_Documents_on_conflict
+}
+
+# on conflict condition type for table "az_docs.Documents"
+input az_docs_Documents_on_conflict {
+  constraint: az_docs_Documents_constraint!
+  update_columns: [az_docs_Documents_update_column!]!
+  where: az_docs_Documents_bool_exp
+}
+
+# ordering options when selecting data from "az_docs.Documents"
+input az_docs_Documents_order_by {
+  Locations_aggregate: az_sensors_Locations_aggregate_order_by
+  Organisations_aggregate: az_users_Organisation_aggregate_order_by
+  ServiceLogs_aggregate: az_sensors_ServiceLog_aggregate_order_by
+  Users_aggregate: az_users_Users_aggregate_order_by
+  documentId: order_by
+  documentType: order_by
+  e_document_type: az_docs_e_document_type_order_by
+  fileIds: order_by
+}
+
+# primary key columns input for table: "az_docs.Documents"
+input az_docs_Documents_pk_columns_input {
+  documentId: Int!
+}
+
+# select columns of table "az_docs.Documents"
+enum az_docs_Documents_select_column {
+  # column name
+  documentId
+
+  # column name
+  documentType
+
+  # column name
+  fileIds
+}
+
+# input type for updating data in table "az_docs.Documents"
+input az_docs_Documents_set_input {
+  documentId: Int
+  documentType: az_docs_e_document_type_enum
+  fileIds: _text
+}
+
+# aggregate stddev on columns
+type az_docs_Documents_stddev_fields {
+  documentId: Float
+}
+
+# order by stddev() on columns of table "az_docs.Documents"
+input az_docs_Documents_stddev_order_by {
+  documentId: order_by
+}
+
+# aggregate stddev_pop on columns
+type az_docs_Documents_stddev_pop_fields {
+  documentId: Float
+}
+
+# order by stddev_pop() on columns of table "az_docs.Documents"
+input az_docs_Documents_stddev_pop_order_by {
+  documentId: order_by
+}
+
+# aggregate stddev_samp on columns
+type az_docs_Documents_stddev_samp_fields {
+  documentId: Float
+}
+
+# order by stddev_samp() on columns of table "az_docs.Documents"
+input az_docs_Documents_stddev_samp_order_by {
+  documentId: order_by
+}
+
+# aggregate sum on columns
+type az_docs_Documents_sum_fields {
+  documentId: Int
+}
+
+# order by sum() on columns of table "az_docs.Documents"
+input az_docs_Documents_sum_order_by {
+  documentId: order_by
+}
+
+# update columns of table "az_docs.Documents"
+enum az_docs_Documents_update_column {
+  # column name
+  documentId
+
+  # column name
+  documentType
+
+  # column name
+  fileIds
+}
+
+# aggregate var_pop on columns
+type az_docs_Documents_var_pop_fields {
+  documentId: Float
+}
+
+# order by var_pop() on columns of table "az_docs.Documents"
+input az_docs_Documents_var_pop_order_by {
+  documentId: order_by
+}
+
+# aggregate var_samp on columns
+type az_docs_Documents_var_samp_fields {
+  documentId: Float
+}
+
+# order by var_samp() on columns of table "az_docs.Documents"
+input az_docs_Documents_var_samp_order_by {
+  documentId: order_by
+}
+
+# aggregate variance on columns
+type az_docs_Documents_variance_fields {
+  documentId: Float
+}
+
+# order by variance() on columns of table "az_docs.Documents"
+input az_docs_Documents_variance_order_by {
+  documentId: order_by
+}
+
+# columns and relationships of "az_docs.e_document_type"
+type az_docs_e_document_type {
+  # An array relationship
+  Documents(
+    # distinct select on columns
+    distinct_on: [az_docs_Documents_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_docs_Documents_order_by!]
+
+    # filter the rows returned
+    where: az_docs_Documents_bool_exp
+  ): [az_docs_Documents!]!
+
+  # An aggregated array relationship
+  Documents_aggregate(
+    # distinct select on columns
+    distinct_on: [az_docs_Documents_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_docs_Documents_order_by!]
+
+    # filter the rows returned
+    where: az_docs_Documents_bool_exp
+  ): az_docs_Documents_aggregate!
+  description: String
+  value: String!
+}
+
+# aggregated selection of "az_docs.e_document_type"
+type az_docs_e_document_type_aggregate {
+  aggregate: az_docs_e_document_type_aggregate_fields
+  nodes: [az_docs_e_document_type!]!
+}
+
+# aggregate fields of "az_docs.e_document_type"
+type az_docs_e_document_type_aggregate_fields {
+  count(columns: [az_docs_e_document_type_select_column!], distinct: Boolean): Int
+  max: az_docs_e_document_type_max_fields
+  min: az_docs_e_document_type_min_fields
+}
+
+# order by aggregate values of table "az_docs.e_document_type"
+input az_docs_e_document_type_aggregate_order_by {
+  count: order_by
+  max: az_docs_e_document_type_max_order_by
+  min: az_docs_e_document_type_min_order_by
+}
+
+# input type for inserting array relation for remote table "az_docs.e_document_type"
+input az_docs_e_document_type_arr_rel_insert_input {
+  data: [az_docs_e_document_type_insert_input!]!
+  on_conflict: az_docs_e_document_type_on_conflict
+}
+
+# Boolean expression to filter rows from the table "az_docs.e_document_type". All fields are combined with a logical 'AND'.
+input az_docs_e_document_type_bool_exp {
+  Documents: az_docs_Documents_bool_exp
+  _and: [az_docs_e_document_type_bool_exp]
+  _not: az_docs_e_document_type_bool_exp
+  _or: [az_docs_e_document_type_bool_exp]
+  description: String_comparison_exp
+  value: String_comparison_exp
+}
+
+# unique or primary key constraints on table "az_docs.e_document_type"
+enum az_docs_e_document_type_constraint {
+  # unique or primary key constraint
+  e_document_type_pkey
+}
+
+enum az_docs_e_document_type_enum {
+  Location
+  Organisation
+  Sensor
+  Service
+  User
+}
+
+# expression to compare columns of type az_docs_e_document_type_enum. All fields are combined with logical 'AND'.
+input az_docs_e_document_type_enum_comparison_exp {
+  _eq: az_docs_e_document_type_enum
+  _in: [az_docs_e_document_type_enum!]
+  _is_null: Boolean
+  _neq: az_docs_e_document_type_enum
+  _nin: [az_docs_e_document_type_enum!]
+}
+
+# input type for inserting data into table "az_docs.e_document_type"
+input az_docs_e_document_type_insert_input {
+  Documents: az_docs_Documents_arr_rel_insert_input
+  description: String
+  value: String
+}
+
+# aggregate max on columns
+type az_docs_e_document_type_max_fields {
+  description: String
+  value: String
+}
+
+# order by max() on columns of table "az_docs.e_document_type"
+input az_docs_e_document_type_max_order_by {
+  description: order_by
+  value: order_by
+}
+
+# aggregate min on columns
+type az_docs_e_document_type_min_fields {
+  description: String
+  value: String
+}
+
+# order by min() on columns of table "az_docs.e_document_type"
+input az_docs_e_document_type_min_order_by {
+  description: order_by
+  value: order_by
+}
+
+# response of any mutation on the table "az_docs.e_document_type"
+type az_docs_e_document_type_mutation_response {
+  # number of affected rows by the mutation
+  affected_rows: Int!
+
+  # data of the affected rows by the mutation
+  returning: [az_docs_e_document_type!]!
+}
+
+# input type for inserting object relation for remote table "az_docs.e_document_type"
+input az_docs_e_document_type_obj_rel_insert_input {
+  data: az_docs_e_document_type_insert_input!
+  on_conflict: az_docs_e_document_type_on_conflict
+}
+
+# on conflict condition type for table "az_docs.e_document_type"
+input az_docs_e_document_type_on_conflict {
+  constraint: az_docs_e_document_type_constraint!
+  update_columns: [az_docs_e_document_type_update_column!]!
+  where: az_docs_e_document_type_bool_exp
+}
+
+# ordering options when selecting data from "az_docs.e_document_type"
+input az_docs_e_document_type_order_by {
+  Documents_aggregate: az_docs_Documents_aggregate_order_by
+  description: order_by
+  value: order_by
+}
+
+# primary key columns input for table: "az_docs.e_document_type"
+input az_docs_e_document_type_pk_columns_input {
+  value: String!
+}
+
+# select columns of table "az_docs.e_document_type"
+enum az_docs_e_document_type_select_column {
+  # column name
+  description
+
+  # column name
+  value
+}
+
+# input type for updating data in table "az_docs.e_document_type"
+input az_docs_e_document_type_set_input {
+  description: String
+  value: String
+}
+
+# update columns of table "az_docs.e_document_type"
+enum az_docs_e_document_type_update_column {
+  # column name
+  description
+
+  # column name
+  value
+}
+
+# columns and relationships of "az_docs.Photo"
+type az_docs_Photo {
+  # An array relationship
+  ServiceLogs(
+    # distinct select on columns
+    distinct_on: [az_sensors_ServiceLog_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_ServiceLog_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_ServiceLog_bool_exp
+  ): [az_sensors_ServiceLog!]!
+
+  # An aggregated array relationship
+  ServiceLogs_aggregate(
+    # distinct select on columns
+    distinct_on: [az_sensors_ServiceLog_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_ServiceLog_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_ServiceLog_bool_exp
+  ): az_sensors_ServiceLog_aggregate!
+  fileIds: _text!
+  photoId: Int!
+}
+
+# aggregated selection of "az_docs.Photo"
+type az_docs_Photo_aggregate {
+  aggregate: az_docs_Photo_aggregate_fields
+  nodes: [az_docs_Photo!]!
+}
+
+# aggregate fields of "az_docs.Photo"
+type az_docs_Photo_aggregate_fields {
+  avg: az_docs_Photo_avg_fields
+  count(columns: [az_docs_Photo_select_column!], distinct: Boolean): Int
+  max: az_docs_Photo_max_fields
+  min: az_docs_Photo_min_fields
+  stddev: az_docs_Photo_stddev_fields
+  stddev_pop: az_docs_Photo_stddev_pop_fields
+  stddev_samp: az_docs_Photo_stddev_samp_fields
+  sum: az_docs_Photo_sum_fields
+  var_pop: az_docs_Photo_var_pop_fields
+  var_samp: az_docs_Photo_var_samp_fields
+  variance: az_docs_Photo_variance_fields
+}
+
+# order by aggregate values of table "az_docs.Photo"
+input az_docs_Photo_aggregate_order_by {
+  avg: az_docs_Photo_avg_order_by
+  count: order_by
+  max: az_docs_Photo_max_order_by
+  min: az_docs_Photo_min_order_by
+  stddev: az_docs_Photo_stddev_order_by
+  stddev_pop: az_docs_Photo_stddev_pop_order_by
+  stddev_samp: az_docs_Photo_stddev_samp_order_by
+  sum: az_docs_Photo_sum_order_by
+  var_pop: az_docs_Photo_var_pop_order_by
+  var_samp: az_docs_Photo_var_samp_order_by
+  variance: az_docs_Photo_variance_order_by
+}
+
+# input type for inserting array relation for remote table "az_docs.Photo"
+input az_docs_Photo_arr_rel_insert_input {
+  data: [az_docs_Photo_insert_input!]!
+  on_conflict: az_docs_Photo_on_conflict
+}
+
+# aggregate avg on columns
+type az_docs_Photo_avg_fields {
+  photoId: Float
+}
+
+# order by avg() on columns of table "az_docs.Photo"
+input az_docs_Photo_avg_order_by {
+  photoId: order_by
+}
+
+# Boolean expression to filter rows from the table "az_docs.Photo". All fields are combined with a logical 'AND'.
+input az_docs_Photo_bool_exp {
+  ServiceLogs: az_sensors_ServiceLog_bool_exp
+  _and: [az_docs_Photo_bool_exp]
+  _not: az_docs_Photo_bool_exp
+  _or: [az_docs_Photo_bool_exp]
+  fileIds: _text_comparison_exp
+  photoId: Int_comparison_exp
+}
+
+# unique or primary key constraints on table "az_docs.Photo"
+enum az_docs_Photo_constraint {
+  # unique or primary key constraint
+  Photo_pkey
+}
+
+# input type for incrementing integer column in table "az_docs.Photo"
+input az_docs_Photo_inc_input {
+  photoId: Int
+}
+
+# input type for inserting data into table "az_docs.Photo"
+input az_docs_Photo_insert_input {
+  ServiceLogs: az_sensors_ServiceLog_arr_rel_insert_input
+  fileIds: _text
+  photoId: Int
+}
+
+# aggregate max on columns
+type az_docs_Photo_max_fields {
+  photoId: Int
+}
+
+# order by max() on columns of table "az_docs.Photo"
+input az_docs_Photo_max_order_by {
+  photoId: order_by
+}
+
+# aggregate min on columns
+type az_docs_Photo_min_fields {
+  photoId: Int
+}
+
+# order by min() on columns of table "az_docs.Photo"
+input az_docs_Photo_min_order_by {
+  photoId: order_by
+}
+
+# response of any mutation on the table "az_docs.Photo"
+type az_docs_Photo_mutation_response {
+  # number of affected rows by the mutation
+  affected_rows: Int!
+
+  # data of the affected rows by the mutation
+  returning: [az_docs_Photo!]!
+}
+
+# input type for inserting object relation for remote table "az_docs.Photo"
+input az_docs_Photo_obj_rel_insert_input {
+  data: az_docs_Photo_insert_input!
+  on_conflict: az_docs_Photo_on_conflict
+}
+
+# on conflict condition type for table "az_docs.Photo"
+input az_docs_Photo_on_conflict {
+  constraint: az_docs_Photo_constraint!
+  update_columns: [az_docs_Photo_update_column!]!
+  where: az_docs_Photo_bool_exp
+}
+
+# ordering options when selecting data from "az_docs.Photo"
+input az_docs_Photo_order_by {
+  ServiceLogs_aggregate: az_sensors_ServiceLog_aggregate_order_by
+  fileIds: order_by
+  photoId: order_by
+}
+
+# primary key columns input for table: "az_docs.Photo"
+input az_docs_Photo_pk_columns_input {
+  photoId: Int!
+}
+
+# select columns of table "az_docs.Photo"
+enum az_docs_Photo_select_column {
+  # column name
+  fileIds
+
+  # column name
+  photoId
+}
+
+# input type for updating data in table "az_docs.Photo"
+input az_docs_Photo_set_input {
+  fileIds: _text
+  photoId: Int
+}
+
+# aggregate stddev on columns
+type az_docs_Photo_stddev_fields {
+  photoId: Float
+}
+
+# order by stddev() on columns of table "az_docs.Photo"
+input az_docs_Photo_stddev_order_by {
+  photoId: order_by
+}
+
+# aggregate stddev_pop on columns
+type az_docs_Photo_stddev_pop_fields {
+  photoId: Float
+}
+
+# order by stddev_pop() on columns of table "az_docs.Photo"
+input az_docs_Photo_stddev_pop_order_by {
+  photoId: order_by
+}
+
+# aggregate stddev_samp on columns
+type az_docs_Photo_stddev_samp_fields {
+  photoId: Float
+}
+
+# order by stddev_samp() on columns of table "az_docs.Photo"
+input az_docs_Photo_stddev_samp_order_by {
+  photoId: order_by
+}
+
+# aggregate sum on columns
+type az_docs_Photo_sum_fields {
+  photoId: Int
+}
+
+# order by sum() on columns of table "az_docs.Photo"
+input az_docs_Photo_sum_order_by {
+  photoId: order_by
+}
+
+# update columns of table "az_docs.Photo"
+enum az_docs_Photo_update_column {
+  # column name
+  fileIds
+
+  # column name
+  photoId
+}
+
+# aggregate var_pop on columns
+type az_docs_Photo_var_pop_fields {
+  photoId: Float
+}
+
+# order by var_pop() on columns of table "az_docs.Photo"
+input az_docs_Photo_var_pop_order_by {
+  photoId: order_by
+}
+
+# aggregate var_samp on columns
+type az_docs_Photo_var_samp_fields {
+  photoId: Float
+}
+
+# order by var_samp() on columns of table "az_docs.Photo"
+input az_docs_Photo_var_samp_order_by {
+  photoId: order_by
+}
+
+# aggregate variance on columns
+type az_docs_Photo_variance_fields {
+  photoId: Float
+}
+
+# order by variance() on columns of table "az_docs.Photo"
+input az_docs_Photo_variance_order_by {
+  photoId: order_by
+}
+
+# columns and relationships of "az_measurements.Measurements"
+type az_measurements_Measurements {
+  CAQI: float8!
+
+  # An object relationship
+  PollutionFactor: az_sensors_PollutionFactors!
+
+  # An object relationship
+  Sensor: az_sensors_Sensors
+  factorName: String!
+  locationPoint: point!
+  sensorId: Int
+  timestamp: timestamp!
+  value: float8!
+}
+
+# aggregated selection of "az_measurements.Measurements"
+type az_measurements_Measurements_aggregate {
+  aggregate: az_measurements_Measurements_aggregate_fields
+  nodes: [az_measurements_Measurements!]!
+}
+
+# aggregate fields of "az_measurements.Measurements"
+type az_measurements_Measurements_aggregate_fields {
+  avg: az_measurements_Measurements_avg_fields
+  count(columns: [az_measurements_Measurements_select_column!], distinct: Boolean): Int
+  max: az_measurements_Measurements_max_fields
+  min: az_measurements_Measurements_min_fields
+  stddev: az_measurements_Measurements_stddev_fields
+  stddev_pop: az_measurements_Measurements_stddev_pop_fields
+  stddev_samp: az_measurements_Measurements_stddev_samp_fields
+  sum: az_measurements_Measurements_sum_fields
+  var_pop: az_measurements_Measurements_var_pop_fields
+  var_samp: az_measurements_Measurements_var_samp_fields
+  variance: az_measurements_Measurements_variance_fields
+}
+
+# order by aggregate values of table "az_measurements.Measurements"
+input az_measurements_Measurements_aggregate_order_by {
+  avg: az_measurements_Measurements_avg_order_by
+  count: order_by
+  max: az_measurements_Measurements_max_order_by
+  min: az_measurements_Measurements_min_order_by
+  stddev: az_measurements_Measurements_stddev_order_by
+  stddev_pop: az_measurements_Measurements_stddev_pop_order_by
+  stddev_samp: az_measurements_Measurements_stddev_samp_order_by
+  sum: az_measurements_Measurements_sum_order_by
+  var_pop: az_measurements_Measurements_var_pop_order_by
+  var_samp: az_measurements_Measurements_var_samp_order_by
+  variance: az_measurements_Measurements_variance_order_by
+}
+
+# input type for inserting array relation for remote table "az_measurements.Measurements"
+input az_measurements_Measurements_arr_rel_insert_input {
+  data: [az_measurements_Measurements_insert_input!]!
+  on_conflict: az_measurements_Measurements_on_conflict
+}
+
+# aggregate avg on columns
+type az_measurements_Measurements_avg_fields {
+  CAQI: Float
+  sensorId: Float
+  value: Float
+}
+
+# order by avg() on columns of table "az_measurements.Measurements"
+input az_measurements_Measurements_avg_order_by {
+  CAQI: order_by
+  sensorId: order_by
+  value: order_by
+}
+
+# Boolean expression to filter rows from the table "az_measurements.Measurements".
+# All fields are combined with a logical 'AND'.
+input az_measurements_Measurements_bool_exp {
+  CAQI: float8_comparison_exp
+  PollutionFactor: az_sensors_PollutionFactors_bool_exp
+  Sensor: az_sensors_Sensors_bool_exp
+  _and: [az_measurements_Measurements_bool_exp]
+  _not: az_measurements_Measurements_bool_exp
+  _or: [az_measurements_Measurements_bool_exp]
+  factorName: String_comparison_exp
+  locationPoint: point_comparison_exp
+  sensorId: Int_comparison_exp
+  timestamp: timestamp_comparison_exp
+  value: float8_comparison_exp
+}
+
+# unique or primary key constraints on table "az_measurements.Measurements"
+enum az_measurements_Measurements_constraint {
+  # unique or primary key constraint
+  Measurements_sensorId_timestamp_factorName_key
+}
+
+# input type for incrementing integer column in table "az_measurements.Measurements"
+input az_measurements_Measurements_inc_input {
+  CAQI: float8
+  sensorId: Int
+  value: float8
+}
+
+# input type for inserting data into table "az_measurements.Measurements"
+input az_measurements_Measurements_insert_input {
+  CAQI: float8
+  PollutionFactor: az_sensors_PollutionFactors_obj_rel_insert_input
+  Sensor: az_sensors_Sensors_obj_rel_insert_input
+  factorName: String
+  locationPoint: point
+  sensorId: Int
+  timestamp: timestamp
+  value: float8
+}
+
+# aggregate max on columns
+type az_measurements_Measurements_max_fields {
+  CAQI: float8
+  factorName: String
+  sensorId: Int
+  timestamp: timestamp
+  value: float8
+}
+
+# order by max() on columns of table "az_measurements.Measurements"
+input az_measurements_Measurements_max_order_by {
+  CAQI: order_by
+  factorName: order_by
+  sensorId: order_by
+  timestamp: order_by
+  value: order_by
+}
+
+# aggregate min on columns
+type az_measurements_Measurements_min_fields {
+  CAQI: float8
+  factorName: String
+  sensorId: Int
+  timestamp: timestamp
+  value: float8
+}
+
+# order by min() on columns of table "az_measurements.Measurements"
+input az_measurements_Measurements_min_order_by {
+  CAQI: order_by
+  factorName: order_by
+  sensorId: order_by
+  timestamp: order_by
+  value: order_by
+}
+
+# response of any mutation on the table "az_measurements.Measurements"
+type az_measurements_Measurements_mutation_response {
+  # number of affected rows by the mutation
+  affected_rows: Int!
+
+  # data of the affected rows by the mutation
+  returning: [az_measurements_Measurements!]!
+}
+
+# input type for inserting object relation for remote table "az_measurements.Measurements"
+input az_measurements_Measurements_obj_rel_insert_input {
+  data: az_measurements_Measurements_insert_input!
+  on_conflict: az_measurements_Measurements_on_conflict
+}
+
+# on conflict condition type for table "az_measurements.Measurements"
+input az_measurements_Measurements_on_conflict {
+  constraint: az_measurements_Measurements_constraint!
+  update_columns: [az_measurements_Measurements_update_column!]!
+  where: az_measurements_Measurements_bool_exp
+}
+
+# ordering options when selecting data from "az_measurements.Measurements"
+input az_measurements_Measurements_order_by {
+  CAQI: order_by
+  PollutionFactor: az_sensors_PollutionFactors_order_by
+  Sensor: az_sensors_Sensors_order_by
+  factorName: order_by
+  locationPoint: order_by
+  sensorId: order_by
+  timestamp: order_by
+  value: order_by
+}
+
+# select columns of table "az_measurements.Measurements"
+enum az_measurements_Measurements_select_column {
+  # column name
+  CAQI
+
+  # column name
+  factorName
+
+  # column name
+  locationPoint
+
+  # column name
+  sensorId
+
+  # column name
+  timestamp
+
+  # column name
+  value
+}
+
+# input type for updating data in table "az_measurements.Measurements"
+input az_measurements_Measurements_set_input {
+  CAQI: float8
+  factorName: String
+  locationPoint: point
+  sensorId: Int
+  timestamp: timestamp
+  value: float8
+}
+
+# aggregate stddev on columns
+type az_measurements_Measurements_stddev_fields {
+  CAQI: Float
+  sensorId: Float
+  value: Float
+}
+
+# order by stddev() on columns of table "az_measurements.Measurements"
+input az_measurements_Measurements_stddev_order_by {
+  CAQI: order_by
+  sensorId: order_by
+  value: order_by
+}
+
+# aggregate stddev_pop on columns
+type az_measurements_Measurements_stddev_pop_fields {
+  CAQI: Float
+  sensorId: Float
+  value: Float
+}
+
+# order by stddev_pop() on columns of table "az_measurements.Measurements"
+input az_measurements_Measurements_stddev_pop_order_by {
+  CAQI: order_by
+  sensorId: order_by
+  value: order_by
+}
+
+# aggregate stddev_samp on columns
+type az_measurements_Measurements_stddev_samp_fields {
+  CAQI: Float
+  sensorId: Float
+  value: Float
+}
+
+# order by stddev_samp() on columns of table "az_measurements.Measurements"
+input az_measurements_Measurements_stddev_samp_order_by {
+  CAQI: order_by
+  sensorId: order_by
+  value: order_by
+}
+
+# aggregate sum on columns
+type az_measurements_Measurements_sum_fields {
+  CAQI: float8
+  sensorId: Int
+  value: float8
+}
+
+# order by sum() on columns of table "az_measurements.Measurements"
+input az_measurements_Measurements_sum_order_by {
+  CAQI: order_by
+  sensorId: order_by
+  value: order_by
+}
+
+# update columns of table "az_measurements.Measurements"
+enum az_measurements_Measurements_update_column {
+  # column name
+  CAQI
+
+  # column name
+  factorName
+
+  # column name
+  locationPoint
+
+  # column name
+  sensorId
+
+  # column name
+  timestamp
+
+  # column name
+  value
+}
+
+# aggregate var_pop on columns
+type az_measurements_Measurements_var_pop_fields {
+  CAQI: Float
+  sensorId: Float
+  value: Float
+}
+
+# order by var_pop() on columns of table "az_measurements.Measurements"
+input az_measurements_Measurements_var_pop_order_by {
+  CAQI: order_by
+  sensorId: order_by
+  value: order_by
+}
+
+# aggregate var_samp on columns
+type az_measurements_Measurements_var_samp_fields {
+  CAQI: Float
+  sensorId: Float
+  value: Float
+}
+
+# order by var_samp() on columns of table "az_measurements.Measurements"
+input az_measurements_Measurements_var_samp_order_by {
+  CAQI: order_by
+  sensorId: order_by
+  value: order_by
+}
+
+# aggregate variance on columns
+type az_measurements_Measurements_variance_fields {
+  CAQI: Float
+  sensorId: Float
+  value: Float
+}
+
+# order by variance() on columns of table "az_measurements.Measurements"
+input az_measurements_Measurements_variance_order_by {
+  CAQI: order_by
+  sensorId: order_by
+  value: order_by
+}
+
+# columns and relationships of "az_sensors.e_measurement_unit"
+type az_sensors_e_measurement_unit {
+  # An array relationship
+  PollutionFactors(
+    # distinct select on columns
+    distinct_on: [az_sensors_PollutionFactors_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_PollutionFactors_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_PollutionFactors_bool_exp
+  ): [az_sensors_PollutionFactors!]!
+
+  # An aggregated array relationship
+  PollutionFactors_aggregate(
+    # distinct select on columns
+    distinct_on: [az_sensors_PollutionFactors_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_PollutionFactors_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_PollutionFactors_bool_exp
+  ): az_sensors_PollutionFactors_aggregate!
+  description: String
+  value: String!
+}
+
+# aggregated selection of "az_sensors.e_measurement_unit"
+type az_sensors_e_measurement_unit_aggregate {
+  aggregate: az_sensors_e_measurement_unit_aggregate_fields
+  nodes: [az_sensors_e_measurement_unit!]!
+}
+
+# aggregate fields of "az_sensors.e_measurement_unit"
+type az_sensors_e_measurement_unit_aggregate_fields {
+  count(columns: [az_sensors_e_measurement_unit_select_column!], distinct: Boolean): Int
+  max: az_sensors_e_measurement_unit_max_fields
+  min: az_sensors_e_measurement_unit_min_fields
+}
+
+# order by aggregate values of table "az_sensors.e_measurement_unit"
+input az_sensors_e_measurement_unit_aggregate_order_by {
+  count: order_by
+  max: az_sensors_e_measurement_unit_max_order_by
+  min: az_sensors_e_measurement_unit_min_order_by
+}
+
+# input type for inserting array relation for remote table "az_sensors.e_measurement_unit"
+input az_sensors_e_measurement_unit_arr_rel_insert_input {
+  data: [az_sensors_e_measurement_unit_insert_input!]!
+  on_conflict: az_sensors_e_measurement_unit_on_conflict
+}
+
+# Boolean expression to filter rows from the table
+# "az_sensors.e_measurement_unit". All fields are combined with a logical 'AND'.
+input az_sensors_e_measurement_unit_bool_exp {
+  PollutionFactors: az_sensors_PollutionFactors_bool_exp
+  _and: [az_sensors_e_measurement_unit_bool_exp]
+  _not: az_sensors_e_measurement_unit_bool_exp
+  _or: [az_sensors_e_measurement_unit_bool_exp]
+  description: String_comparison_exp
+  value: String_comparison_exp
+}
+
+# unique or primary key constraints on table "az_sensors.e_measurement_unit"
+enum az_sensors_e_measurement_unit_constraint {
+  # unique or primary key constraint
+  e_measurement_unit_pkey
+}
+
+enum az_sensors_e_measurement_unit_enum {
+  # °C
+  celsium
+
+  # °
+  degree
+
+  # hPa
+  hPa
+
+  # km/h
+  kmph
+
+  # µg/m³
+  mgpcm
+
+  # %
+  percent
+}
+
+# expression to compare columns of type az_sensors_e_measurement_unit_enum. All fields are combined with logical 'AND'.
+input az_sensors_e_measurement_unit_enum_comparison_exp {
+  _eq: az_sensors_e_measurement_unit_enum
+  _in: [az_sensors_e_measurement_unit_enum!]
+  _is_null: Boolean
+  _neq: az_sensors_e_measurement_unit_enum
+  _nin: [az_sensors_e_measurement_unit_enum!]
+}
+
+# input type for inserting data into table "az_sensors.e_measurement_unit"
+input az_sensors_e_measurement_unit_insert_input {
+  PollutionFactors: az_sensors_PollutionFactors_arr_rel_insert_input
+  description: String
+  value: String
+}
+
+# aggregate max on columns
+type az_sensors_e_measurement_unit_max_fields {
+  description: String
+  value: String
+}
+
+# order by max() on columns of table "az_sensors.e_measurement_unit"
+input az_sensors_e_measurement_unit_max_order_by {
+  description: order_by
+  value: order_by
+}
+
+# aggregate min on columns
+type az_sensors_e_measurement_unit_min_fields {
+  description: String
+  value: String
+}
+
+# order by min() on columns of table "az_sensors.e_measurement_unit"
+input az_sensors_e_measurement_unit_min_order_by {
+  description: order_by
+  value: order_by
+}
+
+# response of any mutation on the table "az_sensors.e_measurement_unit"
+type az_sensors_e_measurement_unit_mutation_response {
+  # number of affected rows by the mutation
+  affected_rows: Int!
+
+  # data of the affected rows by the mutation
+  returning: [az_sensors_e_measurement_unit!]!
+}
+
+# input type for inserting object relation for remote table "az_sensors.e_measurement_unit"
+input az_sensors_e_measurement_unit_obj_rel_insert_input {
+  data: az_sensors_e_measurement_unit_insert_input!
+  on_conflict: az_sensors_e_measurement_unit_on_conflict
+}
+
+# on conflict condition type for table "az_sensors.e_measurement_unit"
+input az_sensors_e_measurement_unit_on_conflict {
+  constraint: az_sensors_e_measurement_unit_constraint!
+  update_columns: [az_sensors_e_measurement_unit_update_column!]!
+  where: az_sensors_e_measurement_unit_bool_exp
+}
+
+# ordering options when selecting data from "az_sensors.e_measurement_unit"
+input az_sensors_e_measurement_unit_order_by {
+  PollutionFactors_aggregate: az_sensors_PollutionFactors_aggregate_order_by
+  description: order_by
+  value: order_by
+}
+
+# primary key columns input for table: "az_sensors.e_measurement_unit"
+input az_sensors_e_measurement_unit_pk_columns_input {
+  value: String!
+}
+
+# select columns of table "az_sensors.e_measurement_unit"
+enum az_sensors_e_measurement_unit_select_column {
+  # column name
+  description
+
+  # column name
+  value
+}
+
+# input type for updating data in table "az_sensors.e_measurement_unit"
+input az_sensors_e_measurement_unit_set_input {
+  description: String
+  value: String
+}
+
+# update columns of table "az_sensors.e_measurement_unit"
+enum az_sensors_e_measurement_unit_update_column {
+  # column name
+  description
+
+  # column name
+  value
+}
+
+# columns and relationships of "az_sensors.e_service_kind"
+type az_sensors_e_service_kind {
+  # An array relationship
+  ServiceLogs(
+    # distinct select on columns
+    distinct_on: [az_sensors_ServiceLog_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_ServiceLog_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_ServiceLog_bool_exp
+  ): [az_sensors_ServiceLog!]!
+
+  # An aggregated array relationship
+  ServiceLogs_aggregate(
+    # distinct select on columns
+    distinct_on: [az_sensors_ServiceLog_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_ServiceLog_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_ServiceLog_bool_exp
+  ): az_sensors_ServiceLog_aggregate!
+  description: String
+  value: String!
+}
+
+# aggregated selection of "az_sensors.e_service_kind"
+type az_sensors_e_service_kind_aggregate {
+  aggregate: az_sensors_e_service_kind_aggregate_fields
+  nodes: [az_sensors_e_service_kind!]!
+}
+
+# aggregate fields of "az_sensors.e_service_kind"
+type az_sensors_e_service_kind_aggregate_fields {
+  count(columns: [az_sensors_e_service_kind_select_column!], distinct: Boolean): Int
+  max: az_sensors_e_service_kind_max_fields
+  min: az_sensors_e_service_kind_min_fields
+}
+
+# order by aggregate values of table "az_sensors.e_service_kind"
+input az_sensors_e_service_kind_aggregate_order_by {
+  count: order_by
+  max: az_sensors_e_service_kind_max_order_by
+  min: az_sensors_e_service_kind_min_order_by
+}
+
+# input type for inserting array relation for remote table "az_sensors.e_service_kind"
+input az_sensors_e_service_kind_arr_rel_insert_input {
+  data: [az_sensors_e_service_kind_insert_input!]!
+  on_conflict: az_sensors_e_service_kind_on_conflict
+}
+
+# Boolean expression to filter rows from the table "az_sensors.e_service_kind". All fields are combined with a logical 'AND'.
+input az_sensors_e_service_kind_bool_exp {
+  ServiceLogs: az_sensors_ServiceLog_bool_exp
+  _and: [az_sensors_e_service_kind_bool_exp]
+  _not: az_sensors_e_service_kind_bool_exp
+  _or: [az_sensors_e_service_kind_bool_exp]
+  description: String_comparison_exp
+  value: String_comparison_exp
+}
+
+# unique or primary key constraints on table "az_sensors.e_service_kind"
+enum az_sensors_e_service_kind_constraint {
+  # unique or primary key constraint
+  e_service_kind_pkey
+}
+
+enum az_sensors_e_service_kind_enum {
+  Planned
+  Replacement
+  Unscheduled
+}
+
+# expression to compare columns of type az_sensors_e_service_kind_enum. All fields are combined with logical 'AND'.
+input az_sensors_e_service_kind_enum_comparison_exp {
+  _eq: az_sensors_e_service_kind_enum
+  _in: [az_sensors_e_service_kind_enum!]
+  _is_null: Boolean
+  _neq: az_sensors_e_service_kind_enum
+  _nin: [az_sensors_e_service_kind_enum!]
+}
+
+# input type for inserting data into table "az_sensors.e_service_kind"
+input az_sensors_e_service_kind_insert_input {
+  ServiceLogs: az_sensors_ServiceLog_arr_rel_insert_input
+  description: String
+  value: String
+}
+
+# aggregate max on columns
+type az_sensors_e_service_kind_max_fields {
+  description: String
+  value: String
+}
+
+# order by max() on columns of table "az_sensors.e_service_kind"
+input az_sensors_e_service_kind_max_order_by {
+  description: order_by
+  value: order_by
+}
+
+# aggregate min on columns
+type az_sensors_e_service_kind_min_fields {
+  description: String
+  value: String
+}
+
+# order by min() on columns of table "az_sensors.e_service_kind"
+input az_sensors_e_service_kind_min_order_by {
+  description: order_by
+  value: order_by
+}
+
+# response of any mutation on the table "az_sensors.e_service_kind"
+type az_sensors_e_service_kind_mutation_response {
+  # number of affected rows by the mutation
+  affected_rows: Int!
+
+  # data of the affected rows by the mutation
+  returning: [az_sensors_e_service_kind!]!
+}
+
+# input type for inserting object relation for remote table "az_sensors.e_service_kind"
+input az_sensors_e_service_kind_obj_rel_insert_input {
+  data: az_sensors_e_service_kind_insert_input!
+  on_conflict: az_sensors_e_service_kind_on_conflict
+}
+
+# on conflict condition type for table "az_sensors.e_service_kind"
+input az_sensors_e_service_kind_on_conflict {
+  constraint: az_sensors_e_service_kind_constraint!
+  update_columns: [az_sensors_e_service_kind_update_column!]!
+  where: az_sensors_e_service_kind_bool_exp
+}
+
+# ordering options when selecting data from "az_sensors.e_service_kind"
+input az_sensors_e_service_kind_order_by {
+  ServiceLogs_aggregate: az_sensors_ServiceLog_aggregate_order_by
+  description: order_by
+  value: order_by
+}
+
+# primary key columns input for table: "az_sensors.e_service_kind"
+input az_sensors_e_service_kind_pk_columns_input {
+  value: String!
+}
+
+# select columns of table "az_sensors.e_service_kind"
+enum az_sensors_e_service_kind_select_column {
+  # column name
+  description
+
+  # column name
+  value
+}
+
+# input type for updating data in table "az_sensors.e_service_kind"
+input az_sensors_e_service_kind_set_input {
+  description: String
+  value: String
+}
+
+# update columns of table "az_sensors.e_service_kind"
+enum az_sensors_e_service_kind_update_column {
+  # column name
+  description
+
+  # column name
+  value
+}
+
+# columns and relationships of "az_sensors.Locations"
+type az_sensors_Locations {
+  # An object relationship
+  Document: az_docs_Documents
+
+  # An array relationship
+  Sensors(
+    # distinct select on columns
+    distinct_on: [az_sensors_Sensors_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_Sensors_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_Sensors_bool_exp
+  ): [az_sensors_Sensors!]!
+
+  # An aggregated array relationship
+  Sensors_aggregate(
+    # distinct select on columns
+    distinct_on: [az_sensors_Sensors_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_Sensors_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_Sensors_bool_exp
+  ): az_sensors_Sensors_aggregate!
+  address: String
+  airlyLink: String
+  documentId: Int
+  elevation: float8!
+  locationId: Int!
+  locationPoint: point!
+  mapsLink: String
+}
+
+# aggregated selection of "az_sensors.Locations"
+type az_sensors_Locations_aggregate {
+  aggregate: az_sensors_Locations_aggregate_fields
+  nodes: [az_sensors_Locations!]!
+}
+
+# aggregate fields of "az_sensors.Locations"
+type az_sensors_Locations_aggregate_fields {
+  avg: az_sensors_Locations_avg_fields
+  count(columns: [az_sensors_Locations_select_column!], distinct: Boolean): Int
+  max: az_sensors_Locations_max_fields
+  min: az_sensors_Locations_min_fields
+  stddev: az_sensors_Locations_stddev_fields
+  stddev_pop: az_sensors_Locations_stddev_pop_fields
+  stddev_samp: az_sensors_Locations_stddev_samp_fields
+  sum: az_sensors_Locations_sum_fields
+  var_pop: az_sensors_Locations_var_pop_fields
+  var_samp: az_sensors_Locations_var_samp_fields
+  variance: az_sensors_Locations_variance_fields
+}
+
+# order by aggregate values of table "az_sensors.Locations"
+input az_sensors_Locations_aggregate_order_by {
+  avg: az_sensors_Locations_avg_order_by
+  count: order_by
+  max: az_sensors_Locations_max_order_by
+  min: az_sensors_Locations_min_order_by
+  stddev: az_sensors_Locations_stddev_order_by
+  stddev_pop: az_sensors_Locations_stddev_pop_order_by
+  stddev_samp: az_sensors_Locations_stddev_samp_order_by
+  sum: az_sensors_Locations_sum_order_by
+  var_pop: az_sensors_Locations_var_pop_order_by
+  var_samp: az_sensors_Locations_var_samp_order_by
+  variance: az_sensors_Locations_variance_order_by
+}
+
+# input type for inserting array relation for remote table "az_sensors.Locations"
+input az_sensors_Locations_arr_rel_insert_input {
+  data: [az_sensors_Locations_insert_input!]!
+  on_conflict: az_sensors_Locations_on_conflict
+}
+
+# aggregate avg on columns
+type az_sensors_Locations_avg_fields {
+  documentId: Float
+  elevation: Float
+  locationId: Float
+}
+
+# order by avg() on columns of table "az_sensors.Locations"
+input az_sensors_Locations_avg_order_by {
+  documentId: order_by
+  elevation: order_by
+  locationId: order_by
+}
+
+# Boolean expression to filter rows from the table "az_sensors.Locations". All fields are combined with a logical 'AND'.
+input az_sensors_Locations_bool_exp {
+  Document: az_docs_Documents_bool_exp
+  Sensors: az_sensors_Sensors_bool_exp
+  _and: [az_sensors_Locations_bool_exp]
+  _not: az_sensors_Locations_bool_exp
+  _or: [az_sensors_Locations_bool_exp]
+  address: String_comparison_exp
+  airlyLink: String_comparison_exp
+  documentId: Int_comparison_exp
+  elevation: float8_comparison_exp
+  locationId: Int_comparison_exp
+  locationPoint: point_comparison_exp
+  mapsLink: String_comparison_exp
+}
+
+# unique or primary key constraints on table "az_sensors.Locations"
+enum az_sensors_Locations_constraint {
+  # unique or primary key constraint
+  Locations_pkey
+}
+
+# input type for incrementing integer column in table "az_sensors.Locations"
+input az_sensors_Locations_inc_input {
+  documentId: Int
+  elevation: float8
+  locationId: Int
+}
+
+# input type for inserting data into table "az_sensors.Locations"
+input az_sensors_Locations_insert_input {
+  Document: az_docs_Documents_obj_rel_insert_input
+  Sensors: az_sensors_Sensors_arr_rel_insert_input
+  address: String
+  airlyLink: String
+  documentId: Int
+  elevation: float8
+  locationId: Int
+  locationPoint: point
+  mapsLink: String
+}
+
+# aggregate max on columns
+type az_sensors_Locations_max_fields {
+  address: String
+  airlyLink: String
+  documentId: Int
+  elevation: float8
+  locationId: Int
+  mapsLink: String
+}
+
+# order by max() on columns of table "az_sensors.Locations"
+input az_sensors_Locations_max_order_by {
+  address: order_by
+  airlyLink: order_by
+  documentId: order_by
+  elevation: order_by
+  locationId: order_by
+  mapsLink: order_by
+}
+
+# aggregate min on columns
+type az_sensors_Locations_min_fields {
+  address: String
+  airlyLink: String
+  documentId: Int
+  elevation: float8
+  locationId: Int
+  mapsLink: String
+}
+
+# order by min() on columns of table "az_sensors.Locations"
+input az_sensors_Locations_min_order_by {
+  address: order_by
+  airlyLink: order_by
+  documentId: order_by
+  elevation: order_by
+  locationId: order_by
+  mapsLink: order_by
+}
+
+# response of any mutation on the table "az_sensors.Locations"
+type az_sensors_Locations_mutation_response {
+  # number of affected rows by the mutation
+  affected_rows: Int!
+
+  # data of the affected rows by the mutation
+  returning: [az_sensors_Locations!]!
+}
+
+# input type for inserting object relation for remote table "az_sensors.Locations"
+input az_sensors_Locations_obj_rel_insert_input {
+  data: az_sensors_Locations_insert_input!
+  on_conflict: az_sensors_Locations_on_conflict
+}
+
+# on conflict condition type for table "az_sensors.Locations"
+input az_sensors_Locations_on_conflict {
+  constraint: az_sensors_Locations_constraint!
+  update_columns: [az_sensors_Locations_update_column!]!
+  where: az_sensors_Locations_bool_exp
+}
+
+# ordering options when selecting data from "az_sensors.Locations"
+input az_sensors_Locations_order_by {
+  Document: az_docs_Documents_order_by
+  Sensors_aggregate: az_sensors_Sensors_aggregate_order_by
+  address: order_by
+  airlyLink: order_by
+  documentId: order_by
+  elevation: order_by
+  locationId: order_by
+  locationPoint: order_by
+  mapsLink: order_by
+}
+
+# primary key columns input for table: "az_sensors.Locations"
+input az_sensors_Locations_pk_columns_input {
+  locationId: Int!
+}
+
+# select columns of table "az_sensors.Locations"
+enum az_sensors_Locations_select_column {
+  # column name
+  address
+
+  # column name
+  airlyLink
+
+  # column name
+  documentId
+
+  # column name
+  elevation
+
+  # column name
+  locationId
+
+  # column name
+  locationPoint
+
+  # column name
+  mapsLink
+}
+
+# input type for updating data in table "az_sensors.Locations"
+input az_sensors_Locations_set_input {
+  address: String
+  airlyLink: String
+  documentId: Int
+  elevation: float8
+  locationId: Int
+  locationPoint: point
+  mapsLink: String
+}
+
+# aggregate stddev on columns
+type az_sensors_Locations_stddev_fields {
+  documentId: Float
+  elevation: Float
+  locationId: Float
+}
+
+# order by stddev() on columns of table "az_sensors.Locations"
+input az_sensors_Locations_stddev_order_by {
+  documentId: order_by
+  elevation: order_by
+  locationId: order_by
+}
+
+# aggregate stddev_pop on columns
+type az_sensors_Locations_stddev_pop_fields {
+  documentId: Float
+  elevation: Float
+  locationId: Float
+}
+
+# order by stddev_pop() on columns of table "az_sensors.Locations"
+input az_sensors_Locations_stddev_pop_order_by {
+  documentId: order_by
+  elevation: order_by
+  locationId: order_by
+}
+
+# aggregate stddev_samp on columns
+type az_sensors_Locations_stddev_samp_fields {
+  documentId: Float
+  elevation: Float
+  locationId: Float
+}
+
+# order by stddev_samp() on columns of table "az_sensors.Locations"
+input az_sensors_Locations_stddev_samp_order_by {
+  documentId: order_by
+  elevation: order_by
+  locationId: order_by
+}
+
+# aggregate sum on columns
+type az_sensors_Locations_sum_fields {
+  documentId: Int
+  elevation: float8
+  locationId: Int
+}
+
+# order by sum() on columns of table "az_sensors.Locations"
+input az_sensors_Locations_sum_order_by {
+  documentId: order_by
+  elevation: order_by
+  locationId: order_by
+}
+
+# update columns of table "az_sensors.Locations"
+enum az_sensors_Locations_update_column {
+  # column name
+  address
+
+  # column name
+  airlyLink
+
+  # column name
+  documentId
+
+  # column name
+  elevation
+
+  # column name
+  locationId
+
+  # column name
+  locationPoint
+
+  # column name
+  mapsLink
+}
+
+# aggregate var_pop on columns
+type az_sensors_Locations_var_pop_fields {
+  documentId: Float
+  elevation: Float
+  locationId: Float
+}
+
+# order by var_pop() on columns of table "az_sensors.Locations"
+input az_sensors_Locations_var_pop_order_by {
+  documentId: order_by
+  elevation: order_by
+  locationId: order_by
+}
+
+# aggregate var_samp on columns
+type az_sensors_Locations_var_samp_fields {
+  documentId: Float
+  elevation: Float
+  locationId: Float
+}
+
+# order by var_samp() on columns of table "az_sensors.Locations"
+input az_sensors_Locations_var_samp_order_by {
+  documentId: order_by
+  elevation: order_by
+  locationId: order_by
+}
+
+# aggregate variance on columns
+type az_sensors_Locations_variance_fields {
+  documentId: Float
+  elevation: Float
+  locationId: Float
+}
+
+# order by variance() on columns of table "az_sensors.Locations"
+input az_sensors_Locations_variance_order_by {
+  documentId: order_by
+  elevation: order_by
+  locationId: order_by
+}
+
+# columns and relationships of "az_sensors.PollutionFactors"
+type az_sensors_PollutionFactors {
+  # An array relationship
+  Measurements(
+    # distinct select on columns
+    distinct_on: [az_measurements_Measurements_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_measurements_Measurements_order_by!]
+
+    # filter the rows returned
+    where: az_measurements_Measurements_bool_exp
+  ): [az_measurements_Measurements!]!
+
+  # An aggregated array relationship
+  Measurements_aggregate(
+    # distinct select on columns
+    distinct_on: [az_measurements_Measurements_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_measurements_Measurements_order_by!]
+
+    # filter the rows returned
+    where: az_measurements_Measurements_bool_exp
+  ): az_measurements_Measurements_aggregate!
+
+  # An array relationship
+  SensorFactors(
+    # distinct select on columns
+    distinct_on: [az_sensors_SensorFactors_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_SensorFactors_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_SensorFactors_bool_exp
+  ): [az_sensors_SensorFactors!]!
+
+  # An aggregated array relationship
+  SensorFactors_aggregate(
+    # distinct select on columns
+    distinct_on: [az_sensors_SensorFactors_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_SensorFactors_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_SensorFactors_bool_exp
+  ): az_sensors_SensorFactors_aggregate!
+
+  # An object relationship
+  e_measurement_unit: az_sensors_e_measurement_unit
+  label: String!
+  maxValue: float8
+  name: String!
+  ukrainianLabel: String
+  unit: az_sensors_e_measurement_unit_enum
+}
+
+# aggregated selection of "az_sensors.PollutionFactors"
+type az_sensors_PollutionFactors_aggregate {
+  aggregate: az_sensors_PollutionFactors_aggregate_fields
+  nodes: [az_sensors_PollutionFactors!]!
+}
+
+# aggregate fields of "az_sensors.PollutionFactors"
+type az_sensors_PollutionFactors_aggregate_fields {
+  avg: az_sensors_PollutionFactors_avg_fields
+  count(columns: [az_sensors_PollutionFactors_select_column!], distinct: Boolean): Int
+  max: az_sensors_PollutionFactors_max_fields
+  min: az_sensors_PollutionFactors_min_fields
+  stddev: az_sensors_PollutionFactors_stddev_fields
+  stddev_pop: az_sensors_PollutionFactors_stddev_pop_fields
+  stddev_samp: az_sensors_PollutionFactors_stddev_samp_fields
+  sum: az_sensors_PollutionFactors_sum_fields
+  var_pop: az_sensors_PollutionFactors_var_pop_fields
+  var_samp: az_sensors_PollutionFactors_var_samp_fields
+  variance: az_sensors_PollutionFactors_variance_fields
+}
+
+# order by aggregate values of table "az_sensors.PollutionFactors"
+input az_sensors_PollutionFactors_aggregate_order_by {
+  avg: az_sensors_PollutionFactors_avg_order_by
+  count: order_by
+  max: az_sensors_PollutionFactors_max_order_by
+  min: az_sensors_PollutionFactors_min_order_by
+  stddev: az_sensors_PollutionFactors_stddev_order_by
+  stddev_pop: az_sensors_PollutionFactors_stddev_pop_order_by
+  stddev_samp: az_sensors_PollutionFactors_stddev_samp_order_by
+  sum: az_sensors_PollutionFactors_sum_order_by
+  var_pop: az_sensors_PollutionFactors_var_pop_order_by
+  var_samp: az_sensors_PollutionFactors_var_samp_order_by
+  variance: az_sensors_PollutionFactors_variance_order_by
+}
+
+# input type for inserting array relation for remote table "az_sensors.PollutionFactors"
+input az_sensors_PollutionFactors_arr_rel_insert_input {
+  data: [az_sensors_PollutionFactors_insert_input!]!
+  on_conflict: az_sensors_PollutionFactors_on_conflict
+}
+
+# aggregate avg on columns
+type az_sensors_PollutionFactors_avg_fields {
+  maxValue: Float
+}
+
+# order by avg() on columns of table "az_sensors.PollutionFactors"
+input az_sensors_PollutionFactors_avg_order_by {
+  maxValue: order_by
+}
+
+# Boolean expression to filter rows from the table "az_sensors.PollutionFactors".
+# All fields are combined with a logical 'AND'.
+input az_sensors_PollutionFactors_bool_exp {
+  Measurements: az_measurements_Measurements_bool_exp
+  SensorFactors: az_sensors_SensorFactors_bool_exp
+  _and: [az_sensors_PollutionFactors_bool_exp]
+  _not: az_sensors_PollutionFactors_bool_exp
+  _or: [az_sensors_PollutionFactors_bool_exp]
+  e_measurement_unit: az_sensors_e_measurement_unit_bool_exp
+  label: String_comparison_exp
+  maxValue: float8_comparison_exp
+  name: String_comparison_exp
+  ukrainianLabel: String_comparison_exp
+  unit: az_sensors_e_measurement_unit_enum_comparison_exp
+}
+
+# unique or primary key constraints on table "az_sensors.PollutionFactors"
+enum az_sensors_PollutionFactors_constraint {
+  # unique or primary key constraint
+  PollutionFactors_pkey
+}
+
+# input type for incrementing integer column in table "az_sensors.PollutionFactors"
+input az_sensors_PollutionFactors_inc_input {
+  maxValue: float8
+}
+
+# input type for inserting data into table "az_sensors.PollutionFactors"
+input az_sensors_PollutionFactors_insert_input {
+  Measurements: az_measurements_Measurements_arr_rel_insert_input
+  SensorFactors: az_sensors_SensorFactors_arr_rel_insert_input
+  e_measurement_unit: az_sensors_e_measurement_unit_obj_rel_insert_input
+  label: String
+  maxValue: float8
+  name: String
+  ukrainianLabel: String
+  unit: az_sensors_e_measurement_unit_enum
+}
+
+# aggregate max on columns
+type az_sensors_PollutionFactors_max_fields {
+  label: String
+  maxValue: float8
+  name: String
+  ukrainianLabel: String
+}
+
+# order by max() on columns of table "az_sensors.PollutionFactors"
+input az_sensors_PollutionFactors_max_order_by {
+  label: order_by
+  maxValue: order_by
+  name: order_by
+  ukrainianLabel: order_by
+}
+
+# aggregate min on columns
+type az_sensors_PollutionFactors_min_fields {
+  label: String
+  maxValue: float8
+  name: String
+  ukrainianLabel: String
+}
+
+# order by min() on columns of table "az_sensors.PollutionFactors"
+input az_sensors_PollutionFactors_min_order_by {
+  label: order_by
+  maxValue: order_by
+  name: order_by
+  ukrainianLabel: order_by
+}
+
+# response of any mutation on the table "az_sensors.PollutionFactors"
+type az_sensors_PollutionFactors_mutation_response {
+  # number of affected rows by the mutation
+  affected_rows: Int!
+
+  # data of the affected rows by the mutation
+  returning: [az_sensors_PollutionFactors!]!
+}
+
+# input type for inserting object relation for remote table "az_sensors.PollutionFactors"
+input az_sensors_PollutionFactors_obj_rel_insert_input {
+  data: az_sensors_PollutionFactors_insert_input!
+  on_conflict: az_sensors_PollutionFactors_on_conflict
+}
+
+# on conflict condition type for table "az_sensors.PollutionFactors"
+input az_sensors_PollutionFactors_on_conflict {
+  constraint: az_sensors_PollutionFactors_constraint!
+  update_columns: [az_sensors_PollutionFactors_update_column!]!
+  where: az_sensors_PollutionFactors_bool_exp
+}
+
+# ordering options when selecting data from "az_sensors.PollutionFactors"
+input az_sensors_PollutionFactors_order_by {
+  Measurements_aggregate: az_measurements_Measurements_aggregate_order_by
+  SensorFactors_aggregate: az_sensors_SensorFactors_aggregate_order_by
+  e_measurement_unit: az_sensors_e_measurement_unit_order_by
+  label: order_by
+  maxValue: order_by
+  name: order_by
+  ukrainianLabel: order_by
+  unit: order_by
+}
+
+# primary key columns input for table: "az_sensors.PollutionFactors"
+input az_sensors_PollutionFactors_pk_columns_input {
+  name: String!
+}
+
+# select columns of table "az_sensors.PollutionFactors"
+enum az_sensors_PollutionFactors_select_column {
+  # column name
+  label
+
+  # column name
+  maxValue
+
+  # column name
+  name
+
+  # column name
+  ukrainianLabel
+
+  # column name
+  unit
+}
+
+# input type for updating data in table "az_sensors.PollutionFactors"
+input az_sensors_PollutionFactors_set_input {
+  label: String
+  maxValue: float8
+  name: String
+  ukrainianLabel: String
+  unit: az_sensors_e_measurement_unit_enum
+}
+
+# aggregate stddev on columns
+type az_sensors_PollutionFactors_stddev_fields {
+  maxValue: Float
+}
+
+# order by stddev() on columns of table "az_sensors.PollutionFactors"
+input az_sensors_PollutionFactors_stddev_order_by {
+  maxValue: order_by
+}
+
+# aggregate stddev_pop on columns
+type az_sensors_PollutionFactors_stddev_pop_fields {
+  maxValue: Float
+}
+
+# order by stddev_pop() on columns of table "az_sensors.PollutionFactors"
+input az_sensors_PollutionFactors_stddev_pop_order_by {
+  maxValue: order_by
+}
+
+# aggregate stddev_samp on columns
+type az_sensors_PollutionFactors_stddev_samp_fields {
+  maxValue: Float
+}
+
+# order by stddev_samp() on columns of table "az_sensors.PollutionFactors"
+input az_sensors_PollutionFactors_stddev_samp_order_by {
+  maxValue: order_by
+}
+
+# aggregate sum on columns
+type az_sensors_PollutionFactors_sum_fields {
+  maxValue: float8
+}
+
+# order by sum() on columns of table "az_sensors.PollutionFactors"
+input az_sensors_PollutionFactors_sum_order_by {
+  maxValue: order_by
+}
+
+# update columns of table "az_sensors.PollutionFactors"
+enum az_sensors_PollutionFactors_update_column {
+  # column name
+  label
+
+  # column name
+  maxValue
+
+  # column name
+  name
+
+  # column name
+  ukrainianLabel
+
+  # column name
+  unit
+}
+
+# aggregate var_pop on columns
+type az_sensors_PollutionFactors_var_pop_fields {
+  maxValue: Float
+}
+
+# order by var_pop() on columns of table "az_sensors.PollutionFactors"
+input az_sensors_PollutionFactors_var_pop_order_by {
+  maxValue: order_by
+}
+
+# aggregate var_samp on columns
+type az_sensors_PollutionFactors_var_samp_fields {
+  maxValue: Float
+}
+
+# order by var_samp() on columns of table "az_sensors.PollutionFactors"
+input az_sensors_PollutionFactors_var_samp_order_by {
+  maxValue: order_by
+}
+
+# aggregate variance on columns
+type az_sensors_PollutionFactors_variance_fields {
+  maxValue: Float
+}
+
+# order by variance() on columns of table "az_sensors.PollutionFactors"
+input az_sensors_PollutionFactors_variance_order_by {
+  maxValue: order_by
+}
+
+# columns and relationships of "az_sensors.SensorFactors"
+type az_sensors_SensorFactors {
+  # An object relationship
+  PollutionFactor: az_sensors_PollutionFactors!
+
+  # An object relationship
+  Sensor: az_sensors_Sensors!
+  factorName: String!
+  sensorId: Int!
+}
+
+# aggregated selection of "az_sensors.SensorFactors"
+type az_sensors_SensorFactors_aggregate {
+  aggregate: az_sensors_SensorFactors_aggregate_fields
+  nodes: [az_sensors_SensorFactors!]!
+}
+
+# aggregate fields of "az_sensors.SensorFactors"
+type az_sensors_SensorFactors_aggregate_fields {
+  avg: az_sensors_SensorFactors_avg_fields
+  count(columns: [az_sensors_SensorFactors_select_column!], distinct: Boolean): Int
+  max: az_sensors_SensorFactors_max_fields
+  min: az_sensors_SensorFactors_min_fields
+  stddev: az_sensors_SensorFactors_stddev_fields
+  stddev_pop: az_sensors_SensorFactors_stddev_pop_fields
+  stddev_samp: az_sensors_SensorFactors_stddev_samp_fields
+  sum: az_sensors_SensorFactors_sum_fields
+  var_pop: az_sensors_SensorFactors_var_pop_fields
+  var_samp: az_sensors_SensorFactors_var_samp_fields
+  variance: az_sensors_SensorFactors_variance_fields
+}
+
+# order by aggregate values of table "az_sensors.SensorFactors"
+input az_sensors_SensorFactors_aggregate_order_by {
+  avg: az_sensors_SensorFactors_avg_order_by
+  count: order_by
+  max: az_sensors_SensorFactors_max_order_by
+  min: az_sensors_SensorFactors_min_order_by
+  stddev: az_sensors_SensorFactors_stddev_order_by
+  stddev_pop: az_sensors_SensorFactors_stddev_pop_order_by
+  stddev_samp: az_sensors_SensorFactors_stddev_samp_order_by
+  sum: az_sensors_SensorFactors_sum_order_by
+  var_pop: az_sensors_SensorFactors_var_pop_order_by
+  var_samp: az_sensors_SensorFactors_var_samp_order_by
+  variance: az_sensors_SensorFactors_variance_order_by
+}
+
+# input type for inserting array relation for remote table "az_sensors.SensorFactors"
+input az_sensors_SensorFactors_arr_rel_insert_input {
+  data: [az_sensors_SensorFactors_insert_input!]!
+  on_conflict: az_sensors_SensorFactors_on_conflict
+}
+
+# aggregate avg on columns
+type az_sensors_SensorFactors_avg_fields {
+  sensorId: Float
+}
+
+# order by avg() on columns of table "az_sensors.SensorFactors"
+input az_sensors_SensorFactors_avg_order_by {
+  sensorId: order_by
+}
+
+# Boolean expression to filter rows from the table "az_sensors.SensorFactors". All fields are combined with a logical 'AND'.
+input az_sensors_SensorFactors_bool_exp {
+  PollutionFactor: az_sensors_PollutionFactors_bool_exp
+  Sensor: az_sensors_Sensors_bool_exp
+  _and: [az_sensors_SensorFactors_bool_exp]
+  _not: az_sensors_SensorFactors_bool_exp
+  _or: [az_sensors_SensorFactors_bool_exp]
+  factorName: String_comparison_exp
+  sensorId: Int_comparison_exp
+}
+
+# unique or primary key constraints on table "az_sensors.SensorFactors"
+enum az_sensors_SensorFactors_constraint {
+  # unique or primary key constraint
+  SensorFactors_pkey
+}
+
+# input type for incrementing integer column in table "az_sensors.SensorFactors"
+input az_sensors_SensorFactors_inc_input {
+  sensorId: Int
+}
+
+# input type for inserting data into table "az_sensors.SensorFactors"
+input az_sensors_SensorFactors_insert_input {
+  PollutionFactor: az_sensors_PollutionFactors_obj_rel_insert_input
+  Sensor: az_sensors_Sensors_obj_rel_insert_input
+  factorName: String
+  sensorId: Int
+}
+
+# aggregate max on columns
+type az_sensors_SensorFactors_max_fields {
+  factorName: String
+  sensorId: Int
+}
+
+# order by max() on columns of table "az_sensors.SensorFactors"
+input az_sensors_SensorFactors_max_order_by {
+  factorName: order_by
+  sensorId: order_by
+}
+
+# aggregate min on columns
+type az_sensors_SensorFactors_min_fields {
+  factorName: String
+  sensorId: Int
+}
+
+# order by min() on columns of table "az_sensors.SensorFactors"
+input az_sensors_SensorFactors_min_order_by {
+  factorName: order_by
+  sensorId: order_by
+}
+
+# response of any mutation on the table "az_sensors.SensorFactors"
+type az_sensors_SensorFactors_mutation_response {
+  # number of affected rows by the mutation
+  affected_rows: Int!
+
+  # data of the affected rows by the mutation
+  returning: [az_sensors_SensorFactors!]!
+}
+
+# input type for inserting object relation for remote table "az_sensors.SensorFactors"
+input az_sensors_SensorFactors_obj_rel_insert_input {
+  data: az_sensors_SensorFactors_insert_input!
+  on_conflict: az_sensors_SensorFactors_on_conflict
+}
+
+# on conflict condition type for table "az_sensors.SensorFactors"
+input az_sensors_SensorFactors_on_conflict {
+  constraint: az_sensors_SensorFactors_constraint!
+  update_columns: [az_sensors_SensorFactors_update_column!]!
+  where: az_sensors_SensorFactors_bool_exp
+}
+
+# ordering options when selecting data from "az_sensors.SensorFactors"
+input az_sensors_SensorFactors_order_by {
+  PollutionFactor: az_sensors_PollutionFactors_order_by
+  Sensor: az_sensors_Sensors_order_by
+  factorName: order_by
+  sensorId: order_by
+}
+
+# primary key columns input for table: "az_sensors.SensorFactors"
+input az_sensors_SensorFactors_pk_columns_input {
+  factorName: String!
+  sensorId: Int!
+}
+
+# select columns of table "az_sensors.SensorFactors"
+enum az_sensors_SensorFactors_select_column {
+  # column name
+  factorName
+
+  # column name
+  sensorId
+}
+
+# input type for updating data in table "az_sensors.SensorFactors"
+input az_sensors_SensorFactors_set_input {
+  factorName: String
+  sensorId: Int
+}
+
+# aggregate stddev on columns
+type az_sensors_SensorFactors_stddev_fields {
+  sensorId: Float
+}
+
+# order by stddev() on columns of table "az_sensors.SensorFactors"
+input az_sensors_SensorFactors_stddev_order_by {
+  sensorId: order_by
+}
+
+# aggregate stddev_pop on columns
+type az_sensors_SensorFactors_stddev_pop_fields {
+  sensorId: Float
+}
+
+# order by stddev_pop() on columns of table "az_sensors.SensorFactors"
+input az_sensors_SensorFactors_stddev_pop_order_by {
+  sensorId: order_by
+}
+
+# aggregate stddev_samp on columns
+type az_sensors_SensorFactors_stddev_samp_fields {
+  sensorId: Float
+}
+
+# order by stddev_samp() on columns of table "az_sensors.SensorFactors"
+input az_sensors_SensorFactors_stddev_samp_order_by {
+  sensorId: order_by
+}
+
+# aggregate sum on columns
+type az_sensors_SensorFactors_sum_fields {
+  sensorId: Int
+}
+
+# order by sum() on columns of table "az_sensors.SensorFactors"
+input az_sensors_SensorFactors_sum_order_by {
+  sensorId: order_by
+}
+
+# update columns of table "az_sensors.SensorFactors"
+enum az_sensors_SensorFactors_update_column {
+  # column name
+  factorName
+
+  # column name
+  sensorId
+}
+
+# aggregate var_pop on columns
+type az_sensors_SensorFactors_var_pop_fields {
+  sensorId: Float
+}
+
+# order by var_pop() on columns of table "az_sensors.SensorFactors"
+input az_sensors_SensorFactors_var_pop_order_by {
+  sensorId: order_by
+}
+
+# aggregate var_samp on columns
+type az_sensors_SensorFactors_var_samp_fields {
+  sensorId: Float
+}
+
+# order by var_samp() on columns of table "az_sensors.SensorFactors"
+input az_sensors_SensorFactors_var_samp_order_by {
+  sensorId: order_by
+}
+
+# aggregate variance on columns
+type az_sensors_SensorFactors_variance_fields {
+  sensorId: Float
+}
+
+# order by variance() on columns of table "az_sensors.SensorFactors"
+input az_sensors_SensorFactors_variance_order_by {
+  sensorId: order_by
+}
+
+# columns and relationships of "az_sensors.Sensors"
+type az_sensors_Sensors {
+  # An object relationship
+  Location: az_sensors_Locations!
+
+  # An array relationship
+  Measurements(
+    # distinct select on columns
+    distinct_on: [az_measurements_Measurements_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_measurements_Measurements_order_by!]
+
+    # filter the rows returned
+    where: az_measurements_Measurements_bool_exp
+  ): [az_measurements_Measurements!]!
+
+  # An aggregated array relationship
+  Measurements_aggregate(
+    # distinct select on columns
+    distinct_on: [az_measurements_Measurements_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_measurements_Measurements_order_by!]
+
+    # filter the rows returned
+    where: az_measurements_Measurements_bool_exp
+  ): az_measurements_Measurements_aggregate!
+
+  # An array relationship
+  SensorFactors(
+    # distinct select on columns
+    distinct_on: [az_sensors_SensorFactors_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_SensorFactors_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_SensorFactors_bool_exp
+  ): [az_sensors_SensorFactors!]!
+
+  # An aggregated array relationship
+  SensorFactors_aggregate(
+    # distinct select on columns
+    distinct_on: [az_sensors_SensorFactors_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_SensorFactors_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_SensorFactors_bool_exp
+  ): az_sensors_SensorFactors_aggregate!
+
+  # An array relationship
+  ServiceLogs(
+    # distinct select on columns
+    distinct_on: [az_sensors_ServiceLog_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_ServiceLog_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_ServiceLog_bool_exp
+  ): [az_sensors_ServiceLog!]!
+
+  # An aggregated array relationship
+  ServiceLogs_aggregate(
+    # distinct select on columns
+    distinct_on: [az_sensors_ServiceLog_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_ServiceLog_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_ServiceLog_bool_exp
+  ): az_sensors_ServiceLog_aggregate!
+  isActive: Boolean!
+  locationId: Int!
+  manufacturer: String
+  model: String
+  sensorId: Int!
+  sideNumber: Int
+}
+
+# aggregated selection of "az_sensors.Sensors"
+type az_sensors_Sensors_aggregate {
+  aggregate: az_sensors_Sensors_aggregate_fields
+  nodes: [az_sensors_Sensors!]!
+}
+
+# aggregate fields of "az_sensors.Sensors"
+type az_sensors_Sensors_aggregate_fields {
+  avg: az_sensors_Sensors_avg_fields
+  count(columns: [az_sensors_Sensors_select_column!], distinct: Boolean): Int
+  max: az_sensors_Sensors_max_fields
+  min: az_sensors_Sensors_min_fields
+  stddev: az_sensors_Sensors_stddev_fields
+  stddev_pop: az_sensors_Sensors_stddev_pop_fields
+  stddev_samp: az_sensors_Sensors_stddev_samp_fields
+  sum: az_sensors_Sensors_sum_fields
+  var_pop: az_sensors_Sensors_var_pop_fields
+  var_samp: az_sensors_Sensors_var_samp_fields
+  variance: az_sensors_Sensors_variance_fields
+}
+
+# order by aggregate values of table "az_sensors.Sensors"
+input az_sensors_Sensors_aggregate_order_by {
+  avg: az_sensors_Sensors_avg_order_by
+  count: order_by
+  max: az_sensors_Sensors_max_order_by
+  min: az_sensors_Sensors_min_order_by
+  stddev: az_sensors_Sensors_stddev_order_by
+  stddev_pop: az_sensors_Sensors_stddev_pop_order_by
+  stddev_samp: az_sensors_Sensors_stddev_samp_order_by
+  sum: az_sensors_Sensors_sum_order_by
+  var_pop: az_sensors_Sensors_var_pop_order_by
+  var_samp: az_sensors_Sensors_var_samp_order_by
+  variance: az_sensors_Sensors_variance_order_by
+}
+
+# input type for inserting array relation for remote table "az_sensors.Sensors"
+input az_sensors_Sensors_arr_rel_insert_input {
+  data: [az_sensors_Sensors_insert_input!]!
+  on_conflict: az_sensors_Sensors_on_conflict
+}
+
+# aggregate avg on columns
+type az_sensors_Sensors_avg_fields {
+  locationId: Float
+  sensorId: Float
+  sideNumber: Float
+}
+
+# order by avg() on columns of table "az_sensors.Sensors"
+input az_sensors_Sensors_avg_order_by {
+  locationId: order_by
+  sensorId: order_by
+  sideNumber: order_by
+}
+
+# Boolean expression to filter rows from the table "az_sensors.Sensors". All fields are combined with a logical 'AND'.
+input az_sensors_Sensors_bool_exp {
+  Location: az_sensors_Locations_bool_exp
+  Measurements: az_measurements_Measurements_bool_exp
+  SensorFactors: az_sensors_SensorFactors_bool_exp
+  ServiceLogs: az_sensors_ServiceLog_bool_exp
+  _and: [az_sensors_Sensors_bool_exp]
+  _not: az_sensors_Sensors_bool_exp
+  _or: [az_sensors_Sensors_bool_exp]
+  isActive: Boolean_comparison_exp
+  locationId: Int_comparison_exp
+  manufacturer: String_comparison_exp
+  model: String_comparison_exp
+  sensorId: Int_comparison_exp
+  sideNumber: Int_comparison_exp
+}
+
+# unique or primary key constraints on table "az_sensors.Sensors"
+enum az_sensors_Sensors_constraint {
+  # unique or primary key constraint
+  Sensors_pkey
+
+  # unique or primary key constraint
+  Sensors_sensorId_locationId_key
+}
+
+# input type for incrementing integer column in table "az_sensors.Sensors"
+input az_sensors_Sensors_inc_input {
+  locationId: Int
+  sensorId: Int
+  sideNumber: Int
+}
+
+# input type for inserting data into table "az_sensors.Sensors"
+input az_sensors_Sensors_insert_input {
+  Location: az_sensors_Locations_obj_rel_insert_input
+  Measurements: az_measurements_Measurements_arr_rel_insert_input
+  SensorFactors: az_sensors_SensorFactors_arr_rel_insert_input
+  ServiceLogs: az_sensors_ServiceLog_arr_rel_insert_input
+  isActive: Boolean
+  locationId: Int
+  manufacturer: String
+  model: String
+  sensorId: Int
+  sideNumber: Int
+}
+
+# aggregate max on columns
+type az_sensors_Sensors_max_fields {
+  locationId: Int
+  manufacturer: String
+  model: String
+  sensorId: Int
+  sideNumber: Int
+}
+
+# order by max() on columns of table "az_sensors.Sensors"
+input az_sensors_Sensors_max_order_by {
+  locationId: order_by
+  manufacturer: order_by
+  model: order_by
+  sensorId: order_by
+  sideNumber: order_by
+}
+
+# aggregate min on columns
+type az_sensors_Sensors_min_fields {
+  locationId: Int
+  manufacturer: String
+  model: String
+  sensorId: Int
+  sideNumber: Int
+}
+
+# order by min() on columns of table "az_sensors.Sensors"
+input az_sensors_Sensors_min_order_by {
+  locationId: order_by
+  manufacturer: order_by
+  model: order_by
+  sensorId: order_by
+  sideNumber: order_by
+}
+
+# response of any mutation on the table "az_sensors.Sensors"
+type az_sensors_Sensors_mutation_response {
+  # number of affected rows by the mutation
+  affected_rows: Int!
+
+  # data of the affected rows by the mutation
+  returning: [az_sensors_Sensors!]!
+}
+
+# input type for inserting object relation for remote table "az_sensors.Sensors"
+input az_sensors_Sensors_obj_rel_insert_input {
+  data: az_sensors_Sensors_insert_input!
+  on_conflict: az_sensors_Sensors_on_conflict
+}
+
+# on conflict condition type for table "az_sensors.Sensors"
+input az_sensors_Sensors_on_conflict {
+  constraint: az_sensors_Sensors_constraint!
+  update_columns: [az_sensors_Sensors_update_column!]!
+  where: az_sensors_Sensors_bool_exp
+}
+
+# ordering options when selecting data from "az_sensors.Sensors"
+input az_sensors_Sensors_order_by {
+  Location: az_sensors_Locations_order_by
+  Measurements_aggregate: az_measurements_Measurements_aggregate_order_by
+  SensorFactors_aggregate: az_sensors_SensorFactors_aggregate_order_by
+  ServiceLogs_aggregate: az_sensors_ServiceLog_aggregate_order_by
+  isActive: order_by
+  locationId: order_by
+  manufacturer: order_by
+  model: order_by
+  sensorId: order_by
+  sideNumber: order_by
+}
+
+# primary key columns input for table: "az_sensors.Sensors"
+input az_sensors_Sensors_pk_columns_input {
+  sensorId: Int!
+}
+
+# select columns of table "az_sensors.Sensors"
+enum az_sensors_Sensors_select_column {
+  # column name
+  isActive
+
+  # column name
+  locationId
+
+  # column name
+  manufacturer
+
+  # column name
+  model
+
+  # column name
+  sensorId
+
+  # column name
+  sideNumber
+}
+
+# input type for updating data in table "az_sensors.Sensors"
+input az_sensors_Sensors_set_input {
+  isActive: Boolean
+  locationId: Int
+  manufacturer: String
+  model: String
+  sensorId: Int
+  sideNumber: Int
+}
+
+# aggregate stddev on columns
+type az_sensors_Sensors_stddev_fields {
+  locationId: Float
+  sensorId: Float
+  sideNumber: Float
+}
+
+# order by stddev() on columns of table "az_sensors.Sensors"
+input az_sensors_Sensors_stddev_order_by {
+  locationId: order_by
+  sensorId: order_by
+  sideNumber: order_by
+}
+
+# aggregate stddev_pop on columns
+type az_sensors_Sensors_stddev_pop_fields {
+  locationId: Float
+  sensorId: Float
+  sideNumber: Float
+}
+
+# order by stddev_pop() on columns of table "az_sensors.Sensors"
+input az_sensors_Sensors_stddev_pop_order_by {
+  locationId: order_by
+  sensorId: order_by
+  sideNumber: order_by
+}
+
+# aggregate stddev_samp on columns
+type az_sensors_Sensors_stddev_samp_fields {
+  locationId: Float
+  sensorId: Float
+  sideNumber: Float
+}
+
+# order by stddev_samp() on columns of table "az_sensors.Sensors"
+input az_sensors_Sensors_stddev_samp_order_by {
+  locationId: order_by
+  sensorId: order_by
+  sideNumber: order_by
+}
+
+# aggregate sum on columns
+type az_sensors_Sensors_sum_fields {
+  locationId: Int
+  sensorId: Int
+  sideNumber: Int
+}
+
+# order by sum() on columns of table "az_sensors.Sensors"
+input az_sensors_Sensors_sum_order_by {
+  locationId: order_by
+  sensorId: order_by
+  sideNumber: order_by
+}
+
+# update columns of table "az_sensors.Sensors"
+enum az_sensors_Sensors_update_column {
+  # column name
+  isActive
+
+  # column name
+  locationId
+
+  # column name
+  manufacturer
+
+  # column name
+  model
+
+  # column name
+  sensorId
+
+  # column name
+  sideNumber
+}
+
+# aggregate var_pop on columns
+type az_sensors_Sensors_var_pop_fields {
+  locationId: Float
+  sensorId: Float
+  sideNumber: Float
+}
+
+# order by var_pop() on columns of table "az_sensors.Sensors"
+input az_sensors_Sensors_var_pop_order_by {
+  locationId: order_by
+  sensorId: order_by
+  sideNumber: order_by
+}
+
+# aggregate var_samp on columns
+type az_sensors_Sensors_var_samp_fields {
+  locationId: Float
+  sensorId: Float
+  sideNumber: Float
+}
+
+# order by var_samp() on columns of table "az_sensors.Sensors"
+input az_sensors_Sensors_var_samp_order_by {
+  locationId: order_by
+  sensorId: order_by
+  sideNumber: order_by
+}
+
+# aggregate variance on columns
+type az_sensors_Sensors_variance_fields {
+  locationId: Float
+  sensorId: Float
+  sideNumber: Float
+}
+
+# order by variance() on columns of table "az_sensors.Sensors"
+input az_sensors_Sensors_variance_order_by {
+  locationId: order_by
+  sensorId: order_by
+  sideNumber: order_by
+}
+
+# columns and relationships of "az_sensors.ServiceLog"
+type az_sensors_ServiceLog {
+  # An object relationship
+  Document: az_docs_Documents!
+
+  # An object relationship
+  Photo: az_docs_Photo
+
+  # An object relationship
+  Sensor: az_sensors_Sensors
+  documentId: Int!
+
+  # An object relationship
+  e_service_kind: az_sensors_e_service_kind!
+  photoId: Int
+  sensorId: Int
+  serviceKind: az_sensors_e_service_kind_enum!
+  timestamp: timestamp!
+}
+
+# aggregated selection of "az_sensors.ServiceLog"
+type az_sensors_ServiceLog_aggregate {
+  aggregate: az_sensors_ServiceLog_aggregate_fields
+  nodes: [az_sensors_ServiceLog!]!
+}
+
+# aggregate fields of "az_sensors.ServiceLog"
+type az_sensors_ServiceLog_aggregate_fields {
+  avg: az_sensors_ServiceLog_avg_fields
+  count(columns: [az_sensors_ServiceLog_select_column!], distinct: Boolean): Int
+  max: az_sensors_ServiceLog_max_fields
+  min: az_sensors_ServiceLog_min_fields
+  stddev: az_sensors_ServiceLog_stddev_fields
+  stddev_pop: az_sensors_ServiceLog_stddev_pop_fields
+  stddev_samp: az_sensors_ServiceLog_stddev_samp_fields
+  sum: az_sensors_ServiceLog_sum_fields
+  var_pop: az_sensors_ServiceLog_var_pop_fields
+  var_samp: az_sensors_ServiceLog_var_samp_fields
+  variance: az_sensors_ServiceLog_variance_fields
+}
+
+# order by aggregate values of table "az_sensors.ServiceLog"
+input az_sensors_ServiceLog_aggregate_order_by {
+  avg: az_sensors_ServiceLog_avg_order_by
+  count: order_by
+  max: az_sensors_ServiceLog_max_order_by
+  min: az_sensors_ServiceLog_min_order_by
+  stddev: az_sensors_ServiceLog_stddev_order_by
+  stddev_pop: az_sensors_ServiceLog_stddev_pop_order_by
+  stddev_samp: az_sensors_ServiceLog_stddev_samp_order_by
+  sum: az_sensors_ServiceLog_sum_order_by
+  var_pop: az_sensors_ServiceLog_var_pop_order_by
+  var_samp: az_sensors_ServiceLog_var_samp_order_by
+  variance: az_sensors_ServiceLog_variance_order_by
+}
+
+# input type for inserting array relation for remote table "az_sensors.ServiceLog"
+input az_sensors_ServiceLog_arr_rel_insert_input {
+  data: [az_sensors_ServiceLog_insert_input!]!
+}
+
+# aggregate avg on columns
+type az_sensors_ServiceLog_avg_fields {
+  documentId: Float
+  photoId: Float
+  sensorId: Float
+}
+
+# order by avg() on columns of table "az_sensors.ServiceLog"
+input az_sensors_ServiceLog_avg_order_by {
+  documentId: order_by
+  photoId: order_by
+  sensorId: order_by
+}
+
+# Boolean expression to filter rows from the table "az_sensors.ServiceLog". All fields are combined with a logical 'AND'.
+input az_sensors_ServiceLog_bool_exp {
+  Document: az_docs_Documents_bool_exp
+  Photo: az_docs_Photo_bool_exp
+  Sensor: az_sensors_Sensors_bool_exp
+  _and: [az_sensors_ServiceLog_bool_exp]
+  _not: az_sensors_ServiceLog_bool_exp
+  _or: [az_sensors_ServiceLog_bool_exp]
+  documentId: Int_comparison_exp
+  e_service_kind: az_sensors_e_service_kind_bool_exp
+  photoId: Int_comparison_exp
+  sensorId: Int_comparison_exp
+  serviceKind: az_sensors_e_service_kind_enum_comparison_exp
+  timestamp: timestamp_comparison_exp
+}
+
+# input type for incrementing integer column in table "az_sensors.ServiceLog"
+input az_sensors_ServiceLog_inc_input {
+  documentId: Int
+  photoId: Int
+  sensorId: Int
+}
+
+# input type for inserting data into table "az_sensors.ServiceLog"
+input az_sensors_ServiceLog_insert_input {
+  Document: az_docs_Documents_obj_rel_insert_input
+  Photo: az_docs_Photo_obj_rel_insert_input
+  Sensor: az_sensors_Sensors_obj_rel_insert_input
+  documentId: Int
+  e_service_kind: az_sensors_e_service_kind_obj_rel_insert_input
+  photoId: Int
+  sensorId: Int
+  serviceKind: az_sensors_e_service_kind_enum
+  timestamp: timestamp
+}
+
+# aggregate max on columns
+type az_sensors_ServiceLog_max_fields {
+  documentId: Int
+  photoId: Int
+  sensorId: Int
+  timestamp: timestamp
+}
+
+# order by max() on columns of table "az_sensors.ServiceLog"
+input az_sensors_ServiceLog_max_order_by {
+  documentId: order_by
+  photoId: order_by
+  sensorId: order_by
+  timestamp: order_by
+}
+
+# aggregate min on columns
+type az_sensors_ServiceLog_min_fields {
+  documentId: Int
+  photoId: Int
+  sensorId: Int
+  timestamp: timestamp
+}
+
+# order by min() on columns of table "az_sensors.ServiceLog"
+input az_sensors_ServiceLog_min_order_by {
+  documentId: order_by
+  photoId: order_by
+  sensorId: order_by
+  timestamp: order_by
+}
+
+# response of any mutation on the table "az_sensors.ServiceLog"
+type az_sensors_ServiceLog_mutation_response {
+  # number of affected rows by the mutation
+  affected_rows: Int!
+
+  # data of the affected rows by the mutation
+  returning: [az_sensors_ServiceLog!]!
+}
+
+# input type for inserting object relation for remote table "az_sensors.ServiceLog"
+input az_sensors_ServiceLog_obj_rel_insert_input {
+  data: az_sensors_ServiceLog_insert_input!
+}
+
+# ordering options when selecting data from "az_sensors.ServiceLog"
+input az_sensors_ServiceLog_order_by {
+  Document: az_docs_Documents_order_by
+  Photo: az_docs_Photo_order_by
+  Sensor: az_sensors_Sensors_order_by
+  documentId: order_by
+  e_service_kind: az_sensors_e_service_kind_order_by
+  photoId: order_by
+  sensorId: order_by
+  serviceKind: order_by
+  timestamp: order_by
+}
+
+# select columns of table "az_sensors.ServiceLog"
+enum az_sensors_ServiceLog_select_column {
+  # column name
+  documentId
+
+  # column name
+  photoId
+
+  # column name
+  sensorId
+
+  # column name
+  serviceKind
+
+  # column name
+  timestamp
+}
+
+# input type for updating data in table "az_sensors.ServiceLog"
+input az_sensors_ServiceLog_set_input {
+  documentId: Int
+  photoId: Int
+  sensorId: Int
+  serviceKind: az_sensors_e_service_kind_enum
+  timestamp: timestamp
+}
+
+# aggregate stddev on columns
+type az_sensors_ServiceLog_stddev_fields {
+  documentId: Float
+  photoId: Float
+  sensorId: Float
+}
+
+# order by stddev() on columns of table "az_sensors.ServiceLog"
+input az_sensors_ServiceLog_stddev_order_by {
+  documentId: order_by
+  photoId: order_by
+  sensorId: order_by
+}
+
+# aggregate stddev_pop on columns
+type az_sensors_ServiceLog_stddev_pop_fields {
+  documentId: Float
+  photoId: Float
+  sensorId: Float
+}
+
+# order by stddev_pop() on columns of table "az_sensors.ServiceLog"
+input az_sensors_ServiceLog_stddev_pop_order_by {
+  documentId: order_by
+  photoId: order_by
+  sensorId: order_by
+}
+
+# aggregate stddev_samp on columns
+type az_sensors_ServiceLog_stddev_samp_fields {
+  documentId: Float
+  photoId: Float
+  sensorId: Float
+}
+
+# order by stddev_samp() on columns of table "az_sensors.ServiceLog"
+input az_sensors_ServiceLog_stddev_samp_order_by {
+  documentId: order_by
+  photoId: order_by
+  sensorId: order_by
+}
+
+# aggregate sum on columns
+type az_sensors_ServiceLog_sum_fields {
+  documentId: Int
+  photoId: Int
+  sensorId: Int
+}
+
+# order by sum() on columns of table "az_sensors.ServiceLog"
+input az_sensors_ServiceLog_sum_order_by {
+  documentId: order_by
+  photoId: order_by
+  sensorId: order_by
+}
+
+# aggregate var_pop on columns
+type az_sensors_ServiceLog_var_pop_fields {
+  documentId: Float
+  photoId: Float
+  sensorId: Float
+}
+
+# order by var_pop() on columns of table "az_sensors.ServiceLog"
+input az_sensors_ServiceLog_var_pop_order_by {
+  documentId: order_by
+  photoId: order_by
+  sensorId: order_by
+}
+
+# aggregate var_samp on columns
+type az_sensors_ServiceLog_var_samp_fields {
+  documentId: Float
+  photoId: Float
+  sensorId: Float
+}
+
+# order by var_samp() on columns of table "az_sensors.ServiceLog"
+input az_sensors_ServiceLog_var_samp_order_by {
+  documentId: order_by
+  photoId: order_by
+  sensorId: order_by
+}
+
+# aggregate variance on columns
+type az_sensors_ServiceLog_variance_fields {
+  documentId: Float
+  photoId: Float
+  sensorId: Float
+}
+
+# order by variance() on columns of table "az_sensors.ServiceLog"
+input az_sensors_ServiceLog_variance_order_by {
+  documentId: order_by
+  photoId: order_by
+  sensorId: order_by
+}
+
+# columns and relationships of "az_users.AuthData"
+type az_users_AuthData {
+  # An object relationship
+  User: az_users_Users!
+  password: String!
+  userId: Int!
+}
+
+# aggregated selection of "az_users.AuthData"
+type az_users_AuthData_aggregate {
+  aggregate: az_users_AuthData_aggregate_fields
+  nodes: [az_users_AuthData!]!
+}
+
+# aggregate fields of "az_users.AuthData"
+type az_users_AuthData_aggregate_fields {
+  avg: az_users_AuthData_avg_fields
+  count(columns: [az_users_AuthData_select_column!], distinct: Boolean): Int
+  max: az_users_AuthData_max_fields
+  min: az_users_AuthData_min_fields
+  stddev: az_users_AuthData_stddev_fields
+  stddev_pop: az_users_AuthData_stddev_pop_fields
+  stddev_samp: az_users_AuthData_stddev_samp_fields
+  sum: az_users_AuthData_sum_fields
+  var_pop: az_users_AuthData_var_pop_fields
+  var_samp: az_users_AuthData_var_samp_fields
+  variance: az_users_AuthData_variance_fields
+}
+
+# order by aggregate values of table "az_users.AuthData"
+input az_users_AuthData_aggregate_order_by {
+  avg: az_users_AuthData_avg_order_by
+  count: order_by
+  max: az_users_AuthData_max_order_by
+  min: az_users_AuthData_min_order_by
+  stddev: az_users_AuthData_stddev_order_by
+  stddev_pop: az_users_AuthData_stddev_pop_order_by
+  stddev_samp: az_users_AuthData_stddev_samp_order_by
+  sum: az_users_AuthData_sum_order_by
+  var_pop: az_users_AuthData_var_pop_order_by
+  var_samp: az_users_AuthData_var_samp_order_by
+  variance: az_users_AuthData_variance_order_by
+}
+
+# input type for inserting array relation for remote table "az_users.AuthData"
+input az_users_AuthData_arr_rel_insert_input {
+  data: [az_users_AuthData_insert_input!]!
+  on_conflict: az_users_AuthData_on_conflict
+}
+
+# aggregate avg on columns
+type az_users_AuthData_avg_fields {
+  userId: Float
+}
+
+# order by avg() on columns of table "az_users.AuthData"
+input az_users_AuthData_avg_order_by {
+  userId: order_by
+}
+
+# Boolean expression to filter rows from the table "az_users.AuthData". All fields are combined with a logical 'AND'.
+input az_users_AuthData_bool_exp {
+  User: az_users_Users_bool_exp
+  _and: [az_users_AuthData_bool_exp]
+  _not: az_users_AuthData_bool_exp
+  _or: [az_users_AuthData_bool_exp]
+  password: String_comparison_exp
+  userId: Int_comparison_exp
+}
+
+# unique or primary key constraints on table "az_users.AuthData"
+enum az_users_AuthData_constraint {
+  # unique or primary key constraint
+  AuthData_pkey
+}
+
+# input type for incrementing integer column in table "az_users.AuthData"
+input az_users_AuthData_inc_input {
+  userId: Int
+}
+
+# input type for inserting data into table "az_users.AuthData"
+input az_users_AuthData_insert_input {
+  User: az_users_Users_obj_rel_insert_input
+  password: String
+  userId: Int
+}
+
+# aggregate max on columns
+type az_users_AuthData_max_fields {
+  password: String
+  userId: Int
+}
+
+# order by max() on columns of table "az_users.AuthData"
+input az_users_AuthData_max_order_by {
+  password: order_by
+  userId: order_by
+}
+
+# aggregate min on columns
+type az_users_AuthData_min_fields {
+  password: String
+  userId: Int
+}
+
+# order by min() on columns of table "az_users.AuthData"
+input az_users_AuthData_min_order_by {
+  password: order_by
+  userId: order_by
+}
+
+# response of any mutation on the table "az_users.AuthData"
+type az_users_AuthData_mutation_response {
+  # number of affected rows by the mutation
+  affected_rows: Int!
+
+  # data of the affected rows by the mutation
+  returning: [az_users_AuthData!]!
+}
+
+# input type for inserting object relation for remote table "az_users.AuthData"
+input az_users_AuthData_obj_rel_insert_input {
+  data: az_users_AuthData_insert_input!
+  on_conflict: az_users_AuthData_on_conflict
+}
+
+# on conflict condition type for table "az_users.AuthData"
+input az_users_AuthData_on_conflict {
+  constraint: az_users_AuthData_constraint!
+  update_columns: [az_users_AuthData_update_column!]!
+  where: az_users_AuthData_bool_exp
+}
+
+# ordering options when selecting data from "az_users.AuthData"
+input az_users_AuthData_order_by {
+  User: az_users_Users_order_by
+  password: order_by
+  userId: order_by
+}
+
+# primary key columns input for table: "az_users.AuthData"
+input az_users_AuthData_pk_columns_input {
+  userId: Int!
+}
+
+# select columns of table "az_users.AuthData"
+enum az_users_AuthData_select_column {
+  # column name
+  password
+
+  # column name
+  userId
+}
+
+# input type for updating data in table "az_users.AuthData"
+input az_users_AuthData_set_input {
+  password: String
+  userId: Int
+}
+
+# aggregate stddev on columns
+type az_users_AuthData_stddev_fields {
+  userId: Float
+}
+
+# order by stddev() on columns of table "az_users.AuthData"
+input az_users_AuthData_stddev_order_by {
+  userId: order_by
+}
+
+# aggregate stddev_pop on columns
+type az_users_AuthData_stddev_pop_fields {
+  userId: Float
+}
+
+# order by stddev_pop() on columns of table "az_users.AuthData"
+input az_users_AuthData_stddev_pop_order_by {
+  userId: order_by
+}
+
+# aggregate stddev_samp on columns
+type az_users_AuthData_stddev_samp_fields {
+  userId: Float
+}
+
+# order by stddev_samp() on columns of table "az_users.AuthData"
+input az_users_AuthData_stddev_samp_order_by {
+  userId: order_by
+}
+
+# aggregate sum on columns
+type az_users_AuthData_sum_fields {
+  userId: Int
+}
+
+# order by sum() on columns of table "az_users.AuthData"
+input az_users_AuthData_sum_order_by {
+  userId: order_by
+}
+
+# update columns of table "az_users.AuthData"
+enum az_users_AuthData_update_column {
+  # column name
+  password
+
+  # column name
+  userId
+}
+
+# aggregate var_pop on columns
+type az_users_AuthData_var_pop_fields {
+  userId: Float
+}
+
+# order by var_pop() on columns of table "az_users.AuthData"
+input az_users_AuthData_var_pop_order_by {
+  userId: order_by
+}
+
+# aggregate var_samp on columns
+type az_users_AuthData_var_samp_fields {
+  userId: Float
+}
+
+# order by var_samp() on columns of table "az_users.AuthData"
+input az_users_AuthData_var_samp_order_by {
+  userId: order_by
+}
+
+# aggregate variance on columns
+type az_users_AuthData_variance_fields {
+  userId: Float
+}
+
+# order by variance() on columns of table "az_users.AuthData"
+input az_users_AuthData_variance_order_by {
+  userId: order_by
+}
+
+# columns and relationships of "az_users.Organisation"
+type az_users_Organisation {
+  # An object relationship
+  Document: az_docs_Documents
+
+  # An array relationship
+  Users(
+    # distinct select on columns
+    distinct_on: [az_users_Users_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_users_Users_order_by!]
+
+    # filter the rows returned
+    where: az_users_Users_bool_exp
+  ): [az_users_Users!]!
+
+  # An aggregated array relationship
+  Users_aggregate(
+    # distinct select on columns
+    distinct_on: [az_users_Users_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_users_Users_order_by!]
+
+    # filter the rows returned
+    where: az_users_Users_bool_exp
+  ): az_users_Users_aggregate!
+  country: String
+  documentId: Int
+  fullName: String!
+  organisationId: Int!
+  organisationRole: String
+  rntrc: String!
+  shortName: String
+}
+
+# aggregated selection of "az_users.Organisation"
+type az_users_Organisation_aggregate {
+  aggregate: az_users_Organisation_aggregate_fields
+  nodes: [az_users_Organisation!]!
+}
+
+# aggregate fields of "az_users.Organisation"
+type az_users_Organisation_aggregate_fields {
+  avg: az_users_Organisation_avg_fields
+  count(columns: [az_users_Organisation_select_column!], distinct: Boolean): Int
+  max: az_users_Organisation_max_fields
+  min: az_users_Organisation_min_fields
+  stddev: az_users_Organisation_stddev_fields
+  stddev_pop: az_users_Organisation_stddev_pop_fields
+  stddev_samp: az_users_Organisation_stddev_samp_fields
+  sum: az_users_Organisation_sum_fields
+  var_pop: az_users_Organisation_var_pop_fields
+  var_samp: az_users_Organisation_var_samp_fields
+  variance: az_users_Organisation_variance_fields
+}
+
+# order by aggregate values of table "az_users.Organisation"
+input az_users_Organisation_aggregate_order_by {
+  avg: az_users_Organisation_avg_order_by
+  count: order_by
+  max: az_users_Organisation_max_order_by
+  min: az_users_Organisation_min_order_by
+  stddev: az_users_Organisation_stddev_order_by
+  stddev_pop: az_users_Organisation_stddev_pop_order_by
+  stddev_samp: az_users_Organisation_stddev_samp_order_by
+  sum: az_users_Organisation_sum_order_by
+  var_pop: az_users_Organisation_var_pop_order_by
+  var_samp: az_users_Organisation_var_samp_order_by
+  variance: az_users_Organisation_variance_order_by
+}
+
+# input type for inserting array relation for remote table "az_users.Organisation"
+input az_users_Organisation_arr_rel_insert_input {
+  data: [az_users_Organisation_insert_input!]!
+  on_conflict: az_users_Organisation_on_conflict
+}
+
+# aggregate avg on columns
+type az_users_Organisation_avg_fields {
+  documentId: Float
+  organisationId: Float
+}
+
+# order by avg() on columns of table "az_users.Organisation"
+input az_users_Organisation_avg_order_by {
+  documentId: order_by
+  organisationId: order_by
+}
+
+# Boolean expression to filter rows from the table "az_users.Organisation". All fields are combined with a logical 'AND'.
+input az_users_Organisation_bool_exp {
+  Document: az_docs_Documents_bool_exp
+  Users: az_users_Users_bool_exp
+  _and: [az_users_Organisation_bool_exp]
+  _not: az_users_Organisation_bool_exp
+  _or: [az_users_Organisation_bool_exp]
+  country: String_comparison_exp
+  documentId: Int_comparison_exp
+  fullName: String_comparison_exp
+  organisationId: Int_comparison_exp
+  organisationRole: String_comparison_exp
+  rntrc: String_comparison_exp
+  shortName: String_comparison_exp
+}
+
+# unique or primary key constraints on table "az_users.Organisation"
+enum az_users_Organisation_constraint {
+  # unique or primary key constraint
+  Organisation_pkey
+
+  # unique or primary key constraint
+  Organisation_rntrc_key
+}
+
+# input type for incrementing integer column in table "az_users.Organisation"
+input az_users_Organisation_inc_input {
+  documentId: Int
+  organisationId: Int
+}
+
+# input type for inserting data into table "az_users.Organisation"
+input az_users_Organisation_insert_input {
+  Document: az_docs_Documents_obj_rel_insert_input
+  Users: az_users_Users_arr_rel_insert_input
+  country: String
+  documentId: Int
+  fullName: String
+  organisationId: Int
+  organisationRole: String
+  rntrc: String
+  shortName: String
+}
+
+# aggregate max on columns
+type az_users_Organisation_max_fields {
+  country: String
+  documentId: Int
+  fullName: String
+  organisationId: Int
+  organisationRole: String
+  rntrc: String
+  shortName: String
+}
+
+# order by max() on columns of table "az_users.Organisation"
+input az_users_Organisation_max_order_by {
+  country: order_by
+  documentId: order_by
+  fullName: order_by
+  organisationId: order_by
+  organisationRole: order_by
+  rntrc: order_by
+  shortName: order_by
+}
+
+# aggregate min on columns
+type az_users_Organisation_min_fields {
+  country: String
+  documentId: Int
+  fullName: String
+  organisationId: Int
+  organisationRole: String
+  rntrc: String
+  shortName: String
+}
+
+# order by min() on columns of table "az_users.Organisation"
+input az_users_Organisation_min_order_by {
+  country: order_by
+  documentId: order_by
+  fullName: order_by
+  organisationId: order_by
+  organisationRole: order_by
+  rntrc: order_by
+  shortName: order_by
+}
+
+# response of any mutation on the table "az_users.Organisation"
+type az_users_Organisation_mutation_response {
+  # number of affected rows by the mutation
+  affected_rows: Int!
+
+  # data of the affected rows by the mutation
+  returning: [az_users_Organisation!]!
+}
+
+# input type for inserting object relation for remote table "az_users.Organisation"
+input az_users_Organisation_obj_rel_insert_input {
+  data: az_users_Organisation_insert_input!
+  on_conflict: az_users_Organisation_on_conflict
+}
+
+# on conflict condition type for table "az_users.Organisation"
+input az_users_Organisation_on_conflict {
+  constraint: az_users_Organisation_constraint!
+  update_columns: [az_users_Organisation_update_column!]!
+  where: az_users_Organisation_bool_exp
+}
+
+# ordering options when selecting data from "az_users.Organisation"
+input az_users_Organisation_order_by {
+  Document: az_docs_Documents_order_by
+  Users_aggregate: az_users_Users_aggregate_order_by
+  country: order_by
+  documentId: order_by
+  fullName: order_by
+  organisationId: order_by
+  organisationRole: order_by
+  rntrc: order_by
+  shortName: order_by
+}
+
+# primary key columns input for table: "az_users.Organisation"
+input az_users_Organisation_pk_columns_input {
+  organisationId: Int!
+}
+
+# select columns of table "az_users.Organisation"
+enum az_users_Organisation_select_column {
+  # column name
+  country
+
+  # column name
+  documentId
+
+  # column name
+  fullName
+
+  # column name
+  organisationId
+
+  # column name
+  organisationRole
+
+  # column name
+  rntrc
+
+  # column name
+  shortName
+}
+
+# input type for updating data in table "az_users.Organisation"
+input az_users_Organisation_set_input {
+  country: String
+  documentId: Int
+  fullName: String
+  organisationId: Int
+  organisationRole: String
+  rntrc: String
+  shortName: String
+}
+
+# aggregate stddev on columns
+type az_users_Organisation_stddev_fields {
+  documentId: Float
+  organisationId: Float
+}
+
+# order by stddev() on columns of table "az_users.Organisation"
+input az_users_Organisation_stddev_order_by {
+  documentId: order_by
+  organisationId: order_by
+}
+
+# aggregate stddev_pop on columns
+type az_users_Organisation_stddev_pop_fields {
+  documentId: Float
+  organisationId: Float
+}
+
+# order by stddev_pop() on columns of table "az_users.Organisation"
+input az_users_Organisation_stddev_pop_order_by {
+  documentId: order_by
+  organisationId: order_by
+}
+
+# aggregate stddev_samp on columns
+type az_users_Organisation_stddev_samp_fields {
+  documentId: Float
+  organisationId: Float
+}
+
+# order by stddev_samp() on columns of table "az_users.Organisation"
+input az_users_Organisation_stddev_samp_order_by {
+  documentId: order_by
+  organisationId: order_by
+}
+
+# aggregate sum on columns
+type az_users_Organisation_sum_fields {
+  documentId: Int
+  organisationId: Int
+}
+
+# order by sum() on columns of table "az_users.Organisation"
+input az_users_Organisation_sum_order_by {
+  documentId: order_by
+  organisationId: order_by
+}
+
+# update columns of table "az_users.Organisation"
+enum az_users_Organisation_update_column {
+  # column name
+  country
+
+  # column name
+  documentId
+
+  # column name
+  fullName
+
+  # column name
+  organisationId
+
+  # column name
+  organisationRole
+
+  # column name
+  rntrc
+
+  # column name
+  shortName
+}
+
+# aggregate var_pop on columns
+type az_users_Organisation_var_pop_fields {
+  documentId: Float
+  organisationId: Float
+}
+
+# order by var_pop() on columns of table "az_users.Organisation"
+input az_users_Organisation_var_pop_order_by {
+  documentId: order_by
+  organisationId: order_by
+}
+
+# aggregate var_samp on columns
+type az_users_Organisation_var_samp_fields {
+  documentId: Float
+  organisationId: Float
+}
+
+# order by var_samp() on columns of table "az_users.Organisation"
+input az_users_Organisation_var_samp_order_by {
+  documentId: order_by
+  organisationId: order_by
+}
+
+# aggregate variance on columns
+type az_users_Organisation_variance_fields {
+  documentId: Float
+  organisationId: Float
+}
+
+# order by variance() on columns of table "az_users.Organisation"
+input az_users_Organisation_variance_order_by {
+  documentId: order_by
+  organisationId: order_by
+}
+
+# columns and relationships of "az_users.UsageLog"
+type az_users_UsageLog {
+  # An object relationship
+  User: az_users_Users
+  query: String!
+  queryType: bpchar!
+  timestamp: timestamp!
+  userId: Int
+}
+
+# aggregated selection of "az_users.UsageLog"
+type az_users_UsageLog_aggregate {
+  aggregate: az_users_UsageLog_aggregate_fields
+  nodes: [az_users_UsageLog!]!
+}
+
+# aggregate fields of "az_users.UsageLog"
+type az_users_UsageLog_aggregate_fields {
+  avg: az_users_UsageLog_avg_fields
+  count(columns: [az_users_UsageLog_select_column!], distinct: Boolean): Int
+  max: az_users_UsageLog_max_fields
+  min: az_users_UsageLog_min_fields
+  stddev: az_users_UsageLog_stddev_fields
+  stddev_pop: az_users_UsageLog_stddev_pop_fields
+  stddev_samp: az_users_UsageLog_stddev_samp_fields
+  sum: az_users_UsageLog_sum_fields
+  var_pop: az_users_UsageLog_var_pop_fields
+  var_samp: az_users_UsageLog_var_samp_fields
+  variance: az_users_UsageLog_variance_fields
+}
+
+# order by aggregate values of table "az_users.UsageLog"
+input az_users_UsageLog_aggregate_order_by {
+  avg: az_users_UsageLog_avg_order_by
+  count: order_by
+  max: az_users_UsageLog_max_order_by
+  min: az_users_UsageLog_min_order_by
+  stddev: az_users_UsageLog_stddev_order_by
+  stddev_pop: az_users_UsageLog_stddev_pop_order_by
+  stddev_samp: az_users_UsageLog_stddev_samp_order_by
+  sum: az_users_UsageLog_sum_order_by
+  var_pop: az_users_UsageLog_var_pop_order_by
+  var_samp: az_users_UsageLog_var_samp_order_by
+  variance: az_users_UsageLog_variance_order_by
+}
+
+# input type for inserting array relation for remote table "az_users.UsageLog"
+input az_users_UsageLog_arr_rel_insert_input {
+  data: [az_users_UsageLog_insert_input!]!
+}
+
+# aggregate avg on columns
+type az_users_UsageLog_avg_fields {
+  userId: Float
+}
+
+# order by avg() on columns of table "az_users.UsageLog"
+input az_users_UsageLog_avg_order_by {
+  userId: order_by
+}
+
+# Boolean expression to filter rows from the table "az_users.UsageLog". All fields are combined with a logical 'AND'.
+input az_users_UsageLog_bool_exp {
+  User: az_users_Users_bool_exp
+  _and: [az_users_UsageLog_bool_exp]
+  _not: az_users_UsageLog_bool_exp
+  _or: [az_users_UsageLog_bool_exp]
+  query: String_comparison_exp
+  queryType: bpchar_comparison_exp
+  timestamp: timestamp_comparison_exp
+  userId: Int_comparison_exp
+}
+
+# input type for incrementing integer column in table "az_users.UsageLog"
+input az_users_UsageLog_inc_input {
+  userId: Int
+}
+
+# input type for inserting data into table "az_users.UsageLog"
+input az_users_UsageLog_insert_input {
+  User: az_users_Users_obj_rel_insert_input
+  query: String
+  queryType: bpchar
+  timestamp: timestamp
+  userId: Int
+}
+
+# aggregate max on columns
+type az_users_UsageLog_max_fields {
+  query: String
+  timestamp: timestamp
+  userId: Int
+}
+
+# order by max() on columns of table "az_users.UsageLog"
+input az_users_UsageLog_max_order_by {
+  query: order_by
+  timestamp: order_by
+  userId: order_by
+}
+
+# aggregate min on columns
+type az_users_UsageLog_min_fields {
+  query: String
+  timestamp: timestamp
+  userId: Int
+}
+
+# order by min() on columns of table "az_users.UsageLog"
+input az_users_UsageLog_min_order_by {
+  query: order_by
+  timestamp: order_by
+  userId: order_by
+}
+
+# response of any mutation on the table "az_users.UsageLog"
+type az_users_UsageLog_mutation_response {
+  # number of affected rows by the mutation
+  affected_rows: Int!
+
+  # data of the affected rows by the mutation
+  returning: [az_users_UsageLog!]!
+}
+
+# input type for inserting object relation for remote table "az_users.UsageLog"
+input az_users_UsageLog_obj_rel_insert_input {
+  data: az_users_UsageLog_insert_input!
+}
+
+# ordering options when selecting data from "az_users.UsageLog"
+input az_users_UsageLog_order_by {
+  User: az_users_Users_order_by
+  query: order_by
+  queryType: order_by
+  timestamp: order_by
+  userId: order_by
+}
+
+# select columns of table "az_users.UsageLog"
+enum az_users_UsageLog_select_column {
+  # column name
+  query
+
+  # column name
+  queryType
+
+  # column name
+  timestamp
+
+  # column name
+  userId
+}
+
+# input type for updating data in table "az_users.UsageLog"
+input az_users_UsageLog_set_input {
+  query: String
+  queryType: bpchar
+  timestamp: timestamp
+  userId: Int
+}
+
+# aggregate stddev on columns
+type az_users_UsageLog_stddev_fields {
+  userId: Float
+}
+
+# order by stddev() on columns of table "az_users.UsageLog"
+input az_users_UsageLog_stddev_order_by {
+  userId: order_by
+}
+
+# aggregate stddev_pop on columns
+type az_users_UsageLog_stddev_pop_fields {
+  userId: Float
+}
+
+# order by stddev_pop() on columns of table "az_users.UsageLog"
+input az_users_UsageLog_stddev_pop_order_by {
+  userId: order_by
+}
+
+# aggregate stddev_samp on columns
+type az_users_UsageLog_stddev_samp_fields {
+  userId: Float
+}
+
+# order by stddev_samp() on columns of table "az_users.UsageLog"
+input az_users_UsageLog_stddev_samp_order_by {
+  userId: order_by
+}
+
+# aggregate sum on columns
+type az_users_UsageLog_sum_fields {
+  userId: Int
+}
+
+# order by sum() on columns of table "az_users.UsageLog"
+input az_users_UsageLog_sum_order_by {
+  userId: order_by
+}
+
+# aggregate var_pop on columns
+type az_users_UsageLog_var_pop_fields {
+  userId: Float
+}
+
+# order by var_pop() on columns of table "az_users.UsageLog"
+input az_users_UsageLog_var_pop_order_by {
+  userId: order_by
+}
+
+# aggregate var_samp on columns
+type az_users_UsageLog_var_samp_fields {
+  userId: Float
+}
+
+# order by var_samp() on columns of table "az_users.UsageLog"
+input az_users_UsageLog_var_samp_order_by {
+  userId: order_by
+}
+
+# aggregate variance on columns
+type az_users_UsageLog_variance_fields {
+  userId: Float
+}
+
+# order by variance() on columns of table "az_users.UsageLog"
+input az_users_UsageLog_variance_order_by {
+  userId: order_by
+}
+
+# columns and relationships of "az_users.Users"
+type az_users_Users {
+  # An array relationship
+  AuthData(
+    # distinct select on columns
+    distinct_on: [az_users_AuthData_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_users_AuthData_order_by!]
+
+    # filter the rows returned
+    where: az_users_AuthData_bool_exp
+  ): [az_users_AuthData!]!
+
+  # An aggregated array relationship
+  AuthData_aggregate(
+    # distinct select on columns
+    distinct_on: [az_users_AuthData_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_users_AuthData_order_by!]
+
+    # filter the rows returned
+    where: az_users_AuthData_bool_exp
+  ): az_users_AuthData_aggregate!
+
+  # An object relationship
+  Document: az_docs_Documents
+
+  # An object relationship
+  Organisation: az_users_Organisation
+
+  # An array relationship
+  UsageLogs(
+    # distinct select on columns
+    distinct_on: [az_users_UsageLog_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_users_UsageLog_order_by!]
+
+    # filter the rows returned
+    where: az_users_UsageLog_bool_exp
+  ): [az_users_UsageLog!]!
+
+  # An aggregated array relationship
+  UsageLogs_aggregate(
+    # distinct select on columns
+    distinct_on: [az_users_UsageLog_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_users_UsageLog_order_by!]
+
+    # filter the rows returned
+    where: az_users_UsageLog_bool_exp
+  ): az_users_UsageLog_aggregate!
+  documentId: Int
+  email: String!
+  fullName: String
+  organisationId: Int
+  phoneNumber: String
+  userId: Int!
+  userRole: String
+}
+
+# aggregated selection of "az_users.Users"
+type az_users_Users_aggregate {
+  aggregate: az_users_Users_aggregate_fields
+  nodes: [az_users_Users!]!
+}
+
+# aggregate fields of "az_users.Users"
+type az_users_Users_aggregate_fields {
+  avg: az_users_Users_avg_fields
+  count(columns: [az_users_Users_select_column!], distinct: Boolean): Int
+  max: az_users_Users_max_fields
+  min: az_users_Users_min_fields
+  stddev: az_users_Users_stddev_fields
+  stddev_pop: az_users_Users_stddev_pop_fields
+  stddev_samp: az_users_Users_stddev_samp_fields
+  sum: az_users_Users_sum_fields
+  var_pop: az_users_Users_var_pop_fields
+  var_samp: az_users_Users_var_samp_fields
+  variance: az_users_Users_variance_fields
+}
+
+# order by aggregate values of table "az_users.Users"
+input az_users_Users_aggregate_order_by {
+  avg: az_users_Users_avg_order_by
+  count: order_by
+  max: az_users_Users_max_order_by
+  min: az_users_Users_min_order_by
+  stddev: az_users_Users_stddev_order_by
+  stddev_pop: az_users_Users_stddev_pop_order_by
+  stddev_samp: az_users_Users_stddev_samp_order_by
+  sum: az_users_Users_sum_order_by
+  var_pop: az_users_Users_var_pop_order_by
+  var_samp: az_users_Users_var_samp_order_by
+  variance: az_users_Users_variance_order_by
+}
+
+# input type for inserting array relation for remote table "az_users.Users"
+input az_users_Users_arr_rel_insert_input {
+  data: [az_users_Users_insert_input!]!
+  on_conflict: az_users_Users_on_conflict
+}
+
+# aggregate avg on columns
+type az_users_Users_avg_fields {
+  documentId: Float
+  organisationId: Float
+  userId: Float
+}
+
+# order by avg() on columns of table "az_users.Users"
+input az_users_Users_avg_order_by {
+  documentId: order_by
+  organisationId: order_by
+  userId: order_by
+}
+
+# Boolean expression to filter rows from the table "az_users.Users". All fields are combined with a logical 'AND'.
+input az_users_Users_bool_exp {
+  AuthData: az_users_AuthData_bool_exp
+  Document: az_docs_Documents_bool_exp
+  Organisation: az_users_Organisation_bool_exp
+  UsageLogs: az_users_UsageLog_bool_exp
+  _and: [az_users_Users_bool_exp]
+  _not: az_users_Users_bool_exp
+  _or: [az_users_Users_bool_exp]
+  documentId: Int_comparison_exp
+  email: String_comparison_exp
+  fullName: String_comparison_exp
+  organisationId: Int_comparison_exp
+  phoneNumber: String_comparison_exp
+  userId: Int_comparison_exp
+  userRole: String_comparison_exp
+}
+
+# unique or primary key constraints on table "az_users.Users"
+enum az_users_Users_constraint {
+  # unique or primary key constraint
+  Users_email_key
+
+  # unique or primary key constraint
+  Users_phoneNumber_key
+
+  # unique or primary key constraint
+  Users_pkey
+}
+
+# input type for incrementing integer column in table "az_users.Users"
+input az_users_Users_inc_input {
+  documentId: Int
+  organisationId: Int
+  userId: Int
+}
+
+# input type for inserting data into table "az_users.Users"
+input az_users_Users_insert_input {
+  AuthData: az_users_AuthData_arr_rel_insert_input
+  Document: az_docs_Documents_obj_rel_insert_input
+  Organisation: az_users_Organisation_obj_rel_insert_input
+  UsageLogs: az_users_UsageLog_arr_rel_insert_input
+  documentId: Int
+  email: String
+  fullName: String
+  organisationId: Int
+  phoneNumber: String
+  userId: Int
+  userRole: String
+}
+
+# aggregate max on columns
+type az_users_Users_max_fields {
+  documentId: Int
+  email: String
+  fullName: String
+  organisationId: Int
+  phoneNumber: String
+  userId: Int
+  userRole: String
+}
+
+# order by max() on columns of table "az_users.Users"
+input az_users_Users_max_order_by {
+  documentId: order_by
+  email: order_by
+  fullName: order_by
+  organisationId: order_by
+  phoneNumber: order_by
+  userId: order_by
+  userRole: order_by
+}
+
+# aggregate min on columns
+type az_users_Users_min_fields {
+  documentId: Int
+  email: String
+  fullName: String
+  organisationId: Int
+  phoneNumber: String
+  userId: Int
+  userRole: String
+}
+
+# order by min() on columns of table "az_users.Users"
+input az_users_Users_min_order_by {
+  documentId: order_by
+  email: order_by
+  fullName: order_by
+  organisationId: order_by
+  phoneNumber: order_by
+  userId: order_by
+  userRole: order_by
+}
+
+# response of any mutation on the table "az_users.Users"
+type az_users_Users_mutation_response {
+  # number of affected rows by the mutation
+  affected_rows: Int!
+
+  # data of the affected rows by the mutation
+  returning: [az_users_Users!]!
+}
+
+# input type for inserting object relation for remote table "az_users.Users"
+input az_users_Users_obj_rel_insert_input {
+  data: az_users_Users_insert_input!
+  on_conflict: az_users_Users_on_conflict
+}
+
+# on conflict condition type for table "az_users.Users"
+input az_users_Users_on_conflict {
+  constraint: az_users_Users_constraint!
+  update_columns: [az_users_Users_update_column!]!
+  where: az_users_Users_bool_exp
+}
+
+# ordering options when selecting data from "az_users.Users"
+input az_users_Users_order_by {
+  AuthData_aggregate: az_users_AuthData_aggregate_order_by
+  Document: az_docs_Documents_order_by
+  Organisation: az_users_Organisation_order_by
+  UsageLogs_aggregate: az_users_UsageLog_aggregate_order_by
+  documentId: order_by
+  email: order_by
+  fullName: order_by
+  organisationId: order_by
+  phoneNumber: order_by
+  userId: order_by
+  userRole: order_by
+}
+
+# primary key columns input for table: "az_users.Users"
+input az_users_Users_pk_columns_input {
+  userId: Int!
+}
+
+# select columns of table "az_users.Users"
+enum az_users_Users_select_column {
+  # column name
+  documentId
+
+  # column name
+  email
+
+  # column name
+  fullName
+
+  # column name
+  organisationId
+
+  # column name
+  phoneNumber
+
+  # column name
+  userId
+
+  # column name
+  userRole
+}
+
+# input type for updating data in table "az_users.Users"
+input az_users_Users_set_input {
+  documentId: Int
+  email: String
+  fullName: String
+  organisationId: Int
+  phoneNumber: String
+  userId: Int
+  userRole: String
+}
+
+# aggregate stddev on columns
+type az_users_Users_stddev_fields {
+  documentId: Float
+  organisationId: Float
+  userId: Float
+}
+
+# order by stddev() on columns of table "az_users.Users"
+input az_users_Users_stddev_order_by {
+  documentId: order_by
+  organisationId: order_by
+  userId: order_by
+}
+
+# aggregate stddev_pop on columns
+type az_users_Users_stddev_pop_fields {
+  documentId: Float
+  organisationId: Float
+  userId: Float
+}
+
+# order by stddev_pop() on columns of table "az_users.Users"
+input az_users_Users_stddev_pop_order_by {
+  documentId: order_by
+  organisationId: order_by
+  userId: order_by
+}
+
+# aggregate stddev_samp on columns
+type az_users_Users_stddev_samp_fields {
+  documentId: Float
+  organisationId: Float
+  userId: Float
+}
+
+# order by stddev_samp() on columns of table "az_users.Users"
+input az_users_Users_stddev_samp_order_by {
+  documentId: order_by
+  organisationId: order_by
+  userId: order_by
+}
+
+# aggregate sum on columns
+type az_users_Users_sum_fields {
+  documentId: Int
+  organisationId: Int
+  userId: Int
+}
+
+# order by sum() on columns of table "az_users.Users"
+input az_users_Users_sum_order_by {
+  documentId: order_by
+  organisationId: order_by
+  userId: order_by
+}
+
+# update columns of table "az_users.Users"
+enum az_users_Users_update_column {
+  # column name
+  documentId
+
+  # column name
+  email
+
+  # column name
+  fullName
+
+  # column name
+  organisationId
+
+  # column name
+  phoneNumber
+
+  # column name
+  userId
+
+  # column name
+  userRole
+}
+
+# aggregate var_pop on columns
+type az_users_Users_var_pop_fields {
+  documentId: Float
+  organisationId: Float
+  userId: Float
+}
+
+# order by var_pop() on columns of table "az_users.Users"
+input az_users_Users_var_pop_order_by {
+  documentId: order_by
+  organisationId: order_by
+  userId: order_by
+}
+
+# aggregate var_samp on columns
+type az_users_Users_var_samp_fields {
+  documentId: Float
+  organisationId: Float
+  userId: Float
+}
+
+# order by var_samp() on columns of table "az_users.Users"
+input az_users_Users_var_samp_order_by {
+  documentId: order_by
+  organisationId: order_by
+  userId: order_by
+}
+
+# aggregate variance on columns
+type az_users_Users_variance_fields {
+  documentId: Float
+  organisationId: Float
+  userId: Float
+}
+
+# order by variance() on columns of table "az_users.Users"
+input az_users_Users_variance_order_by {
+  documentId: order_by
+  organisationId: order_by
+  userId: order_by
+}
+
+# expression to compare columns of type Boolean. All fields are combined with logical 'AND'.
+input Boolean_comparison_exp {
+  _eq: Boolean
+  _gt: Boolean
+  _gte: Boolean
+  _in: [Boolean!]
+  _is_null: Boolean
+  _lt: Boolean
+  _lte: Boolean
+  _neq: Boolean
+  _nin: [Boolean!]
+}
+
+scalar bpchar
+
+# expression to compare columns of type bpchar. All fields are combined with logical 'AND'.
+input bpchar_comparison_exp {
+  _eq: bpchar
+  _gt: bpchar
+  _gte: bpchar
+  _in: [bpchar!]
+  _is_null: Boolean
+  _lt: bpchar
+  _lte: bpchar
+  _neq: bpchar
+  _nin: [bpchar!]
+}
+
+scalar float8
+
+# expression to compare columns of type float8. All fields are combined with logical 'AND'.
+input float8_comparison_exp {
+  _eq: float8
+  _gt: float8
+  _gte: float8
+  _in: [float8!]
+  _is_null: Boolean
+  _lt: float8
+  _lte: float8
+  _neq: float8
+  _nin: [float8!]
+}
+
+# expression to compare columns of type Int. All fields are combined with logical 'AND'.
+input Int_comparison_exp {
+  _eq: Int
+  _gt: Int
+  _gte: Int
+  _in: [Int!]
+  _is_null: Boolean
+  _lt: Int
+  _lte: Int
+  _neq: Int
+  _nin: [Int!]
+}
+
+# mutation root
+type mutation_root {
+  # delete data from the table: "az_docs.Documents"
+  delete_az_docs_Documents(
+    # filter the rows which have to be deleted
+    where: az_docs_Documents_bool_exp!
+  ): az_docs_Documents_mutation_response
+
+  # delete single row from the table: "az_docs.Documents"
+  delete_az_docs_Documents_by_pk(documentId: Int!): az_docs_Documents
+
+  # delete data from the table: "az_docs.Photo"
+  delete_az_docs_Photo(
+    # filter the rows which have to be deleted
+    where: az_docs_Photo_bool_exp!
+  ): az_docs_Photo_mutation_response
+
+  # delete single row from the table: "az_docs.Photo"
+  delete_az_docs_Photo_by_pk(photoId: Int!): az_docs_Photo
+
+  # delete data from the table: "az_docs.e_document_type"
+  delete_az_docs_e_document_type(
+    # filter the rows which have to be deleted
+    where: az_docs_e_document_type_bool_exp!
+  ): az_docs_e_document_type_mutation_response
+
+  # delete single row from the table: "az_docs.e_document_type"
+  delete_az_docs_e_document_type_by_pk(value: String!): az_docs_e_document_type
+
+  # delete data from the table: "az_measurements.Measurements"
+  delete_az_measurements_Measurements(
+    # filter the rows which have to be deleted
+    where: az_measurements_Measurements_bool_exp!
+  ): az_measurements_Measurements_mutation_response
+
+  # delete data from the table: "az_sensors.Locations"
+  delete_az_sensors_Locations(
+    # filter the rows which have to be deleted
+    where: az_sensors_Locations_bool_exp!
+  ): az_sensors_Locations_mutation_response
+
+  # delete single row from the table: "az_sensors.Locations"
+  delete_az_sensors_Locations_by_pk(locationId: Int!): az_sensors_Locations
+
+  # delete data from the table: "az_sensors.PollutionFactors"
+  delete_az_sensors_PollutionFactors(
+    # filter the rows which have to be deleted
+    where: az_sensors_PollutionFactors_bool_exp!
+  ): az_sensors_PollutionFactors_mutation_response
+
+  # delete single row from the table: "az_sensors.PollutionFactors"
+  delete_az_sensors_PollutionFactors_by_pk(name: String!): az_sensors_PollutionFactors
+
+  # delete data from the table: "az_sensors.SensorFactors"
+  delete_az_sensors_SensorFactors(
+    # filter the rows which have to be deleted
+    where: az_sensors_SensorFactors_bool_exp!
+  ): az_sensors_SensorFactors_mutation_response
+
+  # delete single row from the table: "az_sensors.SensorFactors"
+  delete_az_sensors_SensorFactors_by_pk(factorName: String!, sensorId: Int!): az_sensors_SensorFactors
+
+  # delete data from the table: "az_sensors.Sensors"
+  delete_az_sensors_Sensors(
+    # filter the rows which have to be deleted
+    where: az_sensors_Sensors_bool_exp!
+  ): az_sensors_Sensors_mutation_response
+
+  # delete single row from the table: "az_sensors.Sensors"
+  delete_az_sensors_Sensors_by_pk(sensorId: Int!): az_sensors_Sensors
+
+  # delete data from the table: "az_sensors.ServiceLog"
+  delete_az_sensors_ServiceLog(
+    # filter the rows which have to be deleted
+    where: az_sensors_ServiceLog_bool_exp!
+  ): az_sensors_ServiceLog_mutation_response
+
+  # delete data from the table: "az_sensors.e_measurement_unit"
+  delete_az_sensors_e_measurement_unit(
+    # filter the rows which have to be deleted
+    where: az_sensors_e_measurement_unit_bool_exp!
+  ): az_sensors_e_measurement_unit_mutation_response
+
+  # delete single row from the table: "az_sensors.e_measurement_unit"
+  delete_az_sensors_e_measurement_unit_by_pk(value: String!): az_sensors_e_measurement_unit
+
+  # delete data from the table: "az_sensors.e_service_kind"
+  delete_az_sensors_e_service_kind(
+    # filter the rows which have to be deleted
+    where: az_sensors_e_service_kind_bool_exp!
+  ): az_sensors_e_service_kind_mutation_response
+
+  # delete single row from the table: "az_sensors.e_service_kind"
+  delete_az_sensors_e_service_kind_by_pk(value: String!): az_sensors_e_service_kind
+
+  # delete data from the table: "az_users.AuthData"
+  delete_az_users_AuthData(
+    # filter the rows which have to be deleted
+    where: az_users_AuthData_bool_exp!
+  ): az_users_AuthData_mutation_response
+
+  # delete single row from the table: "az_users.AuthData"
+  delete_az_users_AuthData_by_pk(userId: Int!): az_users_AuthData
+
+  # delete data from the table: "az_users.Organisation"
+  delete_az_users_Organisation(
+    # filter the rows which have to be deleted
+    where: az_users_Organisation_bool_exp!
+  ): az_users_Organisation_mutation_response
+
+  # delete single row from the table: "az_users.Organisation"
+  delete_az_users_Organisation_by_pk(organisationId: Int!): az_users_Organisation
+
+  # delete data from the table: "az_users.UsageLog"
+  delete_az_users_UsageLog(
+    # filter the rows which have to be deleted
+    where: az_users_UsageLog_bool_exp!
+  ): az_users_UsageLog_mutation_response
+
+  # delete data from the table: "az_users.Users"
+  delete_az_users_Users(
+    # filter the rows which have to be deleted
+    where: az_users_Users_bool_exp!
+  ): az_users_Users_mutation_response
+
+  # delete single row from the table: "az_users.Users"
+  delete_az_users_Users_by_pk(userId: Int!): az_users_Users
+
+  # insert data into the table: "az_docs.Documents"
+  insert_az_docs_Documents(
+    # the rows to be inserted
+    objects: [az_docs_Documents_insert_input!]!
+
+    # on conflict condition
+    on_conflict: az_docs_Documents_on_conflict
+  ): az_docs_Documents_mutation_response
+
+  # insert a single row into the table: "az_docs.Documents"
+  insert_az_docs_Documents_one(
+    # the row to be inserted
+    object: az_docs_Documents_insert_input!
+
+    # on conflict condition
+    on_conflict: az_docs_Documents_on_conflict
+  ): az_docs_Documents
+
+  # insert data into the table: "az_docs.Photo"
+  insert_az_docs_Photo(
+    # the rows to be inserted
+    objects: [az_docs_Photo_insert_input!]!
+
+    # on conflict condition
+    on_conflict: az_docs_Photo_on_conflict
+  ): az_docs_Photo_mutation_response
+
+  # insert a single row into the table: "az_docs.Photo"
+  insert_az_docs_Photo_one(
+    # the row to be inserted
+    object: az_docs_Photo_insert_input!
+
+    # on conflict condition
+    on_conflict: az_docs_Photo_on_conflict
+  ): az_docs_Photo
+
+  # insert data into the table: "az_docs.e_document_type"
+  insert_az_docs_e_document_type(
+    # the rows to be inserted
+    objects: [az_docs_e_document_type_insert_input!]!
+
+    # on conflict condition
+    on_conflict: az_docs_e_document_type_on_conflict
+  ): az_docs_e_document_type_mutation_response
+
+  # insert a single row into the table: "az_docs.e_document_type"
+  insert_az_docs_e_document_type_one(
+    # the row to be inserted
+    object: az_docs_e_document_type_insert_input!
+
+    # on conflict condition
+    on_conflict: az_docs_e_document_type_on_conflict
+  ): az_docs_e_document_type
+
+  # insert data into the table: "az_measurements.Measurements"
+  insert_az_measurements_Measurements(
+    # the rows to be inserted
+    objects: [az_measurements_Measurements_insert_input!]!
+
+    # on conflict condition
+    on_conflict: az_measurements_Measurements_on_conflict
+  ): az_measurements_Measurements_mutation_response
+
+  # insert a single row into the table: "az_measurements.Measurements"
+  insert_az_measurements_Measurements_one(
+    # the row to be inserted
+    object: az_measurements_Measurements_insert_input!
+
+    # on conflict condition
+    on_conflict: az_measurements_Measurements_on_conflict
+  ): az_measurements_Measurements
+
+  # insert data into the table: "az_sensors.Locations"
+  insert_az_sensors_Locations(
+    # the rows to be inserted
+    objects: [az_sensors_Locations_insert_input!]!
+
+    # on conflict condition
+    on_conflict: az_sensors_Locations_on_conflict
+  ): az_sensors_Locations_mutation_response
+
+  # insert a single row into the table: "az_sensors.Locations"
+  insert_az_sensors_Locations_one(
+    # the row to be inserted
+    object: az_sensors_Locations_insert_input!
+
+    # on conflict condition
+    on_conflict: az_sensors_Locations_on_conflict
+  ): az_sensors_Locations
+
+  # insert data into the table: "az_sensors.PollutionFactors"
+  insert_az_sensors_PollutionFactors(
+    # the rows to be inserted
+    objects: [az_sensors_PollutionFactors_insert_input!]!
+
+    # on conflict condition
+    on_conflict: az_sensors_PollutionFactors_on_conflict
+  ): az_sensors_PollutionFactors_mutation_response
+
+  # insert a single row into the table: "az_sensors.PollutionFactors"
+  insert_az_sensors_PollutionFactors_one(
+    # the row to be inserted
+    object: az_sensors_PollutionFactors_insert_input!
+
+    # on conflict condition
+    on_conflict: az_sensors_PollutionFactors_on_conflict
+  ): az_sensors_PollutionFactors
+
+  # insert data into the table: "az_sensors.SensorFactors"
+  insert_az_sensors_SensorFactors(
+    # the rows to be inserted
+    objects: [az_sensors_SensorFactors_insert_input!]!
+
+    # on conflict condition
+    on_conflict: az_sensors_SensorFactors_on_conflict
+  ): az_sensors_SensorFactors_mutation_response
+
+  # insert a single row into the table: "az_sensors.SensorFactors"
+  insert_az_sensors_SensorFactors_one(
+    # the row to be inserted
+    object: az_sensors_SensorFactors_insert_input!
+
+    # on conflict condition
+    on_conflict: az_sensors_SensorFactors_on_conflict
+  ): az_sensors_SensorFactors
+
+  # insert data into the table: "az_sensors.Sensors"
+  insert_az_sensors_Sensors(
+    # the rows to be inserted
+    objects: [az_sensors_Sensors_insert_input!]!
+
+    # on conflict condition
+    on_conflict: az_sensors_Sensors_on_conflict
+  ): az_sensors_Sensors_mutation_response
+
+  # insert a single row into the table: "az_sensors.Sensors"
+  insert_az_sensors_Sensors_one(
+    # the row to be inserted
+    object: az_sensors_Sensors_insert_input!
+
+    # on conflict condition
+    on_conflict: az_sensors_Sensors_on_conflict
+  ): az_sensors_Sensors
+
+  # insert data into the table: "az_sensors.ServiceLog"
+  insert_az_sensors_ServiceLog(
+    # the rows to be inserted
+    objects: [az_sensors_ServiceLog_insert_input!]!
+  ): az_sensors_ServiceLog_mutation_response
+
+  # insert a single row into the table: "az_sensors.ServiceLog"
+  insert_az_sensors_ServiceLog_one(
+    # the row to be inserted
+    object: az_sensors_ServiceLog_insert_input!
+  ): az_sensors_ServiceLog
+
+  # insert data into the table: "az_sensors.e_measurement_unit"
+  insert_az_sensors_e_measurement_unit(
+    # the rows to be inserted
+    objects: [az_sensors_e_measurement_unit_insert_input!]!
+
+    # on conflict condition
+    on_conflict: az_sensors_e_measurement_unit_on_conflict
+  ): az_sensors_e_measurement_unit_mutation_response
+
+  # insert a single row into the table: "az_sensors.e_measurement_unit"
+  insert_az_sensors_e_measurement_unit_one(
+    # the row to be inserted
+    object: az_sensors_e_measurement_unit_insert_input!
+
+    # on conflict condition
+    on_conflict: az_sensors_e_measurement_unit_on_conflict
+  ): az_sensors_e_measurement_unit
+
+  # insert data into the table: "az_sensors.e_service_kind"
+  insert_az_sensors_e_service_kind(
+    # the rows to be inserted
+    objects: [az_sensors_e_service_kind_insert_input!]!
+
+    # on conflict condition
+    on_conflict: az_sensors_e_service_kind_on_conflict
+  ): az_sensors_e_service_kind_mutation_response
+
+  # insert a single row into the table: "az_sensors.e_service_kind"
+  insert_az_sensors_e_service_kind_one(
+    # the row to be inserted
+    object: az_sensors_e_service_kind_insert_input!
+
+    # on conflict condition
+    on_conflict: az_sensors_e_service_kind_on_conflict
+  ): az_sensors_e_service_kind
+
+  # insert data into the table: "az_users.AuthData"
+  insert_az_users_AuthData(
+    # the rows to be inserted
+    objects: [az_users_AuthData_insert_input!]!
+
+    # on conflict condition
+    on_conflict: az_users_AuthData_on_conflict
+  ): az_users_AuthData_mutation_response
+
+  # insert a single row into the table: "az_users.AuthData"
+  insert_az_users_AuthData_one(
+    # the row to be inserted
+    object: az_users_AuthData_insert_input!
+
+    # on conflict condition
+    on_conflict: az_users_AuthData_on_conflict
+  ): az_users_AuthData
+
+  # insert data into the table: "az_users.Organisation"
+  insert_az_users_Organisation(
+    # the rows to be inserted
+    objects: [az_users_Organisation_insert_input!]!
+
+    # on conflict condition
+    on_conflict: az_users_Organisation_on_conflict
+  ): az_users_Organisation_mutation_response
+
+  # insert a single row into the table: "az_users.Organisation"
+  insert_az_users_Organisation_one(
+    # the row to be inserted
+    object: az_users_Organisation_insert_input!
+
+    # on conflict condition
+    on_conflict: az_users_Organisation_on_conflict
+  ): az_users_Organisation
+
+  # insert data into the table: "az_users.UsageLog"
+  insert_az_users_UsageLog(
+    # the rows to be inserted
+    objects: [az_users_UsageLog_insert_input!]!
+  ): az_users_UsageLog_mutation_response
+
+  # insert a single row into the table: "az_users.UsageLog"
+  insert_az_users_UsageLog_one(
+    # the row to be inserted
+    object: az_users_UsageLog_insert_input!
+  ): az_users_UsageLog
+
+  # insert data into the table: "az_users.Users"
+  insert_az_users_Users(
+    # the rows to be inserted
+    objects: [az_users_Users_insert_input!]!
+
+    # on conflict condition
+    on_conflict: az_users_Users_on_conflict
+  ): az_users_Users_mutation_response
+
+  # insert a single row into the table: "az_users.Users"
+  insert_az_users_Users_one(
+    # the row to be inserted
+    object: az_users_Users_insert_input!
+
+    # on conflict condition
+    on_conflict: az_users_Users_on_conflict
+  ): az_users_Users
+
+  # update data of the table: "az_docs.Documents"
+  update_az_docs_Documents(
+    # increments the integer columns with given value of the filtered values
+    _inc: az_docs_Documents_inc_input
+
+    # sets the columns of the filtered rows to the given values
+    _set: az_docs_Documents_set_input
+
+    # filter the rows which have to be updated
+    where: az_docs_Documents_bool_exp!
+  ): az_docs_Documents_mutation_response
+
+  # update single row of the table: "az_docs.Documents"
+  update_az_docs_Documents_by_pk(
+    # increments the integer columns with given value of the filtered values
+    _inc: az_docs_Documents_inc_input
+
+    # sets the columns of the filtered rows to the given values
+    _set: az_docs_Documents_set_input
+    pk_columns: az_docs_Documents_pk_columns_input!
+  ): az_docs_Documents
+
+  # update data of the table: "az_docs.Photo"
+  update_az_docs_Photo(
+    # increments the integer columns with given value of the filtered values
+    _inc: az_docs_Photo_inc_input
+
+    # sets the columns of the filtered rows to the given values
+    _set: az_docs_Photo_set_input
+
+    # filter the rows which have to be updated
+    where: az_docs_Photo_bool_exp!
+  ): az_docs_Photo_mutation_response
+
+  # update single row of the table: "az_docs.Photo"
+  update_az_docs_Photo_by_pk(
+    # increments the integer columns with given value of the filtered values
+    _inc: az_docs_Photo_inc_input
+
+    # sets the columns of the filtered rows to the given values
+    _set: az_docs_Photo_set_input
+    pk_columns: az_docs_Photo_pk_columns_input!
+  ): az_docs_Photo
+
+  # update data of the table: "az_docs.e_document_type"
+  update_az_docs_e_document_type(
+    # sets the columns of the filtered rows to the given values
+    _set: az_docs_e_document_type_set_input
+
+    # filter the rows which have to be updated
+    where: az_docs_e_document_type_bool_exp!
+  ): az_docs_e_document_type_mutation_response
+
+  # update single row of the table: "az_docs.e_document_type"
+  update_az_docs_e_document_type_by_pk(
+    # sets the columns of the filtered rows to the given values
+    _set: az_docs_e_document_type_set_input
+    pk_columns: az_docs_e_document_type_pk_columns_input!
+  ): az_docs_e_document_type
+
+  # update data of the table: "az_measurements.Measurements"
+  update_az_measurements_Measurements(
+    # increments the integer columns with given value of the filtered values
+    _inc: az_measurements_Measurements_inc_input
+
+    # sets the columns of the filtered rows to the given values
+    _set: az_measurements_Measurements_set_input
+
+    # filter the rows which have to be updated
+    where: az_measurements_Measurements_bool_exp!
+  ): az_measurements_Measurements_mutation_response
+
+  # update data of the table: "az_sensors.Locations"
+  update_az_sensors_Locations(
+    # increments the integer columns with given value of the filtered values
+    _inc: az_sensors_Locations_inc_input
+
+    # sets the columns of the filtered rows to the given values
+    _set: az_sensors_Locations_set_input
+
+    # filter the rows which have to be updated
+    where: az_sensors_Locations_bool_exp!
+  ): az_sensors_Locations_mutation_response
+
+  # update single row of the table: "az_sensors.Locations"
+  update_az_sensors_Locations_by_pk(
+    # increments the integer columns with given value of the filtered values
+    _inc: az_sensors_Locations_inc_input
+
+    # sets the columns of the filtered rows to the given values
+    _set: az_sensors_Locations_set_input
+    pk_columns: az_sensors_Locations_pk_columns_input!
+  ): az_sensors_Locations
+
+  # update data of the table: "az_sensors.PollutionFactors"
+  update_az_sensors_PollutionFactors(
+    # increments the integer columns with given value of the filtered values
+    _inc: az_sensors_PollutionFactors_inc_input
+
+    # sets the columns of the filtered rows to the given values
+    _set: az_sensors_PollutionFactors_set_input
+
+    # filter the rows which have to be updated
+    where: az_sensors_PollutionFactors_bool_exp!
+  ): az_sensors_PollutionFactors_mutation_response
+
+  # update single row of the table: "az_sensors.PollutionFactors"
+  update_az_sensors_PollutionFactors_by_pk(
+    # increments the integer columns with given value of the filtered values
+    _inc: az_sensors_PollutionFactors_inc_input
+
+    # sets the columns of the filtered rows to the given values
+    _set: az_sensors_PollutionFactors_set_input
+    pk_columns: az_sensors_PollutionFactors_pk_columns_input!
+  ): az_sensors_PollutionFactors
+
+  # update data of the table: "az_sensors.SensorFactors"
+  update_az_sensors_SensorFactors(
+    # increments the integer columns with given value of the filtered values
+    _inc: az_sensors_SensorFactors_inc_input
+
+    # sets the columns of the filtered rows to the given values
+    _set: az_sensors_SensorFactors_set_input
+
+    # filter the rows which have to be updated
+    where: az_sensors_SensorFactors_bool_exp!
+  ): az_sensors_SensorFactors_mutation_response
+
+  # update single row of the table: "az_sensors.SensorFactors"
+  update_az_sensors_SensorFactors_by_pk(
+    # increments the integer columns with given value of the filtered values
+    _inc: az_sensors_SensorFactors_inc_input
+
+    # sets the columns of the filtered rows to the given values
+    _set: az_sensors_SensorFactors_set_input
+    pk_columns: az_sensors_SensorFactors_pk_columns_input!
+  ): az_sensors_SensorFactors
+
+  # update data of the table: "az_sensors.Sensors"
+  update_az_sensors_Sensors(
+    # increments the integer columns with given value of the filtered values
+    _inc: az_sensors_Sensors_inc_input
+
+    # sets the columns of the filtered rows to the given values
+    _set: az_sensors_Sensors_set_input
+
+    # filter the rows which have to be updated
+    where: az_sensors_Sensors_bool_exp!
+  ): az_sensors_Sensors_mutation_response
+
+  # update single row of the table: "az_sensors.Sensors"
+  update_az_sensors_Sensors_by_pk(
+    # increments the integer columns with given value of the filtered values
+    _inc: az_sensors_Sensors_inc_input
+
+    # sets the columns of the filtered rows to the given values
+    _set: az_sensors_Sensors_set_input
+    pk_columns: az_sensors_Sensors_pk_columns_input!
+  ): az_sensors_Sensors
+
+  # update data of the table: "az_sensors.ServiceLog"
+  update_az_sensors_ServiceLog(
+    # increments the integer columns with given value of the filtered values
+    _inc: az_sensors_ServiceLog_inc_input
+
+    # sets the columns of the filtered rows to the given values
+    _set: az_sensors_ServiceLog_set_input
+
+    # filter the rows which have to be updated
+    where: az_sensors_ServiceLog_bool_exp!
+  ): az_sensors_ServiceLog_mutation_response
+
+  # update data of the table: "az_sensors.e_measurement_unit"
+  update_az_sensors_e_measurement_unit(
+    # sets the columns of the filtered rows to the given values
+    _set: az_sensors_e_measurement_unit_set_input
+
+    # filter the rows which have to be updated
+    where: az_sensors_e_measurement_unit_bool_exp!
+  ): az_sensors_e_measurement_unit_mutation_response
+
+  # update single row of the table: "az_sensors.e_measurement_unit"
+  update_az_sensors_e_measurement_unit_by_pk(
+    # sets the columns of the filtered rows to the given values
+    _set: az_sensors_e_measurement_unit_set_input
+    pk_columns: az_sensors_e_measurement_unit_pk_columns_input!
+  ): az_sensors_e_measurement_unit
+
+  # update data of the table: "az_sensors.e_service_kind"
+  update_az_sensors_e_service_kind(
+    # sets the columns of the filtered rows to the given values
+    _set: az_sensors_e_service_kind_set_input
+
+    # filter the rows which have to be updated
+    where: az_sensors_e_service_kind_bool_exp!
+  ): az_sensors_e_service_kind_mutation_response
+
+  # update single row of the table: "az_sensors.e_service_kind"
+  update_az_sensors_e_service_kind_by_pk(
+    # sets the columns of the filtered rows to the given values
+    _set: az_sensors_e_service_kind_set_input
+    pk_columns: az_sensors_e_service_kind_pk_columns_input!
+  ): az_sensors_e_service_kind
+
+  # update data of the table: "az_users.AuthData"
+  update_az_users_AuthData(
+    # increments the integer columns with given value of the filtered values
+    _inc: az_users_AuthData_inc_input
+
+    # sets the columns of the filtered rows to the given values
+    _set: az_users_AuthData_set_input
+
+    # filter the rows which have to be updated
+    where: az_users_AuthData_bool_exp!
+  ): az_users_AuthData_mutation_response
+
+  # update single row of the table: "az_users.AuthData"
+  update_az_users_AuthData_by_pk(
+    # increments the integer columns with given value of the filtered values
+    _inc: az_users_AuthData_inc_input
+
+    # sets the columns of the filtered rows to the given values
+    _set: az_users_AuthData_set_input
+    pk_columns: az_users_AuthData_pk_columns_input!
+  ): az_users_AuthData
+
+  # update data of the table: "az_users.Organisation"
+  update_az_users_Organisation(
+    # increments the integer columns with given value of the filtered values
+    _inc: az_users_Organisation_inc_input
+
+    # sets the columns of the filtered rows to the given values
+    _set: az_users_Organisation_set_input
+
+    # filter the rows which have to be updated
+    where: az_users_Organisation_bool_exp!
+  ): az_users_Organisation_mutation_response
+
+  # update single row of the table: "az_users.Organisation"
+  update_az_users_Organisation_by_pk(
+    # increments the integer columns with given value of the filtered values
+    _inc: az_users_Organisation_inc_input
+
+    # sets the columns of the filtered rows to the given values
+    _set: az_users_Organisation_set_input
+    pk_columns: az_users_Organisation_pk_columns_input!
+  ): az_users_Organisation
+
+  # update data of the table: "az_users.UsageLog"
+  update_az_users_UsageLog(
+    # increments the integer columns with given value of the filtered values
+    _inc: az_users_UsageLog_inc_input
+
+    # sets the columns of the filtered rows to the given values
+    _set: az_users_UsageLog_set_input
+
+    # filter the rows which have to be updated
+    where: az_users_UsageLog_bool_exp!
+  ): az_users_UsageLog_mutation_response
+
+  # update data of the table: "az_users.Users"
+  update_az_users_Users(
+    # increments the integer columns with given value of the filtered values
+    _inc: az_users_Users_inc_input
+
+    # sets the columns of the filtered rows to the given values
+    _set: az_users_Users_set_input
+
+    # filter the rows which have to be updated
+    where: az_users_Users_bool_exp!
+  ): az_users_Users_mutation_response
+
+  # update single row of the table: "az_users.Users"
+  update_az_users_Users_by_pk(
+    # increments the integer columns with given value of the filtered values
+    _inc: az_users_Users_inc_input
+
+    # sets the columns of the filtered rows to the given values
+    _set: az_users_Users_set_input
+    pk_columns: az_users_Users_pk_columns_input!
+  ): az_users_Users
+}
+
+# column ordering options
+enum order_by {
+  # in the ascending order, nulls last
+  asc
+
+  # in the ascending order, nulls first
+  asc_nulls_first
+
+  # in the ascending order, nulls last
+  asc_nulls_last
+
+  # in the descending order, nulls first
+  desc
+
+  # in the descending order, nulls first
+  desc_nulls_first
+
+  # in the descending order, nulls last
+  desc_nulls_last
+}
+
+scalar point
+
+# expression to compare columns of type point. All fields are combined with logical 'AND'.
+input point_comparison_exp {
+  _eq: point
+  _gt: point
+  _gte: point
+  _in: [point!]
+  _is_null: Boolean
+  _lt: point
+  _lte: point
+  _neq: point
+  _nin: [point!]
+}
+
+# query root
+type query_root {
+  # fetch data from the table: "az_docs.Documents"
+  az_docs_Documents(
+    # distinct select on columns
+    distinct_on: [az_docs_Documents_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_docs_Documents_order_by!]
+
+    # filter the rows returned
+    where: az_docs_Documents_bool_exp
+  ): [az_docs_Documents!]!
+
+  # fetch aggregated fields from the table: "az_docs.Documents"
+  az_docs_Documents_aggregate(
+    # distinct select on columns
+    distinct_on: [az_docs_Documents_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_docs_Documents_order_by!]
+
+    # filter the rows returned
+    where: az_docs_Documents_bool_exp
+  ): az_docs_Documents_aggregate!
+
+  # fetch data from the table: "az_docs.Documents" using primary key columns
+  az_docs_Documents_by_pk(documentId: Int!): az_docs_Documents
+
+  # fetch data from the table: "az_docs.Photo"
+  az_docs_Photo(
+    # distinct select on columns
+    distinct_on: [az_docs_Photo_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_docs_Photo_order_by!]
+
+    # filter the rows returned
+    where: az_docs_Photo_bool_exp
+  ): [az_docs_Photo!]!
+
+  # fetch aggregated fields from the table: "az_docs.Photo"
+  az_docs_Photo_aggregate(
+    # distinct select on columns
+    distinct_on: [az_docs_Photo_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_docs_Photo_order_by!]
+
+    # filter the rows returned
+    where: az_docs_Photo_bool_exp
+  ): az_docs_Photo_aggregate!
+
+  # fetch data from the table: "az_docs.Photo" using primary key columns
+  az_docs_Photo_by_pk(photoId: Int!): az_docs_Photo
+
+  # fetch data from the table: "az_docs.e_document_type"
+  az_docs_e_document_type(
+    # distinct select on columns
+    distinct_on: [az_docs_e_document_type_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_docs_e_document_type_order_by!]
+
+    # filter the rows returned
+    where: az_docs_e_document_type_bool_exp
+  ): [az_docs_e_document_type!]!
+
+  # fetch aggregated fields from the table: "az_docs.e_document_type"
+  az_docs_e_document_type_aggregate(
+    # distinct select on columns
+    distinct_on: [az_docs_e_document_type_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_docs_e_document_type_order_by!]
+
+    # filter the rows returned
+    where: az_docs_e_document_type_bool_exp
+  ): az_docs_e_document_type_aggregate!
+
+  # fetch data from the table: "az_docs.e_document_type" using primary key columns
+  az_docs_e_document_type_by_pk(value: String!): az_docs_e_document_type
+
+  # fetch data from the table: "az_measurements.Measurements"
+  az_measurements_Measurements(
+    # distinct select on columns
+    distinct_on: [az_measurements_Measurements_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_measurements_Measurements_order_by!]
+
+    # filter the rows returned
+    where: az_measurements_Measurements_bool_exp
+  ): [az_measurements_Measurements!]!
+
+  # fetch aggregated fields from the table: "az_measurements.Measurements"
+  az_measurements_Measurements_aggregate(
+    # distinct select on columns
+    distinct_on: [az_measurements_Measurements_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_measurements_Measurements_order_by!]
+
+    # filter the rows returned
+    where: az_measurements_Measurements_bool_exp
+  ): az_measurements_Measurements_aggregate!
+
+  # fetch data from the table: "az_sensors.Locations"
+  az_sensors_Locations(
+    # distinct select on columns
+    distinct_on: [az_sensors_Locations_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_Locations_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_Locations_bool_exp
+  ): [az_sensors_Locations!]!
+
+  # fetch aggregated fields from the table: "az_sensors.Locations"
+  az_sensors_Locations_aggregate(
+    # distinct select on columns
+    distinct_on: [az_sensors_Locations_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_Locations_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_Locations_bool_exp
+  ): az_sensors_Locations_aggregate!
+
+  # fetch data from the table: "az_sensors.Locations" using primary key columns
+  az_sensors_Locations_by_pk(locationId: Int!): az_sensors_Locations
+
+  # fetch data from the table: "az_sensors.PollutionFactors"
+  az_sensors_PollutionFactors(
+    # distinct select on columns
+    distinct_on: [az_sensors_PollutionFactors_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_PollutionFactors_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_PollutionFactors_bool_exp
+  ): [az_sensors_PollutionFactors!]!
+
+  # fetch aggregated fields from the table: "az_sensors.PollutionFactors"
+  az_sensors_PollutionFactors_aggregate(
+    # distinct select on columns
+    distinct_on: [az_sensors_PollutionFactors_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_PollutionFactors_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_PollutionFactors_bool_exp
+  ): az_sensors_PollutionFactors_aggregate!
+
+  # fetch data from the table: "az_sensors.PollutionFactors" using primary key columns
+  az_sensors_PollutionFactors_by_pk(name: String!): az_sensors_PollutionFactors
+
+  # fetch data from the table: "az_sensors.SensorFactors"
+  az_sensors_SensorFactors(
+    # distinct select on columns
+    distinct_on: [az_sensors_SensorFactors_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_SensorFactors_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_SensorFactors_bool_exp
+  ): [az_sensors_SensorFactors!]!
+
+  # fetch aggregated fields from the table: "az_sensors.SensorFactors"
+  az_sensors_SensorFactors_aggregate(
+    # distinct select on columns
+    distinct_on: [az_sensors_SensorFactors_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_SensorFactors_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_SensorFactors_bool_exp
+  ): az_sensors_SensorFactors_aggregate!
+
+  # fetch data from the table: "az_sensors.SensorFactors" using primary key columns
+  az_sensors_SensorFactors_by_pk(factorName: String!, sensorId: Int!): az_sensors_SensorFactors
+
+  # fetch data from the table: "az_sensors.Sensors"
+  az_sensors_Sensors(
+    # distinct select on columns
+    distinct_on: [az_sensors_Sensors_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_Sensors_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_Sensors_bool_exp
+  ): [az_sensors_Sensors!]!
+
+  # fetch aggregated fields from the table: "az_sensors.Sensors"
+  az_sensors_Sensors_aggregate(
+    # distinct select on columns
+    distinct_on: [az_sensors_Sensors_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_Sensors_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_Sensors_bool_exp
+  ): az_sensors_Sensors_aggregate!
+
+  # fetch data from the table: "az_sensors.Sensors" using primary key columns
+  az_sensors_Sensors_by_pk(sensorId: Int!): az_sensors_Sensors
+
+  # fetch data from the table: "az_sensors.ServiceLog"
+  az_sensors_ServiceLog(
+    # distinct select on columns
+    distinct_on: [az_sensors_ServiceLog_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_ServiceLog_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_ServiceLog_bool_exp
+  ): [az_sensors_ServiceLog!]!
+
+  # fetch aggregated fields from the table: "az_sensors.ServiceLog"
+  az_sensors_ServiceLog_aggregate(
+    # distinct select on columns
+    distinct_on: [az_sensors_ServiceLog_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_ServiceLog_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_ServiceLog_bool_exp
+  ): az_sensors_ServiceLog_aggregate!
+
+  # fetch data from the table: "az_sensors.e_measurement_unit"
+  az_sensors_e_measurement_unit(
+    # distinct select on columns
+    distinct_on: [az_sensors_e_measurement_unit_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_e_measurement_unit_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_e_measurement_unit_bool_exp
+  ): [az_sensors_e_measurement_unit!]!
+
+  # fetch aggregated fields from the table: "az_sensors.e_measurement_unit"
+  az_sensors_e_measurement_unit_aggregate(
+    # distinct select on columns
+    distinct_on: [az_sensors_e_measurement_unit_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_e_measurement_unit_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_e_measurement_unit_bool_exp
+  ): az_sensors_e_measurement_unit_aggregate!
+
+  # fetch data from the table: "az_sensors.e_measurement_unit" using primary key columns
+  az_sensors_e_measurement_unit_by_pk(value: String!): az_sensors_e_measurement_unit
+
+  # fetch data from the table: "az_sensors.e_service_kind"
+  az_sensors_e_service_kind(
+    # distinct select on columns
+    distinct_on: [az_sensors_e_service_kind_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_e_service_kind_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_e_service_kind_bool_exp
+  ): [az_sensors_e_service_kind!]!
+
+  # fetch aggregated fields from the table: "az_sensors.e_service_kind"
+  az_sensors_e_service_kind_aggregate(
+    # distinct select on columns
+    distinct_on: [az_sensors_e_service_kind_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_e_service_kind_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_e_service_kind_bool_exp
+  ): az_sensors_e_service_kind_aggregate!
+
+  # fetch data from the table: "az_sensors.e_service_kind" using primary key columns
+  az_sensors_e_service_kind_by_pk(value: String!): az_sensors_e_service_kind
+
+  # fetch data from the table: "az_users.AuthData"
+  az_users_AuthData(
+    # distinct select on columns
+    distinct_on: [az_users_AuthData_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_users_AuthData_order_by!]
+
+    # filter the rows returned
+    where: az_users_AuthData_bool_exp
+  ): [az_users_AuthData!]!
+
+  # fetch aggregated fields from the table: "az_users.AuthData"
+  az_users_AuthData_aggregate(
+    # distinct select on columns
+    distinct_on: [az_users_AuthData_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_users_AuthData_order_by!]
+
+    # filter the rows returned
+    where: az_users_AuthData_bool_exp
+  ): az_users_AuthData_aggregate!
+
+  # fetch data from the table: "az_users.AuthData" using primary key columns
+  az_users_AuthData_by_pk(userId: Int!): az_users_AuthData
+
+  # fetch data from the table: "az_users.Organisation"
+  az_users_Organisation(
+    # distinct select on columns
+    distinct_on: [az_users_Organisation_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_users_Organisation_order_by!]
+
+    # filter the rows returned
+    where: az_users_Organisation_bool_exp
+  ): [az_users_Organisation!]!
+
+  # fetch aggregated fields from the table: "az_users.Organisation"
+  az_users_Organisation_aggregate(
+    # distinct select on columns
+    distinct_on: [az_users_Organisation_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_users_Organisation_order_by!]
+
+    # filter the rows returned
+    where: az_users_Organisation_bool_exp
+  ): az_users_Organisation_aggregate!
+
+  # fetch data from the table: "az_users.Organisation" using primary key columns
+  az_users_Organisation_by_pk(organisationId: Int!): az_users_Organisation
+
+  # fetch data from the table: "az_users.UsageLog"
+  az_users_UsageLog(
+    # distinct select on columns
+    distinct_on: [az_users_UsageLog_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_users_UsageLog_order_by!]
+
+    # filter the rows returned
+    where: az_users_UsageLog_bool_exp
+  ): [az_users_UsageLog!]!
+
+  # fetch aggregated fields from the table: "az_users.UsageLog"
+  az_users_UsageLog_aggregate(
+    # distinct select on columns
+    distinct_on: [az_users_UsageLog_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_users_UsageLog_order_by!]
+
+    # filter the rows returned
+    where: az_users_UsageLog_bool_exp
+  ): az_users_UsageLog_aggregate!
+
+  # fetch data from the table: "az_users.Users"
+  az_users_Users(
+    # distinct select on columns
+    distinct_on: [az_users_Users_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_users_Users_order_by!]
+
+    # filter the rows returned
+    where: az_users_Users_bool_exp
+  ): [az_users_Users!]!
+
+  # fetch aggregated fields from the table: "az_users.Users"
+  az_users_Users_aggregate(
+    # distinct select on columns
+    distinct_on: [az_users_Users_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_users_Users_order_by!]
+
+    # filter the rows returned
+    where: az_users_Users_bool_exp
+  ): az_users_Users_aggregate!
+
+  # fetch data from the table: "az_users.Users" using primary key columns
+  az_users_Users_by_pk(userId: Int!): az_users_Users
+}
+
+# expression to compare columns of type String. All fields are combined with logical 'AND'.
+input String_comparison_exp {
+  _eq: String
+  _gt: String
+  _gte: String
+  _ilike: String
+  _in: [String!]
+  _is_null: Boolean
+  _like: String
+  _lt: String
+  _lte: String
+  _neq: String
+  _nilike: String
+  _nin: [String!]
+  _nlike: String
+  _nsimilar: String
+  _similar: String
+}
+
+# subscription root
+type subscription_root {
+  # fetch data from the table: "az_docs.Documents"
+  az_docs_Documents(
+    # distinct select on columns
+    distinct_on: [az_docs_Documents_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_docs_Documents_order_by!]
+
+    # filter the rows returned
+    where: az_docs_Documents_bool_exp
+  ): [az_docs_Documents!]!
+
+  # fetch aggregated fields from the table: "az_docs.Documents"
+  az_docs_Documents_aggregate(
+    # distinct select on columns
+    distinct_on: [az_docs_Documents_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_docs_Documents_order_by!]
+
+    # filter the rows returned
+    where: az_docs_Documents_bool_exp
+  ): az_docs_Documents_aggregate!
+
+  # fetch data from the table: "az_docs.Documents" using primary key columns
+  az_docs_Documents_by_pk(documentId: Int!): az_docs_Documents
+
+  # fetch data from the table: "az_docs.Photo"
+  az_docs_Photo(
+    # distinct select on columns
+    distinct_on: [az_docs_Photo_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_docs_Photo_order_by!]
+
+    # filter the rows returned
+    where: az_docs_Photo_bool_exp
+  ): [az_docs_Photo!]!
+
+  # fetch aggregated fields from the table: "az_docs.Photo"
+  az_docs_Photo_aggregate(
+    # distinct select on columns
+    distinct_on: [az_docs_Photo_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_docs_Photo_order_by!]
+
+    # filter the rows returned
+    where: az_docs_Photo_bool_exp
+  ): az_docs_Photo_aggregate!
+
+  # fetch data from the table: "az_docs.Photo" using primary key columns
+  az_docs_Photo_by_pk(photoId: Int!): az_docs_Photo
+
+  # fetch data from the table: "az_docs.e_document_type"
+  az_docs_e_document_type(
+    # distinct select on columns
+    distinct_on: [az_docs_e_document_type_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_docs_e_document_type_order_by!]
+
+    # filter the rows returned
+    where: az_docs_e_document_type_bool_exp
+  ): [az_docs_e_document_type!]!
+
+  # fetch aggregated fields from the table: "az_docs.e_document_type"
+  az_docs_e_document_type_aggregate(
+    # distinct select on columns
+    distinct_on: [az_docs_e_document_type_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_docs_e_document_type_order_by!]
+
+    # filter the rows returned
+    where: az_docs_e_document_type_bool_exp
+  ): az_docs_e_document_type_aggregate!
+
+  # fetch data from the table: "az_docs.e_document_type" using primary key columns
+  az_docs_e_document_type_by_pk(value: String!): az_docs_e_document_type
+
+  # fetch data from the table: "az_measurements.Measurements"
+  az_measurements_Measurements(
+    # distinct select on columns
+    distinct_on: [az_measurements_Measurements_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_measurements_Measurements_order_by!]
+
+    # filter the rows returned
+    where: az_measurements_Measurements_bool_exp
+  ): [az_measurements_Measurements!]!
+
+  # fetch aggregated fields from the table: "az_measurements.Measurements"
+  az_measurements_Measurements_aggregate(
+    # distinct select on columns
+    distinct_on: [az_measurements_Measurements_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_measurements_Measurements_order_by!]
+
+    # filter the rows returned
+    where: az_measurements_Measurements_bool_exp
+  ): az_measurements_Measurements_aggregate!
+
+  # fetch data from the table: "az_sensors.Locations"
+  az_sensors_Locations(
+    # distinct select on columns
+    distinct_on: [az_sensors_Locations_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_Locations_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_Locations_bool_exp
+  ): [az_sensors_Locations!]!
+
+  # fetch aggregated fields from the table: "az_sensors.Locations"
+  az_sensors_Locations_aggregate(
+    # distinct select on columns
+    distinct_on: [az_sensors_Locations_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_Locations_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_Locations_bool_exp
+  ): az_sensors_Locations_aggregate!
+
+  # fetch data from the table: "az_sensors.Locations" using primary key columns
+  az_sensors_Locations_by_pk(locationId: Int!): az_sensors_Locations
+
+  # fetch data from the table: "az_sensors.PollutionFactors"
+  az_sensors_PollutionFactors(
+    # distinct select on columns
+    distinct_on: [az_sensors_PollutionFactors_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_PollutionFactors_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_PollutionFactors_bool_exp
+  ): [az_sensors_PollutionFactors!]!
+
+  # fetch aggregated fields from the table: "az_sensors.PollutionFactors"
+  az_sensors_PollutionFactors_aggregate(
+    # distinct select on columns
+    distinct_on: [az_sensors_PollutionFactors_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_PollutionFactors_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_PollutionFactors_bool_exp
+  ): az_sensors_PollutionFactors_aggregate!
+
+  # fetch data from the table: "az_sensors.PollutionFactors" using primary key columns
+  az_sensors_PollutionFactors_by_pk(name: String!): az_sensors_PollutionFactors
+
+  # fetch data from the table: "az_sensors.SensorFactors"
+  az_sensors_SensorFactors(
+    # distinct select on columns
+    distinct_on: [az_sensors_SensorFactors_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_SensorFactors_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_SensorFactors_bool_exp
+  ): [az_sensors_SensorFactors!]!
+
+  # fetch aggregated fields from the table: "az_sensors.SensorFactors"
+  az_sensors_SensorFactors_aggregate(
+    # distinct select on columns
+    distinct_on: [az_sensors_SensorFactors_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_SensorFactors_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_SensorFactors_bool_exp
+  ): az_sensors_SensorFactors_aggregate!
+
+  # fetch data from the table: "az_sensors.SensorFactors" using primary key columns
+  az_sensors_SensorFactors_by_pk(factorName: String!, sensorId: Int!): az_sensors_SensorFactors
+
+  # fetch data from the table: "az_sensors.Sensors"
+  az_sensors_Sensors(
+    # distinct select on columns
+    distinct_on: [az_sensors_Sensors_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_Sensors_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_Sensors_bool_exp
+  ): [az_sensors_Sensors!]!
+
+  # fetch aggregated fields from the table: "az_sensors.Sensors"
+  az_sensors_Sensors_aggregate(
+    # distinct select on columns
+    distinct_on: [az_sensors_Sensors_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_Sensors_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_Sensors_bool_exp
+  ): az_sensors_Sensors_aggregate!
+
+  # fetch data from the table: "az_sensors.Sensors" using primary key columns
+  az_sensors_Sensors_by_pk(sensorId: Int!): az_sensors_Sensors
+
+  # fetch data from the table: "az_sensors.ServiceLog"
+  az_sensors_ServiceLog(
+    # distinct select on columns
+    distinct_on: [az_sensors_ServiceLog_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_ServiceLog_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_ServiceLog_bool_exp
+  ): [az_sensors_ServiceLog!]!
+
+  # fetch aggregated fields from the table: "az_sensors.ServiceLog"
+  az_sensors_ServiceLog_aggregate(
+    # distinct select on columns
+    distinct_on: [az_sensors_ServiceLog_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_ServiceLog_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_ServiceLog_bool_exp
+  ): az_sensors_ServiceLog_aggregate!
+
+  # fetch data from the table: "az_sensors.e_measurement_unit"
+  az_sensors_e_measurement_unit(
+    # distinct select on columns
+    distinct_on: [az_sensors_e_measurement_unit_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_e_measurement_unit_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_e_measurement_unit_bool_exp
+  ): [az_sensors_e_measurement_unit!]!
+
+  # fetch aggregated fields from the table: "az_sensors.e_measurement_unit"
+  az_sensors_e_measurement_unit_aggregate(
+    # distinct select on columns
+    distinct_on: [az_sensors_e_measurement_unit_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_e_measurement_unit_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_e_measurement_unit_bool_exp
+  ): az_sensors_e_measurement_unit_aggregate!
+
+  # fetch data from the table: "az_sensors.e_measurement_unit" using primary key columns
+  az_sensors_e_measurement_unit_by_pk(value: String!): az_sensors_e_measurement_unit
+
+  # fetch data from the table: "az_sensors.e_service_kind"
+  az_sensors_e_service_kind(
+    # distinct select on columns
+    distinct_on: [az_sensors_e_service_kind_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_e_service_kind_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_e_service_kind_bool_exp
+  ): [az_sensors_e_service_kind!]!
+
+  # fetch aggregated fields from the table: "az_sensors.e_service_kind"
+  az_sensors_e_service_kind_aggregate(
+    # distinct select on columns
+    distinct_on: [az_sensors_e_service_kind_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_sensors_e_service_kind_order_by!]
+
+    # filter the rows returned
+    where: az_sensors_e_service_kind_bool_exp
+  ): az_sensors_e_service_kind_aggregate!
+
+  # fetch data from the table: "az_sensors.e_service_kind" using primary key columns
+  az_sensors_e_service_kind_by_pk(value: String!): az_sensors_e_service_kind
+
+  # fetch data from the table: "az_users.AuthData"
+  az_users_AuthData(
+    # distinct select on columns
+    distinct_on: [az_users_AuthData_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_users_AuthData_order_by!]
+
+    # filter the rows returned
+    where: az_users_AuthData_bool_exp
+  ): [az_users_AuthData!]!
+
+  # fetch aggregated fields from the table: "az_users.AuthData"
+  az_users_AuthData_aggregate(
+    # distinct select on columns
+    distinct_on: [az_users_AuthData_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_users_AuthData_order_by!]
+
+    # filter the rows returned
+    where: az_users_AuthData_bool_exp
+  ): az_users_AuthData_aggregate!
+
+  # fetch data from the table: "az_users.AuthData" using primary key columns
+  az_users_AuthData_by_pk(userId: Int!): az_users_AuthData
+
+  # fetch data from the table: "az_users.Organisation"
+  az_users_Organisation(
+    # distinct select on columns
+    distinct_on: [az_users_Organisation_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_users_Organisation_order_by!]
+
+    # filter the rows returned
+    where: az_users_Organisation_bool_exp
+  ): [az_users_Organisation!]!
+
+  # fetch aggregated fields from the table: "az_users.Organisation"
+  az_users_Organisation_aggregate(
+    # distinct select on columns
+    distinct_on: [az_users_Organisation_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_users_Organisation_order_by!]
+
+    # filter the rows returned
+    where: az_users_Organisation_bool_exp
+  ): az_users_Organisation_aggregate!
+
+  # fetch data from the table: "az_users.Organisation" using primary key columns
+  az_users_Organisation_by_pk(organisationId: Int!): az_users_Organisation
+
+  # fetch data from the table: "az_users.UsageLog"
+  az_users_UsageLog(
+    # distinct select on columns
+    distinct_on: [az_users_UsageLog_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_users_UsageLog_order_by!]
+
+    # filter the rows returned
+    where: az_users_UsageLog_bool_exp
+  ): [az_users_UsageLog!]!
+
+  # fetch aggregated fields from the table: "az_users.UsageLog"
+  az_users_UsageLog_aggregate(
+    # distinct select on columns
+    distinct_on: [az_users_UsageLog_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_users_UsageLog_order_by!]
+
+    # filter the rows returned
+    where: az_users_UsageLog_bool_exp
+  ): az_users_UsageLog_aggregate!
+
+  # fetch data from the table: "az_users.Users"
+  az_users_Users(
+    # distinct select on columns
+    distinct_on: [az_users_Users_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_users_Users_order_by!]
+
+    # filter the rows returned
+    where: az_users_Users_bool_exp
+  ): [az_users_Users!]!
+
+  # fetch aggregated fields from the table: "az_users.Users"
+  az_users_Users_aggregate(
+    # distinct select on columns
+    distinct_on: [az_users_Users_select_column!]
+
+    # limit the number of rows returned
+    limit: Int
+
+    # skip the first n rows. Use only with order_by
+    offset: Int
+
+    # sort the rows by one or more columns
+    order_by: [az_users_Users_order_by!]
+
+    # filter the rows returned
+    where: az_users_Users_bool_exp
+  ): az_users_Users_aggregate!
+
+  # fetch data from the table: "az_users.Users" using primary key columns
+  az_users_Users_by_pk(userId: Int!): az_users_Users
+}
+
+scalar timestamp
+
+# expression to compare columns of type timestamp. All fields are combined with logical 'AND'.
+input timestamp_comparison_exp {
+  _eq: timestamp
+  _gt: timestamp
+  _gte: timestamp
+  _in: [timestamp!]
+  _is_null: Boolean
+  _lt: timestamp
+  _lte: timestamp
+  _neq: timestamp
+  _nin: [timestamp!]
+}
+
